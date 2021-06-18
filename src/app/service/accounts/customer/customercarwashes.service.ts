@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
-import {catchError, retry} from "rxjs/operators";
 import {Customer} from "../../../model/accounts/customer";
+
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerService {
-  basePath='http://localhost:8080/api/users'
+export class CustomercarwashesService {
+  basePathStart='http://localhost:8080/api/user'
+  basePathEnd='/contracts'
   httpOptions={headers: new HttpHeaders({'Content-Type':'application/json'})}
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient) { }
   //API Error Handling
   handleError(error: HttpErrorResponse): Observable<never>{
     if(error.error instanceof ErrorEvent){
@@ -21,16 +22,10 @@ export class CustomerService {
     return throwError('Something happened with request, please try again later')
   }
 
-  //Create Customer
-  createCustomer (item:any ):Observable<Customer>{
-    return this.http.post<Customer>(this.basePath,JSON.stringify(item),
-      this.httpOptions)
-      .pipe(retry(2),catchError(this.handleError));
+  //GET UserContract
+  getUserContract (id:number):Observable<Customer>{
+    return this.http.get<Customer>()
   }
 
-  //Update Customer
-  updateCustomer(id: number, item:Customer): Observable<any>{
-    return this.http.put<Customer>(`${this.basePath}/${id}`,JSON.stringify(item),this.httpOptions)
-      .pipe(retry(2),catchError(this.handleError));
-  }
+
 }
