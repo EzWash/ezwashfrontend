@@ -19,11 +19,13 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import { RegisterCarClientComponent } from './pages/register-car-client/register-car-client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterCustomerComponent,
+    RegisterCarClientComponent,
   ],
   imports: [
     BrowserModule,
