@@ -14,6 +14,7 @@ import { CardComponent } from './component/interactions/card/card.component';
 import { CardcarwashComponent } from './component/interactions/cardcarwash/cardcarwash.component';
 import { CarduserComponent } from './component/interactions/carduser/carduser.component';
 import { VehicleComponent } from './component/interactions/vehicle/vehicle.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { VehicleComponent } from './component/interactions/vehicle/vehicle.compo
     VehicleComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
