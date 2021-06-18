@@ -7,7 +7,7 @@ import { Staff } from '../../../model/accounts/staff';
 @Injectable({
   providedIn: 'root'
 })
-export class StaffService {
+export class CarwashstaffService {
 
   basePath="http://localhost:8080/api/carwashes"
   httpOptions={ headers: new HttpHeaders({'Content-Type': 'application/json'})}
@@ -24,17 +24,10 @@ export class StaffService {
     return throwError('Something happened with request, please try again later.')
   }
 
-  // Update Staff by Id
-  updateStaffById(carwashId: number, staffId: number, item: any): Observable<Staff>{
-    return this.http.put<Staff>(`${this.basePath}/${carwashId}/staff/${staffId}`,
-                               JSON.stringify(item), this.httpOptions)
-                               .pipe(retry(2), catchError(this.handleError));
-  }
-
-  // Get Staff By CarWash Id
-  getStaffByCarWashId(carwashId: number): Observable<Staff[]>{
-    return this.http.get<Staff[]>(`${this.basePath}/${carwashId}/staff`,
-                               this.httpOptions)
-                               .pipe(retry(2), catchError(this.handleError));
+  // Create Employee
+  createEmployee(item: any, id: number): Observable<Staff>{
+    return this.http.post<Staff>(`${this.basePath}/${id}/staff`, JSON.stringify(item),
+                                this.httpOptions)
+                                .pipe(retry(2), catchError(this.handleError));
   }
 }
