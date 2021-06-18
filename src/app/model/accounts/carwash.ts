@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 export interface Carwash{
   id: number
   first_name: string
@@ -11,4 +8,4 @@ export interface Carwash{
   location: number
   password:string
 }
->>>>>>> fddceb2b70244741cb06e2ecbdeddc776c52ccad
+
