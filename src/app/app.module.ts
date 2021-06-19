@@ -22,9 +22,11 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+
 import {HomeCarWashComponent} from "./pages/carwash/home-car-wash/home-car-wash.component";
 import {RegisterCarClientComponent} from "./pages/customer/register-car-client/register-car-client.component";
 import {ScrollingModule} from "@angular/cdk/scrolling";
+import { RegisterStaffComponent } from './pages/carwash/register-staff/register-staff.component';
 
 
 
@@ -33,7 +35,9 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
     AppComponent,
     RegisterCustomerComponent,
     HomeCarWashComponent,
-    RegisterCarClientComponent
+    RegisterCarClientComponent,
+    RegisterStaffComponent
+
   ],
   imports: [
     BrowserModule,
