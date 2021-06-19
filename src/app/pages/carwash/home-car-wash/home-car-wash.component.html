@@ -1,0 +1,57 @@
+<div class="header">
+  l
+</div>
+<br>
+<div class="up">
+  <div class="left">
+    <div class="title">
+      Informacion General
+      <button>Editar</button>
+    </div>
+    <div class="generalInformation">
+
+      <img width="200px" src="https://media.discordapp.net/attachments/700237020278030396/855532906675044382/202226891_4085849954868499_1606190585309681373_n.png">
+      <div class="getInformationCarWash">
+        <p>Royal CarWash</p>
+        <p>Los invitamos a descubrir una nueva experiencia en
+          limpieza y servicios a detalle de su vehículo</p>
+        <p>Av.Tomas Marsano N° 1138 Surquillo (6,49 km)
+          15048 Lima</p>
+        <p>Lunes a Domingo de 8:00 a 18:30</p>
+        <p>987564312</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="right">
+    <div class="title">
+      Equipo
+      <button>Editar</button>
+    </div>
+    <div class ="rollbackStaff">
+      <cdk-virtual-scroll-viewport class="example-viewport">
+        <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+
+  </div>
+</div>
+<br>
+
+<div class="down" >
+  <div class="cardDown" align="center"  >
+    <cdk-virtual-scroll-viewport class="example-viewport">
+      <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+  <div class="cardDown" align="center">
+    <cdk-virtual-scroll-viewport class="example-viewport">
+      <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+  <div class="cardDown" align="center">
+    <cdk-virtual-scroll-viewport class="example-viewport">
+      <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+</div>

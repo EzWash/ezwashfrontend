@@ -1,0 +1,50 @@
+
+.header{
+  background-color: #89D3E2;
+  height: 10%;
+}
+.up{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  margin-left: 5%;
+}
+.generalInformation{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+
+}
+.getInformationCarWash{
+  grid-column: 2/4;
+}
+.left{
+
+}
+
+.right{
+
+}
+.grid div:hover{
+  border: yellow;
+}
+.example-viewport {
+  height: 200px;
+  width: 200px;
+
+}
+
+.example-item {
+  height: 50px;
+}
+
+.down{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.cardDown{
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  border: black;
+  border-radius: 10px;
+  background: #89D3E2;
+}
+
