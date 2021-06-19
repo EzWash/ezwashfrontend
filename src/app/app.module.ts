@@ -25,6 +25,7 @@ import {RegisterCarClientComponent} from "./pages/customer/register-car-client/r
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import { RegisterServiceComponent } from './pages/carwash/register-service/register-service.component';
 import { RegisterStaffComponent } from './pages/carwash/register-staff/register-staff.component';
+import { UpdateServiceComponent } from './pages/carwash/update-service/update-service.component';
 
 
 
@@ -34,8 +35,9 @@ import { RegisterStaffComponent } from './pages/carwash/register-staff/register-
     RegisterCustomerComponent,
     HomeCarWashComponent,
     RegisterCarClientComponent,
-    RegisterServiceComponent
-    RegisterStaffComponent
+    RegisterServiceComponent,
+    RegisterStaffComponent,
+    UpdateServiceComponent
 
 
   ],
