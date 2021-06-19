@@ -1,0 +1,64 @@
+<img class="image1" src="https://cdn.discordapp.com/attachments/700237020278030396/852297994287054888/logo.jpg" alt="Logotipo">
+<br>
+<div class="grid">
+  <div class="element1">
+    <br>
+    <p align="center"><b>Registrar el servicio que ofrecera tu CarWash</b></p>
+    <form (submit)="onSubmit()" #serviceForm="ngForm" align="center">
+      <div>
+        <mat-form-field appearance="outline" class="input">
+          <mat-icon matPrefix>local_car_wash</mat-icon>
+          <mat-label>Nombre del servicio</mat-label>
+          <input
+            matInput placeholder="name"
+            name="name"
+            required [(ngModel)]="serviceData.name">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="input">
+          <mat-icon matPrefix>attach_money</mat-icon>
+          <mat-label>Costo S/.</mat-label>
+          <input
+            matInput placeholder="price"
+            name="price"
+            required [(ngModel)]="serviceData.price">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="input">
+          <mat-icon matPrefix>format_align_center</mat-icon>
+          <mat-label>Describe al servicio brevemente...</mat-label>
+          <input
+            matInput placeholder="description"
+            name="description"
+            required [(ngModel)]="serviceData.description">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="input">
+          <mat-icon matPrefix>format_align_center</mat-icon>
+          <mat-label>Indica los detalles del servicio...</mat-label>
+          <input
+            matInput placeholder="details"
+            name="details"
+            required [(ngModel)]="serviceData.details">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="input">
+          <mat-icon matPrefix>attach_money</mat-icon>
+          <mat-label>Costo en Promocion S/.</mat-label>
+          <input
+            matInput placeholder="is_promotion"
+            name="is_promotion"
+            required [(ngModel)]="serviceData.is_promotion">
+        </mat-form-field>
+      </div>
+      <div>
+       <ng-container>
+        <button mat-button style="text-transform: uppercase" color="primary">cancelar</button>
+        <button mat-button style="text-transform: uppercase" color="primary">guardar</button>
+       </ng-container>
+      </div>
+    </form>
+  </div>
+</div>
