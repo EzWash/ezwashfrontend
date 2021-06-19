@@ -5,14 +5,14 @@
 <div class="up">
   <div class="left">
     <div class="title">
-      Informacion General
+      Informacion General &nbsp;
       <button>Editar</button>
     </div>
     <div class="generalInformation">
 
       <img width="200px" src="https://media.discordapp.net/attachments/700237020278030396/855532906675044382/202226891_4085849954868499_1606190585309681373_n.png">
       <div class="getInformationCarWash">
-        <p>Royal CarWash</p>
+        <p>{{carwashData.name}}</p>
         <p>Los invitamos a descubrir una nueva experiencia en
           limpieza y servicios a detalle de su vehículo</p>
         <p>Av.Tomas Marsano N° 1138 Surquillo (6,49 km)
@@ -25,20 +25,37 @@
   </div>
   <div class="Staff">
     <div class="title">
-      Equipo
-      <button>Editar</button>
+      Equipo &nbsp;
+      <button>Nuevo</button>
     </div>
-    <div class ="rollbackStaff">
+    <div  class ="rollbackStaff">
       <cdk-virtual-scroll-viewport class="example-viewport">
-          <div *ngFor="let s of dataSource">
-            <p>{{s.first_name}}
-              {{s.last_name}}
-              {{s.email}}
-              {{s.gender}}
-              {{s.phone_number}}
-            </p>
+          <div *ngFor="let s of staffList">
 
-          </div>
+            <mat-card class="cardStaff">
+              <mat-card-header class="cardstaff1">
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>
+                  {{s.first_name}} {{s.last_name}}
+                <!--  <button class="btnStaffEdit">Editar </button>-->
+                </mat-card-title>
+                <mat-card-subtitle>
+                  <mat-icon class="icon" >smartphone</mat-icon> {{s.phone_number}}
+                  &nbsp; &nbsp;
+                  <mat-icon class="icon">email</mat-icon> {{s.email}}
+                </mat-card-subtitle>
+
+                 <!-- <mat-icon aria-label="Phone">phone</mat-icon>{{s.phone_number}}-->
+              </mat-card-header>
+              <div class="cardstaff2">
+                <button class="btnStaffEdit">Editar </button>
+                &nbsp;
+                <button class="btnStaffDelete">Eliminar </button>
+              </div>
+
+            </mat-card>
+            </div>
+
       </cdk-virtual-scroll-viewport>
     </div>
 

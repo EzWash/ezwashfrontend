@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 import {CarwashService} from "../../../service/accounts/carwash/carwash.service";
 import {BehaviorSubject, of} from "rxjs";
 import {catchError, finalize} from "rxjs/operators";
-
+import {Carwash} from "../../../model/accounts/carwash";
 export class CustomVirtualScrollStrategy extends FixedSizeVirtualScrollStrategy {
   constructor() {
     super(50, 250, 500);
@@ -29,33 +29,34 @@ export class HomeCarWashComponent implements OnInit {
   items = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
   @ViewChild('staffForm', { static: false }) staffForm!: NgForm;
   staffData: Staff;
-  dataSource : Staff[];
-  displayedColumns: string[] = ['first_name'];
+  staffList : Staff[];
+  carwashData: Carwash;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  isEditMode = false;
-  isFiltering = false;
 
-  private todoSubject = new BehaviorSubject<Staff[]>([]);
-  private loadingSubject = new BehaviorSubject<boolean>(false);
-  private countSubject = new BehaviorSubject<number>(0);
-  public counter$ = this.countSubject.asObservable();
-
-  constructor(private staffApi: StaffService, private router: Router) {
+  constructor(private staffApi: StaffService, private router: Router, private carWashApi: CarwashService) {
     this.staffData = {} as Staff;
-    this.dataSource =[];
+    this.staffList =[];
+    this.carwashData= {} as Carwash;
   }
 
   ngOnInit(): void {
-    this.getAllStaff();
-
+    //this.getCarWashById(1);
+    this.getAllStaff(1)
   }
-  getAllStaff() {
-    this.staffApi.getStaffByCarWashId(1).subscribe(response => {
-
-      this.dataSource = response;
+  getAllStaff(id:number) {
+    this.staffApi.getStaffByCarWashId(id).subscribe(response => {
+      this.staffList = response;
     });
-    console.log(this.dataSource[0].phone_number)
+    console.log("Hola a todos")
+    console.log(this.staffList[0].phone_number)
   }
+  getCarWashById(id: number) {
+    this.carWashApi.getCarWashById(id)
+      .subscribe((response:Carwash) => {
+        this.carwashData = response;
 
+      });
+    console.log(this.carwashData);
+  }
 }
