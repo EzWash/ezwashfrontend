@@ -23,13 +23,13 @@ import {HomeCarWashComponent} from "./pages/carwash/home-car-wash/home-car-wash.
 import {RegisterCarClientComponent} from "./pages/customer/register-car-client/register-car-client.component";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 
-
 @NgModule({
   declarations: [
     AppComponent,
     RegisterCustomerComponent,
     HomeCarWashComponent,
     RegisterCarClientComponent
+
   ],
   imports: [
     BrowserModule,
