@@ -10,34 +10,34 @@
     <br>
     <p class ="telement1" align="center"><b>Hola! Por favor, llena el siguiente formulario</b></p>
     <form (submit)="onSubmit()" #customerForm="ngForm" align="center">
-      <div class="group-input">
-        <mat-form-field appearance="outline" class="input">
+
+        <mat-form-field appearance="fill" class="middle" >
           <mat-icon matPrefix>person</mat-icon>
-          <mat-label>Nombre</mat-label>
+          <mat-label >Nombre</mat-label>
           <input
             matInput placeholder="Name"
             name="name"
             required [(ngModel)]="customerData.first_name">
         </mat-form-field>
-        <mat-form-field appearance="outline" class="input">
+      &nbsp;
+        <mat-form-field appearance="fill" class="middle" >
+          <mat-icon matPrefix>person</mat-icon>
           <mat-label>Apellido</mat-label>
           <input
             matInput placeholder="last_Name"
             name="last_name"
             required [(ngModel)]="customerData.last_name">
         </mat-form-field >
-      </div>
-      <div class="group-input">
-        <mat-form-field appearance="outline">
-          <mat-icon matPrefix>account_circle</mat-icon>
-          <mat-label>Username</mat-label>
-          <input
-            matInput placeholder="Username"
-            name="username"
-            required [(ngModel)]="customerData.username">
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
+      <mat-form-field appearance="fill" class="middle">
+        <mat-icon matPrefix>email</mat-icon>
+        <mat-label>Email</mat-label>
+        <input
+          matInput placeholder="Email"
+          name="email"
+          required [(ngModel)]="customerData.email">
+      </mat-form-field>
+      &nbsp;
+        <mat-form-field appearance="fill" class="middle">
           <mat-icon matPrefix>lock</mat-icon>
           <mat-label>Contraseña</mat-label>
           <input
@@ -46,16 +46,9 @@
             required [(ngModel)]="customerData.password">
         </mat-form-field>
         <br>
-      </div>
-      <mat-form-field appearance="outline">
-        <mat-icon matPrefix>email</mat-icon>
-        <mat-label>Email</mat-label>
-        <input
-          matInput placeholder="Email"
-          name="email"
-          required [(ngModel)]="customerData.email">
-      </mat-form-field>
-      <mat-form-field appearance="outline" >
+
+
+      <mat-form-field appearance="fill" class="middle" >
         <mat-icon matPrefix>phone</mat-icon>
         <mat-label>Número Teléfono</mat-label>
         <input
@@ -63,7 +56,16 @@
           name="phone"
           required [(ngModel)]="customerData.phone_number">
       </mat-form-field>
-      <mat-form-field appearance="outline">
+      &nbsp;
+      <mat-form-field appearance="fill" class="middle">
+        <mat-icon matPrefix>male</mat-icon>
+        <mat-label>Género</mat-label>
+        <input
+          matInput placeholder="Gender"
+          name="gender"
+          required [(ngModel)]="customerData.gender">
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 92%">
         <mat-icon matPrefix>place</mat-icon>
         <mat-label>Ubicación</mat-label>
         <input
@@ -73,14 +75,7 @@
       </mat-form-field>
       <br>
 
-      <mat-form-field appearance="outline">
-        <mat-icon matPrefix>male</mat-icon>
-        <mat-label>Género</mat-label>
-        <input
-          matInput placeholder="Gender"
-          name="gender"
-          required [(ngModel)]="customerData.gender">
-      </mat-form-field>
+
       <br>
       <ng-container>
         <button mat-button style="text-transform: uppercase" color="primary">{{isEditMode? 'Actualizar':'Registrar'}}</button>
@@ -92,13 +87,13 @@
   <div class="element2">
     <div >
       <div>
-        <img  src="https://cdn.discordapp.com/attachments/700237020278030396/852300117603123210/Grupo_1.png" alt="Logotipo2">
+        <img class="balls"  src="https://cdn.discordapp.com/attachments/700237020278030396/852300117603123210/Grupo_1.png" alt="Logotipo2">
       </div>
       <div>
         <p class="textElement2"><b>Estás a <br><br> punto de ser parte <br> <br> de EzWash</b></p>
       </div>
       <div>
-        <img align="right" src="https://cdn.discordapp.com/attachments/700237020278030396/852300111321235516/Grupo_3.png" alt="Logotipo3">
+        <img class="balls"  align="right" src="https://cdn.discordapp.com/attachments/700237020278030396/852300111321235516/Grupo_3.png" alt="Logotipo3">
       </div>
     </div>
   </div>

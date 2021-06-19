@@ -1,3 +1,7 @@
+export interface TodoListResponse {
+  content: Staff[];
+  totalElements: number;
+}
 export interface Staff {
   id: number;
   first_name: string;
@@ -6,3 +10,4 @@ export interface Staff {
   phone_number: string;
   gender: string;
 }
+
