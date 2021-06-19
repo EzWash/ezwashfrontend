@@ -19,11 +19,14 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import { HomeCarWashComponent } from './pages/home-car-wash/home-car-wash.component';
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterCustomerComponent,
+    HomeCarWashComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import {MatIconModule} from "@angular/material/icon";
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    ScrollingModule
   ],
   providers: [
     CarwashService,
