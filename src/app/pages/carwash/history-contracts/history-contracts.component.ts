@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CustomercontractsService} from "../../../service/accounts/customer/customercontracts.service";
+import {Contract} from "../../../model/business/contract";
 
 @Component({
   selector: 'app-history-contracts',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryContractsComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  contractList: Contract[];
+  constructor(private customerContractService: CustomercontractsService) {
+    this.contractList = [];
   }
 
+  ngOnInit(): void {
+    this.getUserContracts(1) ;
+  }
+
+  getUserContracts(id: number){
+    this.customerContractService.getUserContracts(id).subscribe(data =>{
+      console.log(data)
+      this.contractList = data;
+    })
+  }
 }

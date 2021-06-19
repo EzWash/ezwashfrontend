@@ -33,7 +33,8 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
     AppComponent,
     RegisterCustomerComponent,
     HomeCarWashComponent,
-    RegisterCarClientComponent
+    RegisterCarClientComponent,
+    HistoryContractsComponent
   ],
   imports: [
     BrowserModule,
