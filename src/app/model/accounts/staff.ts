@@ -1,7 +1,4 @@
-export interface TodoListResponse {
-  content: Staff[];
-  totalElements: number;
-}
+
 export interface Staff {
   id: number;
   first_name: string;

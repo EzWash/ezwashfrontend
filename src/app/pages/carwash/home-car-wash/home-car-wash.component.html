@@ -23,24 +23,22 @@
 
     </div>
   </div>
-  <div class="right">
+  <div class="Staff">
     <div class="title">
       Equipo
       <button>Editar</button>
     </div>
     <div class ="rollbackStaff">
       <cdk-virtual-scroll-viewport class="example-viewport">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-          <ng-container matColumnDef="first_name">
-            <th mat-header-cell *matHeaderCellDef> #first_name </th>
-            <td mat-cell *matCellDef="let staffData"> {{ staffData.first_name }}</td>
-          </ng-container>
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        <!--<div *cdkVirtualFor="let s of staffData" class="example-item">
-          {{s}}
-        </div>!-->
+          <div *ngFor="let s of dataSource">
+            <p>{{s.first_name}}
+              {{s.last_name}}
+              {{s.email}}
+              {{s.gender}}
+              {{s.phone_number}}
+            </p>
+
+          </div>
       </cdk-virtual-scroll-viewport>
     </div>
 

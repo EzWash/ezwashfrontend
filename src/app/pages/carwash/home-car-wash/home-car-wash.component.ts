@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
 import {FixedSizeVirtualScrollStrategy, VIRTUAL_SCROLL_STRATEGY} from "@angular/cdk/scrolling";
 import {NgForm} from "@angular/forms";
-import {Staff,TodoListResponse} from "../../../model/accounts/staff";
+import {Staff} from "../../../model/accounts/staff";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
@@ -29,7 +29,7 @@ export class HomeCarWashComponent implements OnInit {
   items = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
   @ViewChild('staffForm', { static: false }) staffForm!: NgForm;
   staffData: Staff;
-  dataSource = new MatTableDataSource();
+  dataSource : Staff[];
   displayedColumns: string[] = ['first_name'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -43,18 +43,19 @@ export class HomeCarWashComponent implements OnInit {
 
   constructor(private staffApi: StaffService, private router: Router) {
     this.staffData = {} as Staff;
+    this.dataSource =[];
   }
+
   ngOnInit(): void {
     this.getAllStaff();
 
   }
-  getAllStaff(): void {
-    this.staffApi.getStaffByCarWashId(1).subscribe((response: any) => {
-      this.dataSource.data = response;
+  getAllStaff() {
+    this.staffApi.getStaffByCarWashId(1).subscribe(response => {
+
+      this.dataSource = response;
     });
-    console.log(this.staffApi.getStaffByCarWashId(1).subscribe((response: any) => {
-      this.dataSource.data = response;
-    }))
+    console.log(this.dataSource[0].phone_number)
   }
 
 }

@@ -20,7 +20,7 @@
 
 }
 
-.right{
+.Staff{
 
 }
 .grid div:hover{
@@ -28,7 +28,7 @@
 }
 .example-viewport {
   height: 200px;
-  width: 200px;
+  width: 100%;
 
 }
 
