@@ -10,6 +10,7 @@ import {HomeCarWashComponent} from "./pages/carwash/home-car-wash/home-car-wash.
 
 
 
+
 const routes: Routes = [
   {path: 'registerCustomer',component:RegisterCustomerComponent},
   {path:'registerCarCustomer', component:RegisterCarClientComponent},
