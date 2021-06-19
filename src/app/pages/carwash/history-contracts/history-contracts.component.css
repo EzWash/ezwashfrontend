@@ -1,0 +1,41 @@
+@import url('http://fonts.cdnfonts.com/css/segoe-ui-4');
+
+.contracts{
+  margin-left: 14vw;
+  margin-right: 14vw;
+  margin-top:30px;
+
+
+}
+
+.contractList{
+  margin-right: 7vw;
+  margin-left: 7vw;
+}
+
+.contractItem{
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.contractsTitle{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: 'Segoe UI';
+}
+
+.stateTitles{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.lblState{
+  font-family: 'Segoe UI';
+  font-weight: bold;
+  color: #707070;
+  font-size: 18px;
+}
+

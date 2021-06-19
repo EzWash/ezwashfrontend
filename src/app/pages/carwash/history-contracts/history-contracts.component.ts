@@ -10,12 +10,14 @@ import {Contract} from "../../../model/business/contract";
 export class HistoryContractsComponent implements OnInit {
 
   contractList: Contract[];
+  state: string;
   constructor(private customerContractService: CustomercontractsService) {
     this.contractList = [];
+    this.state = "Pendientes";
   }
 
   ngOnInit(): void {
-    this.getUserContracts(1) ;
+    this.getUserContracts(2) ;
   }
 
   getUserContracts(id: number){

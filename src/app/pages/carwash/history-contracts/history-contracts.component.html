@@ -1,9 +1,21 @@
-<div class="container">
-
-            <div *ngFor="let c of contractList">
-               <div>
-                 <label class="bnombre">{{c.state}}</label>
-               </div>
-            </div>
-
-</div>
+<mat-card class="contracts">
+  <div class="titles">
+    <h1 class="contractsTitle">
+      Historial de Contratos
+    </h1>
+    <div class="stateTitles">
+      <label class="lblState">Pendientes</label>
+      <label class="lblState">Confirmados</label>
+    </div>
+  </div>
+  <div class="contractList" *ngIf="contractList.length > 0; else zeroItems">
+    <mat-card class="contractItem" *ngFor="let c of contractList">
+      <div>
+        <label class="bnombre">{{c.state}}</label>
+      </div>
+    </mat-card>
+  </div>
+  <ng-template #zeroItems>
+    <label>No tienes servicios {{state}}</label>
+  </ng-template>
+</mat-card>
