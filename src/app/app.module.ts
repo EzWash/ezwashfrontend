@@ -24,6 +24,8 @@ import {HomeCarWashComponent} from "./pages/carwash/home-car-wash/home-car-wash.
 import {RegisterCarClientComponent} from "./pages/customer/register-car-client/register-car-client.component";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import { RegisterServiceComponent } from './pages/carwash/register-service/register-service.component';
+import { RegisterStaffComponent } from './pages/carwash/register-staff/register-staff.component';
+
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { RegisterServiceComponent } from './pages/carwash/register-service/regis
     HomeCarWashComponent,
     RegisterCarClientComponent,
     RegisterServiceComponent
+    RegisterStaffComponent
+
 
   ],
   imports: [
