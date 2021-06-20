@@ -1,0 +1,52 @@
+<img class="image1" src="https://cdn.discordapp.com/attachments/700237020278030396/852297994287054888/logo.jpg" alt="Logotipo">
+
+<br>
+<div class="grid">
+
+  <div class="element1">
+    <br>
+    <p class ="telement1" align="center"><b>Registra un nuevo auto</b></p>
+    <form (submit)="onSubmit()" #vehicleForm="ngForm" align="center">
+      <div class="group-input">
+        <mat-form-field appearance="outline" class="input">
+          <mat-icon matPrefix>directions_car</mat-icon>
+          <mat-label>Marca</mat-label>
+          <input
+            matInput placeholder="Brand"
+            name="brand"
+            required [(ngModel)]="vehicleData.brand">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="input">
+          <mat-icon matPrefix>directions_car</mat-icon>
+          <mat-label>Modelo</mat-label>
+          <input
+            matInput placeholder="Model"
+            name="model"
+            required [(ngModel)]="vehicleData.model">
+        </mat-form-field >
+        <br>
+        <mat-form-field appearance="outline" class="input">
+          <mat-icon matPrefix>directions_car</mat-icon>
+          <mat-label>Número de placa</mat-label>
+          <input
+            matInput placeholder="Registration_plate"
+            name="registration_plate"
+            required [(ngModel)]="vehicleData.registration_plate">
+        </mat-form-field >
+
+      </div>
+
+    <div>
+      <button>Cancelar</button>
+      <ng-container>
+        <button mat-button style="text-transform: uppercase" color="primary">{{isEditMode? 'Actualizar':'Registrar'}}</button>
+      </ng-container>
+    </div>
+    </form>
+  </div>
+
+
+</div>
+
+<router-outlet></router-outlet>

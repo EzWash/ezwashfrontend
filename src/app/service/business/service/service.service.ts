@@ -22,7 +22,7 @@ export class ServiceService {
   }
 
   //Create Service
-  createServiceCarWash(carWashId: number, service: Service): Observable<Service>{
+  createServiceCarWash(carWashId: number, service: { price: number; name: string; description: string; is_promotion: number; details: string }): Observable<Service>{
     return this.http.post<Service>(`${this.basePath}/carwashes/${carWashId}/service`,
       JSON.stringify(service),
       this.httpOptions)
@@ -44,7 +44,7 @@ export class ServiceService {
   }
 
   //Update Service
-  updateService(carWashId: number, serviceId: number, service: Service): Observable<Service>{
+  updateService(carWashId: number, serviceId: number, service: { price: number; name: string; description: string; is_promotion: number; details: string }): Observable<Service>{
     return this.http.put<Service>(`${this.basePath}/contracts/${carWashId}/services/${serviceId}`,
       JSON.stringify(service),
       this.httpOptions)
