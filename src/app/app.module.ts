@@ -25,6 +25,8 @@ import {RegisterCarClientComponent} from "./pages/customer/register-car-client/r
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import { RegisterServiceComponent } from './pages/carwash/register-service/register-service.component';
 import { RegisterStaffComponent } from './pages/carwash/register-staff/register-staff.component';
+import { LoginUsersComponent } from './pages/login/login-users/login-users.component';
+import {MatRadioModule} from "@angular/material/radio";
 
 
 
@@ -34,32 +36,33 @@ import { RegisterStaffComponent } from './pages/carwash/register-staff/register-
     RegisterCustomerComponent,
     HomeCarWashComponent,
     RegisterCarClientComponent,
-    RegisterServiceComponent
-    RegisterStaffComponent
+    RegisterServiceComponent,
+    RegisterStaffComponent,
+    LoginUsersComponent
 
 
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    ScrollingModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        MatGridListModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        ScrollingModule,
+        MatRadioModule
+    ],
   providers: [
     CarwashService,
-
     CarwashstaffService
   ],
   bootstrap: [AppComponent]

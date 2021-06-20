@@ -34,6 +34,14 @@
             name="registration_plate"
             required [(ngModel)]="vehicleData.registration_plate">
         </mat-form-field >
+        <mat-form-field appearance="outline" class="input">
+          <mat-icon matPrefix>location</mat-icon>
+          <mat-label>Ubicación</mat-label>
+          <input
+            matInput placeholder="Location"
+            name="Location"
+            required [(ngModel)]="vehicleData.location_id">
+        </mat-form-field >
 
       </div>
 

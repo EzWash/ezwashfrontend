@@ -26,7 +26,7 @@ export class VehicleService {
 
   // Create Vehicle
   createVehicle(customerId: number, item: any): Observable<Vehicle>{
-    return this.http.post<Vehicle>(`${this.basePath}/customers/1/vehicles`, JSON.stringify(item), this.httpOptions)
+    return this.http.post<Vehicle>(`${this.basePath}/customers/${customerId}/vehicles`, JSON.stringify(item), this.httpOptions)
     .pipe(retry(2), catchError(this.handleError));
   }
 

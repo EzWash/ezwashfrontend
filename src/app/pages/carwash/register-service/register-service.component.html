@@ -3,10 +3,11 @@
 <div class="grid">
   <div class="element1">
     <br>
-    <p align="center"><b>Registrar el servicio que ofrecera tu CarWash</b></p>
+    <p align="center" class="text1"><b>Registrar el servicio que ofrecera tu CarWash</b></p>
+    <br>
     <form (submit)="onSubmit()" #serviceForm="ngForm" align="center">
       <div>
-        <mat-form-field appearance="outline" class="input">
+        <mat-form-field appearance="fill" class="input2">
           <mat-icon matPrefix>local_car_wash</mat-icon>
           <mat-label>Nombre del servicio</mat-label>
           <input
@@ -14,7 +15,8 @@
             name="name"
             required [(ngModel)]="serviceData.name">
         </mat-form-field>
-        <mat-form-field appearance="outline" class="input">
+        &nbsp;&nbsp;
+        <mat-form-field appearance="fill" class="input2">
           <mat-icon matPrefix>attach_money</mat-icon>
           <mat-label>Costo S/.</mat-label>
           <input
@@ -24,7 +26,7 @@
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field appearance="outline" class="input">
+        <mat-form-field appearance="fill" class="input">
           <mat-icon matPrefix>format_align_center</mat-icon>
           <mat-label>Describe al servicio brevemente...</mat-label>
           <input
@@ -33,30 +35,35 @@
             required [(ngModel)]="serviceData.description">
         </mat-form-field>
       </div>
+
       <div>
-        <mat-form-field appearance="outline" class="input">
-          <mat-icon matPrefix>format_align_center</mat-icon>
-          <mat-label>Indica los detalles del servicio...</mat-label>
-          <input
+        <mat-form-field appearance="fill" class="input">
+          <mat-icon >format_align_center</mat-icon>
+          <mat-label class="details">Indica los detalles del servicio...</mat-label>
+          <input style="height: 100px"
             matInput placeholder="details"
             name="details"
             required [(ngModel)]="serviceData.details">
         </mat-form-field>
       </div>
-      <div>
-        <mat-form-field appearance="outline" class="input">
-          <mat-icon matPrefix>attach_money</mat-icon>
-          <mat-label>Costo en Promocion S/.</mat-label>
-          <input
-            matInput placeholder="is_promotion"
-            name="is_promotion"
-            required [(ngModel)]="serviceData.is_promotion">
-        </mat-form-field>
-      </div>
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button class="radbtn" value="1">
+          <mat-form-field appearance="fill" class="input">
+            <mat-icon matPrefix>attach_money</mat-icon>
+            <mat-label>Costo en Promocion S/.</mat-label>
+            <input
+              matInput placeholder="is_promotion"
+              name="is_promotion"
+              required [(ngModel)]="serviceData.is_promotion">
+          </mat-form-field>
+        </mat-radio-button>
+      </mat-radio-group>
+
       <div>
        <ng-container>
-        <button mat-button style="text-transform: uppercase" color="primary">cancelar</button>
-        <button mat-button style="text-transform: uppercase" color="primary">guardar</button>
+        <button mat-button style="text-transform: uppercase">Cancelar</button>
+         &nbsp;
+        <button mat-button style="text-transform: uppercase" >Guardar</button>
        </ng-container>
       </div>
     </form>

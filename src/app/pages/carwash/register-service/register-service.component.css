@@ -1,23 +1,118 @@
-.grid{
-  display: grid;
-  grid-template-columns: repeat(8,1fr);
-  width: 50%;
-  box-shadow: 2px 2px 5px black;
-  border-radius: 10px;
-  margin: 0 auto;
+@media only screen and (min-width: 626px) {
+  .grid {
+    width: 50%;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 10px;
+    margin: 0 auto;
 
 
-}
-.element1{
-  grid-column: 2/8 ;
-}
-.telement1{
+  }
+.text1{
   color: #707070;
+  font-family: "Segoe UI";
+  font-size: x-large;
 }
-.input{
-  position: relative;
-  width: 45%;
+  .element1 {
+
+  }
+
+  .telement1 {
+    color: #707070;
+  }
+
+  .input {
+    width: 92%;
+  }
+  .input2{
+    width: 45%;
+  }
+  .details{
+    margin-left: 6%;
+  }
+  .group-input {
+    justify-content: center;
+  }
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
 }
-.group-input{
-  justify-content: center;
+@media only screen and (max-width: 626px) {
+  .grid {
+    width: 70%;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  .text1{
+    color: #707070;
+    font-family: "Segoe UI";
+    font-size: x-large;
+  }
+
+  .telement1 {
+    color: #707070;
+  }
+
+  .input {
+    width: 92%;
+  }
+  .input2{
+    width: 92%;
+  }
+  .details{
+    margin-left: 6%;
+  }
+
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  .radbtn{
+
+  }
+}
+@media only screen and (max-width: 422px) {
+  .grid {
+    width: 90%;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  .text1{
+    color: #707070;
+    font-family: "Segoe UI";
+    font-size: x-large;
+  }
+
+  .telement1 {
+    color: #707070;
+  }
+
+  .input {
+    width: 92%;
+  }
+  .input2{
+    width: 92%;
+  }
+  .details{
+    margin-left: 6%;
+  }
+
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+}
+
+button {
+  grid-area: button;
+  margin-bottom: 5%;
+  background-color: #69CEEE;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #EEF7FB;
+  font-family: "Segoe UI";
+
+}
+button:hover{
+  box-shadow: 2px 2px 5px black;
 }

@@ -25,12 +25,13 @@ export class RegisterStaffComponent implements OnInit {
       }
     }))
   }
-  navigateToHome(): void{
-    console.log('Good');
+  navigateToHomeCarWashPage(): void{
+    this.router.navigate(['/homePageCarWash'])
+      .then(()=>console.log(this.route.url))
   }
   createStaff():void{
     const newStaff={email:this.staffData.email,gender:this.staffData.gender,first_name:this.staffData.first_name,last_name:this.staffData.last_name,phone_number:this.staffData.phone_number}
-    this.staffApi.createEmployee(newStaff,1).subscribe(()=>{this.navigateToHome()})
+    this.staffApi.createEmployee(newStaff,1).subscribe(()=>{this.navigateToHomeCarWashPage()})
   }
   onSubmit():void{
     if(this.staffForm.form.valid){
