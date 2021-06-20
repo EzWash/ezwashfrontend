@@ -1,0 +1,24 @@
+.mat-toolbar{
+  background-color: #89D3E2 !important;
+}
+
+.left {
+  grid-area: left_nav;
+}
+
+.middle {
+  grid-area: middle;
+}
+
+.right {
+  grid-area: right_nav;
+}
+
+.container{
+  display: grid;
+  width: 100%;
+  border: 1px solid black;
+  grid-template-columns: 2% 8% 80% 8% 2%;
+  grid-template-areas:
+    ". left_nav middle right_nav ."
+}

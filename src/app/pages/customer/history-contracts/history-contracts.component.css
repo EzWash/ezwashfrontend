@@ -1,0 +1,194 @@
+@import url('http://fonts.cdnfonts.com/css/segoe-ui-4');
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  border-radius: 25px;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #89D3E2;
+  border-radius: 10px;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #89D3D9;
+  cursor:pointer;
+}
+
+
+.contracts{
+  margin-left: 22vw;
+  margin-right: 22vw;
+  margin-top:30px;
+  padding-bottom: 60px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+}
+
+.contractList{
+  margin-right: 5vw;
+  margin-left: 5vw;
+  margin-top: 20px;
+  height: 400px;
+  overflow-y: scroll;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  margin-bottom: 50px;
+}
+
+.contractItem{
+  margin-bottom: 15px;
+  margin-top: 15px;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.contractsTitle{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: 'Segoe UI';
+}
+
+.stateTitles{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.lblState{
+  font-family: 'Segoe UI';
+  font-weight: bold;
+  color: #707070;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.zeroContracts{
+  text-align: center;
+  margin-top: 40px;
+
+}
+
+.lblzeroContracts{
+  color: #707070;
+  font-family: "Segoe UI";
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.contractItem{
+  border-radius: 20px;
+}
+
+.mat-card-avatar {
+  height: 100px;
+  width: 120px;
+  border-radius: 20%;
+  flex-shrink: 0;
+  margin: -7px;
+  object-fit: cover;
+}
+
+.itemLeft{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.itemInfo{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.itemRight{
+  display: flex;
+  flex-direction: column;
+}
+
+.iconWarning{
+  color:red;
+}
+
+.iconStar{
+  color:yellow;
+}
+
+.lblItemInfo{
+  font-family: 'Segoe UI';
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  color: #707070;
+}
+
+#carWashName{
+  font-size: 18px;
+
+  color: black;
+}
+
+
+
+
+@media screen and (max-width: 1000px) {
+
+  .lblItemInfo{
+    font-size: 11px;
+    margin-bottom: -2px;
+    margin-top: -2px;
+  }
+
+  #carWashName{
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .contractsTitle{
+    font-size: 15px;
+  }
+  .lblState {
+    font-size: 13px;
+  }
+
+  .lblzeroContracts{
+    font-size: 15px;
+  }
+
+
+  .mat-card-avatar {
+    height: 60px;
+    width: 80px;
+    margin-top: 10px;
+  }
+
+.lblItemInfo{
+    font-size: 8px;
+    margin-bottom: -2px;
+    margin-top: -2px;
+  }
+
+  #carWashName{
+    font-size: 10px;
+  }
+}

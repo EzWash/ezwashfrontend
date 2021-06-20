@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Customer} from "../../../model/accounts/customer";
-import {CustomerService} from "../../../service/accounts/customer/customer.service";
+import {CustomerService} from "../../../service/accounts/customer/customer-api.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({

@@ -1,20 +1,24 @@
+
 import { Component, OnInit} from '@angular/core';
 
 import {Staff} from "../../../model/accounts/staff";
-import {StaffService} from "../../../service/accounts/staff/staff.service";
+import {StaffService} from "../../../service/accounts/staff/staff-api.service";
 import {Router} from "@angular/router";
-import {CarwashService} from "../../../service/accounts/carwash/carwash.service";
+import {CarwashService} from "../../../service/accounts/carwash/carwash-api.service";
 import {Carwash} from "../../../model/accounts/carwash";
 import {ServiceService} from "../../../service/business/service/service.service";
 import {Service} from "../../../model/business/service";
 import {Comment} from "../../../model/business/comment";
-import {CommentService} from "../../../service/business/comment/comment.service";
+import {CommentApiService} from "../../../service/business/comment/comment-api.service";
 import {Customer} from "../../../model/accounts/customer";
-import {CustomerService} from "../../../service/accounts/customer/customer.service";
+import {CustomerService} from "../../../service/accounts/customer/customer-api.service";
+
+
 
 @Component({
   selector: 'app-home-car-wash',
   templateUrl: './home-car-wash.component.html',
+
   styleUrls: ['./home-car-wash.component.css'],
 
 })
@@ -30,7 +34,7 @@ export class HomeCarWashComponent implements OnInit {
   n:number=1;
   constructor(private staffApi: StaffService, private router: Router,
               private carWashApi: CarwashService,private serviceApi:ServiceService,
-              private commentApi:CommentService,private customerApi: CustomerService,) {
+              private commentApi:CommentApiService,private customerApi: CustomerService,) {
 
   }
 

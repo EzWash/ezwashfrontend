@@ -1,0 +1,46 @@
+<mat-card class="contracts">
+  <div class="titles">
+    <h1 class="contractsTitle">
+      Historial de Contratos
+    </h1>
+    <div class="stateTitles">
+      <label class="lblState" (click)="getContractsByStateNot('finished', 1); this.state='activos';">Activos</label>
+      <label class="lblState" (click)="getContractsByState('finished', 1); this.state='finalizados';">Finalizados</label>
+    </div>
+  </div>
+  <div class="contractList" *ngIf="contractList.length > 0; else zeroItems">
+    <mat-card class="contractItem" *ngFor="let c of contractList" style="background-color: #EEF7FB">
+      <div class="itemLeft">
+        <picture>
+          <source media='(min-width:0px)' srcset="https://media.discordapp.net/attachments/700237020278030396/855956232509587486/lavado-de-autos-vs-auto-detailing-1000x641.png">
+          <img mat-card-avatar src="">
+        </picture>
+        <div class="itemInfo">
+          <label class="lblItemInfo" id="carWashName">{{c.carWash_name}}</label>
+          <label class="lblItemInfo">{{c.date}}</label>
+          <label class="lblItemInfo">{{c.state}}</label>
+        </div>
+      </div>
+
+      <div *ngIf="this.state =='finalizados'" class="itemRight">
+        <button mat-icon-button  class="iconWarning">
+          <mat-icon>warning</mat-icon>
+        </button>
+        <button mat-icon-button class="iconStar" >
+          <mat-icon>star</mat-icon>
+        </button>
+        <button mat-icon-button class="iconDetails" >
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+
+
+    </mat-card>
+  </div>
+  <ng-template #zeroItems>
+    <div class="zeroContracts">
+      <label class="lblzeroContracts">No tienes servicios {{state}}</label>
+    </div>
+  </ng-template>
+</mat-card>
+

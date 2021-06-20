@@ -9,13 +9,13 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
   providedIn: 'root'
 })
 export class CustomercontractsService {
-  basePathStart='http://localhost:8080/api/user'
+  basePathStart='http://localhost:8080/api/customers'
   httpOptions={headers: new HttpHeaders({'Content-Type':'application/json'})}
   constructor(private http:HttpClient) { }
   //API Error Handling
   handleError(error: HttpErrorResponse): Observable<never>{
     if(error.error instanceof ErrorEvent){
-      console.log('An error ocurred: ', error.error.message);
+      console.log('An error occurred: ', error.error.message);
     }
     else{
       console.log('Backend returned code ${error.status}, body was: ${error.error}')
@@ -23,8 +23,8 @@ export class CustomercontractsService {
     return throwError('Something happened with request, please try again later')
   }
   //GET UserContract
-  getUserContract(id: number): Observable<Contract>{
-    return this.http.get<Contract>(`${this.basePathStart}/${id}/contracts`, this.httpOptions)
+  getUserContracts(id: number): Observable<Contract[]>{
+    return this.http.get<Contract[]>(`${this.basePathStart}/${id}/contracts`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
