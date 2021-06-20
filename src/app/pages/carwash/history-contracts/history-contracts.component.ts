@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CustomercontractsService} from "../../../service/accounts/customer/customercontracts-api.service";
 import {Contract} from "../../../model/business/contract";
-import {ContractService} from "../../../service/business/contract/contract.service";
+import {ContractApiService} from "../../../service/business/contract/contract-api.service";
 import {CarwashService} from "../../../service/accounts/carwash/carwash-api.service";
 import {Carwash} from "../../../model/accounts/carwash";
 
@@ -16,7 +16,7 @@ export class HistoryContractsComponent implements OnInit {
   stateTitles: string;
   state: string;
   carWashAux: Carwash = {} as Carwash;
-  constructor(private customerContractService: CustomercontractsService, private contractService: ContractService, private carWashService: CarwashService) {
+  constructor(private customerContractService: CustomercontractsService, private contractService: ContractApiService, private carWashService: CarwashService) {
     this.stateTitles = "Pendientes";
     this.state = "finalizados";
 

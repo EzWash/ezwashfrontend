@@ -150,11 +150,6 @@
 
 
 
-.btnReport:hover{
-  background-color:#89D3DA;
-}
-
-
 @media screen and (max-width: 1000px) {
 
   .lblItemInfo{

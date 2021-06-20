@@ -6,7 +6,7 @@ import {catchError, retry} from "rxjs/operators";
 @Injectable({
   providedIn: 'root'
 })
-export class CommentService {
+export class CommentApiService {
   basePath = "http://localhost:8080/api";
   httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})}
   constructor(private http: HttpClient) { }
