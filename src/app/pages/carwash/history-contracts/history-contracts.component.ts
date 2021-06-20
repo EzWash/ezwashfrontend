@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {CustomercontractsService} from "../../../service/accounts/customer/customercontracts.service";
+import {CustomercontractsService} from "../../../service/accounts/customer/customercontracts-api.service";
 import {Contract} from "../../../model/business/contract";
 import {ContractService} from "../../../service/business/contract/contract.service";
-import {CarwashService} from "../../../service/accounts/carwash/carwash.service";
+import {CarwashService} from "../../../service/accounts/carwash/carwash-api.service";
 import {Carwash} from "../../../model/accounts/carwash";
 
 @Component({

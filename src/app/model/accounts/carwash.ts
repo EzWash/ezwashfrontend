@@ -1,12 +1,16 @@
 
 export interface Carwash{
   id: number
-  first_name: string
-  last_name: string
-  email: string
-  phone_number: string
-  gender: string
-  location: number
-  password:string
+  email: string;
+  description: string;
+  name: string;
+  password: string;
+  name_owner: string;
+  qualification: number;
+  available: number;
+  location_id: number;
+  birth_date: string | undefined;
+  phone_number: string;
+  ruc: string;
 }
 
