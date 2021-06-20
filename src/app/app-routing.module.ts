@@ -4,11 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RegisterCarWashComponent} from './pages/carwash/register-car-wash/register-car-wash.component';
+import {FavoriteCarwashesComponent} from './pages/customer/favorite-carwashes/favorite-carwashes.component';
+import {NotFoundComponent} from './pages/not-found/not-found.component';
 
 
 const routes: Routes = [
-  { path: 'registerCarwash', component: RegisterCarWashComponent }
-
+  { path: 'register-carwash', component: RegisterCarWashComponent },
+  { path: 'favorite-carwashes', component: FavoriteCarwashesComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

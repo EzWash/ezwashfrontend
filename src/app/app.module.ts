@@ -24,12 +24,16 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {MatNativeDateModule } from '@angular/material/core';
+import {FavoriteCarwashesComponent} from './pages/customer/favorite-carwashes/favorite-carwashes.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterCarWashComponent,
     HomeCustomerComponent,
+    FavoriteCarwashesComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

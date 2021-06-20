@@ -24,7 +24,7 @@
                 [(ngModel)]="newCarwash.name" placeholder=""/>
               <mat-error *ngIf="registerForm.controls.name.touched && registerForm.controls.name.invalid">
               <span *ngIf="registerForm.controls.name.errors?.required">Ingrese el nombre del CarWash</span>
-              <span *ngIf="registerForm.controls.name.errors?.pattern">Solo se permiten letras</span>
+              <span *ngIf="registerForm.controls.name.errors?.pattern">No se permiten símbolos especiales</span>
             </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
@@ -90,7 +90,7 @@
               <mat-form-field appearance="outline">
                 <mat-label>Dirección</mat-label>
                 <span matPrefix><mat-icon>place</mat-icon></span>
-                <input matInput formControlName="location" placeholder="Av. Roberto Vega 344"/>
+                <input matInput (input)="_handleInput(registerForm.controls.location)" formControlName="location" placeholder="Av. Roberto Vega 344"/>
                 <mat-error *ngIf="registerForm.controls.location.touched && registerForm.controls.location.invalid">
                   <span *ngIf="registerForm.controls.location.errors?.required">Ingrese la ubicación del CarWash</span>
                 </mat-error>

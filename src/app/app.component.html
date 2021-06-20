@@ -1,14 +1,22 @@
-<mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar>
+<mat-toolbar>
+  <div class="container">
+    <div class="left">
+      <button mat-icon-button aria-label="Example icon-button with menu icon">
+        <img src="https://cdn.discordapp.com/attachments/700237020278030396/852297994287054888/logo.jpg" alt="logo">
+      </button>
+    </div>
+    <div class="middle">
+      <mat-form-field appearance="outline">
+        <span matPrefix><mat-icon>search</mat-icon></span>
+        <input matInput placeholder=" Buscar"/>
+      </mat-form-field>
+    </div>
+    <div class="right">
+      <div class="menu-large">
+        <mat-icon>account_circle</mat-icon>
+        <mat-icon>favorite_border</mat-icon>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
 <router-outlet></router-outlet>
