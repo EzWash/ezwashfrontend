@@ -28,8 +28,16 @@ export class ContractService {
   }
 
   //Get Contracts by State
-  getContractsByState(state: string): Observable<Contract[]>{
-    return this.http.get<Contract[]>(`${this.basePath}/contracts/states${state}`,
+  getContractsByState(state: string, customerId: number): Observable<Contract[]>{
+    return this.http.get<Contract[]>(`${this.basePath}/customers/${customerId}/contracts/states/${state}`,
+      this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+
+  //Get Contracts by State Not
+  getContractsByStateNot(state: string, customerId: number): Observable<Contract[]>{
+    return this.http.get<Contract[]>(`${this.basePath}/customers/${customerId}/contracts/states/not/${state}`,
       this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }

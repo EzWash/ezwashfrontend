@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ezwashteam": {
+      "hosting": {
+        "ezwashfrontend": [
+          "ezwashteam"
+        ]
+      }
+    }
+  }
+}
