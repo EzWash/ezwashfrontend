@@ -1,0 +1,35 @@
+<mat-card class="carWashes">
+  <div class="titles">
+    <h1 class="carWashesTitle">
+      Lista de CarWashes Favoritos
+    </h1>
+  </div>
+  <div class="carWashList" *ngIf="carWashList.length > 0; else zeroItems">
+    <mat-card class="carWashItem" *ngFor="let c of carWashList" style="background-color: #EEF7FB">
+      <div class="itemLeft">
+        <picture>
+          <source media='(min-width:0px)' srcset="https://media.discordapp.net/attachments/700237020278030396/855956232509587486/lavado-de-autos-vs-auto-detailing-1000x641.png">
+          <img mat-card-avatar src="">
+        </picture>
+        <div class="itemInfo">
+          <label class="lblItemInfo" id="carWashName">{{c.name}}</label>
+          <label class="lblItemInfo">{{c.description}}</label>
+          <label class="lblItemInfo">{{c.phone_number}}</label>
+        </div>
+      </div>
+      <div class="itemRight">
+        <button mat-icon-button  color="warn" (click)="deleteCarWashFromList(1,c.id)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+    </mat-card>
+
+  </div>
+  <ng-template #zeroItems>
+    <div class="zeroCarWashes">
+      <label class="lblZeroCarWashes">No tienes servicios CarWashes favoritos</label>
+    </div>
+  </ng-template>
+</mat-card>
+
