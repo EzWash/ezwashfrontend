@@ -36,8 +36,8 @@ import { RegisterStaffComponent } from './pages/carwash/register-staff/register-
     RegisterCustomerComponent,
     HomeCarWashComponent,
     RegisterCarClientComponent,
-    RegisterStaffComponent
-
+    RegisterStaffComponent,
+    HistoryContractsComponent
   ],
   imports: [
     BrowserModule,

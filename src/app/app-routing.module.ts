@@ -8,8 +8,7 @@ import {RegisterCustomerComponent} from "./pages/customer/register-customer/regi
 import {RegisterCarClientComponent} from "./pages/customer/register-car-client/register-car-client.component";
 import {HomeCarWashComponent} from "./pages/carwash/home-car-wash/home-car-wash.component";
 import {RegisterStaffComponent} from "./pages/carwash/register-staff/register-staff.component";
-
-
+import {HistoryContractsComponent} from "./pages/carwash/history-contracts/history-contracts.component";
 
 
 const routes: Routes = [
@@ -17,7 +16,7 @@ const routes: Routes = [
   {path:'registerCarCustomer', component:RegisterCarClientComponent},
   {path: 'homePageCarWash',component:HomeCarWashComponent},
   {path: 'registerStaff',component:RegisterStaffComponent},
-
+  {path: 'historyContracts', component:HistoryContractsComponent}
 ];
 
 @NgModule({
