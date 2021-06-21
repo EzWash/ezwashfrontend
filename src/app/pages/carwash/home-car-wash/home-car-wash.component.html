@@ -1,0 +1,132 @@
+
+<div class="header">
+</div>
+<br>
+<div class="general">
+<div class="up">
+  <div class="left">
+    <div class="title">
+      Informacion General &nbsp;
+      <button>Editar</button>
+    </div>
+    <br>
+
+    <div class="generalInformation">
+      <img class="imageCarWash" src="https://media.discordapp.net/attachments/700237020278030396/855956232509587486/lavado-de-autos-vs-auto-detailing-1000x641.png">
+      <div class="getInformationCarWash">
+        <p class="title">{{carwashData.name}}</p>
+        <p> <mat-icon matPrefix>feed</mat-icon> {{carwashData.description}}</p>
+        <p><mat-icon matPrefix>email</mat-icon> {{carwashData.email}}</p>
+        <p><mat-icon matPrefix>person</mat-icon> {{carwashData.name_owner}} </p>
+        <p><mat-icon matPrefix>smartphone</mat-icon> {{carwashData.phone_number}}</p>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="Staff">
+    <div class="title" >
+      Equipo &nbsp;
+      <button>
+        <a class="redirect" href="http://localhost:4200/registerStaff">Nuevo</a>
+      </button>
+    </div>
+    <br>
+    <div  class ="rollbackStaff">
+      <div class="scrollStaff">
+          <div *ngFor="let s of staffList">
+            <mat-card class="cardStaff">
+              <mat-card-header class="cardstaff1">
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>
+                  {{s.first_name}} {{s.last_name}}
+
+                </mat-card-title>
+                <mat-card-subtitle>
+                  <mat-icon class="icon" >smartphone</mat-icon> {{s.phone_number}}
+                  &nbsp; &nbsp;
+                  <mat-icon class="icon">email</mat-icon> {{s.email}}
+                </mat-card-subtitle>
+               </mat-card-header>
+              <div class="cardstaff2">
+                <a><mat-icon inline aria-hidden="false" aria-label="Edit" style="padding-right: 10px;">edit</mat-icon></a>
+                <a><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
+              </div>
+
+            </mat-card>
+          </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<br>
+<br>
+<br>
+<div class="down" >
+  <div class="a">
+    <div class="title" align="center">
+      Servicios Activos &nbsp;
+    </div>
+    <br>
+    <div class="cardDown" align="center"  >
+      <div class="scrollDown">
+        <p class="empty">No se tienen servicios activos</p>
+      </div>
+    </div>
+  </div>
+  <div class="a">
+    <div>
+      <div class="title" align="center">
+        Servicios Ofrecidos &nbsp;
+        <button class="button">Nuevo</button>
+      </div>
+        <br>
+      <div class="cardDown" >
+        <div class="scrollDown">
+          <div *ngFor="let service of serviceList">
+            <div class="cardServicesO">
+              <mat-card-header class="cardsService">
+                <mat-card-title>
+                  {{service.name}}  S/.{{service.price}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                  - {{service.description}}
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                  - {{service.details}}
+                </mat-card-subtitle>
+                  <!-- <mat-icon aria-label="Phone">phone</mat-icon>{{s.phone_number}}-->
+              </mat-card-header>
+              <div class="cardstaff2"align="center">
+                <a><mat-icon inline aria-hidden="false" aria-label="Edit" style="padding-right: 10px;">edit</mat-icon></a>
+                <a><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+  </div>
+  <div class="a">
+    <div class="title" align="center">
+      Calificiones y Reseñas &nbsp;
+    </div>
+    <br>
+    <div class="cardComment" align="center"  >
+      <div class="scrollDown">
+        <div *ngFor="let comment of commentList">
+          {{comment.description}}
+          {{comment.customer_id}}
+          {{comment.qualification}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HistoryContractsComponent } from './pages/carwash/history-contracts/history-contracts.component';
+import { HistoryContractsComponent } from './pages/customer/history-contracts/history-contracts.component';
 import { RegisterCarWashComponent } from './pages/carwash/register-car-wash/register-car-wash.component';
 import { HomeCustomerComponent } from './pages/customer/home-customer/home-customer.component';
 import { MatSliderModule } from '@angular/material/slider';
@@ -33,7 +33,12 @@ import { RegisterCarClientComponent} from "./pages/customer/register-car-client/
 import { ScrollingModule} from "@angular/cdk/scrolling";
 import { RegisterServiceComponent } from './pages/carwash/register-service/register-service.component';
 import { RegisterStaffComponent } from './pages/carwash/register-staff/register-staff.component';
+
+import { LoginUsersComponent } from './pages/login/login-users/login-users.component';
+import {MatRadioModule} from "@angular/material/radio";
 import { UpdateServiceComponent } from './pages/carwash/update-service/update-service.component';
+import { ListVehiclesComponent } from './pages/customer/list-vehicles/list-vehicles.component';
+import { ListFavCarWashesComponent } from './pages/customer/list-fav-car-washes/list-fav-car-washes.component';
 
 
 
@@ -50,7 +55,10 @@ import { UpdateServiceComponent } from './pages/carwash/update-service/update-se
     HistoryContractsComponent,
     RegisterServiceComponent,
     RegisterStaffComponent,
-    UpdateServiceComponent
+    UpdateServiceComponent,
+    ListVehiclesComponent,
+    ListFavCarWashesComponent,
+    LoginUsersComponent
 
   ],
   imports: [
@@ -73,7 +81,8 @@ import { UpdateServiceComponent } from './pages/carwash/update-service/update-se
     MatSliderModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRadioModule
   ],
 
   providers: [

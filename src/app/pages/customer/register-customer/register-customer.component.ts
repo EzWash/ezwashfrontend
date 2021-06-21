@@ -27,10 +27,10 @@ export class RegisterCustomerComponent implements OnInit {
 
   }
 
-  navigateToHome(): void{
-    this.router.navigate(['/registerCarCustomer'])
-      .then(()=>console.log(this.route.url))
-  }
+    navigateToHome(): void{
+      this.router.navigate(['/registerCarCustomer'])
+        .then(()=>console.log(this.route.url))
+    }
 
   createCustomer(): void{
     const newCustomer = {first_name: this.customerData.first_name,last_name:this.customerData.last_name,

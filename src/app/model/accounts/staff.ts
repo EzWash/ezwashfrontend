@@ -1,3 +1,4 @@
+
 export interface Staff {
   id: number;
   first_name: string;
@@ -6,3 +7,4 @@ export interface Staff {
   phone_number: string;
   gender: string;
 }
+

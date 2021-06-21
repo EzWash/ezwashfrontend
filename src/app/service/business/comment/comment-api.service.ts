@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, retry} from "rxjs/operators";
-
+import {Staff} from "../../../model/accounts/staff";
+import {Comment} from "../../../model/business/comment";
 @Injectable({
   providedIn: 'root'
 })
@@ -26,5 +27,12 @@ export class CommentApiService {
                                    this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+  // Get Comment By CarWash Id
+  getCommentByCarWashId(carwashId: number): Observable<Comment[]>{
+    return this.http.get<Comment[]>(`${this.basePath}/carwashes/${carwashId}/comments`,
+      this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
 
 }

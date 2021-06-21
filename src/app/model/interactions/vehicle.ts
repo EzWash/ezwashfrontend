@@ -3,4 +3,5 @@ export interface Vehicle {
   model: string;
   brand: string;
   registration_plate: string;
+  location_id:number;
 }

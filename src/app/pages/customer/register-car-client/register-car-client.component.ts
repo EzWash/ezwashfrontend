@@ -3,6 +3,7 @@ import {NgForm} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Vehicle} from "../../../model/interactions/vehicle";
 import {VehicleService} from "../../../service/interactions/vehicle/vehicle.service";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-register-car-client',
@@ -15,6 +16,7 @@ export class RegisterCarClientComponent implements OnInit {
   @ViewChild('vehicleForm',{static:false})
   vehicleForm!: NgForm;
   vehicleID!: number
+  dataSource = new MatTableDataSource();
   vehicleData: Vehicle= {} as Vehicle
   isEditMode  =false
   constructor(private vehicleApi: VehicleService, private router: Router, private route: ActivatedRoute) { }
@@ -34,8 +36,12 @@ export class RegisterCarClientComponent implements OnInit {
   }
 
   createVehicle(): void{
-    const newVehicle = {brand:this.vehicleData.brand,model:this.vehicleData.model,registration_plate:this.vehicleData.registration_plate}
-    this.vehicleApi.createVehicle(1,newVehicle).subscribe(()=>{this.navigateToHome()})
+    const newVehicle = {brand:this.vehicleData.brand,model:this.vehicleData.model,
+      registration_plate:this.vehicleData.registration_plate,location_id: this.vehicleData.location_id}
+    this.vehicleApi.createVehicle(1,newVehicle).subscribe((response: any) => {
+      this.dataSource.data.push({...response});
+      this.dataSource.data = this.dataSource.data.map(o => o);
+    });
   }
 
   onSubmit(): void{

@@ -1,14 +1,10 @@
-.grid div:hover{
-
-}
 .tituloRegistro{
   color: #707070;
-
 }
 .grid{
   display: grid;
   grid-template-columns: repeat(3,1fr);
-
+  margin-top: 5%;
 }
 
 .textElement2{
@@ -29,9 +25,6 @@
   color: #707070;
   font-size: x-large;
 }
-
-
-
 
 .input{
   position: relative;

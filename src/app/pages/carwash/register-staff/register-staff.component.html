@@ -1,12 +1,10 @@
-<img class="image1" src="https://cdn.discordapp.com/attachments/700237020278030396/852297994287054888/logo.jpg" alt="Logotipo">
-<br>
 <div class="grid">
   <div class="element1">
    <br>
    <p class="telement1" align="center"><b>Registrar al encargado del recojo de vehiculos</b></p>
    <form (submit)="onSubmit()" #staffForm="ngForm" align="center">
-     <div>
-      <mat-form-field appearance="outline" class="input">
+
+      <mat-form-field appearance="fill" class="input1">
         <mat-icon matPrefix>person</mat-icon>
         <mat-label>Nombres</mat-label>
         <input
@@ -14,9 +12,8 @@
         name="name"
         required [(ngModel)]="staffData.first_name">
       </mat-form-field>
-     </div>
-     <div>
-       <mat-form-field appearance="outline" class="input">
+     &nbsp;
+       <mat-form-field appearance="fill" class="input1">
          <mat-icon matPrefix>person</mat-icon>
          <mat-label>Apellidos</mat-label>
          <input
@@ -24,9 +21,8 @@
           name="last_name"
           required [(ngModel)]="staffData.last_name">
         </mat-form-field>
-     </div>
-    <div>
-      <mat-form-field appearance="outline" class="input">
+     <div>
+      <mat-form-field appearance="fill" class="input">
         <mat-icon matPrefix>email</mat-icon>
         <mat-label>E-Mail</mat-label>
         <input
@@ -34,17 +30,18 @@
           name="email"
           required [(ngModel)]="staffData.email">
       </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="outline" class="input">
-        <mat-icon matPrefix>person</mat-icon>
-        <mat-label>Edad</mat-label>
+     </div>
+
+      <mat-form-field appearance="fill" class="input1">
+        <mat-icon matPrefix>male</mat-icon>
+        <mat-label>Gender</mat-label>
         <input
           matInput placeholder="gender"
           name="gender"
           required [(ngModel)]="staffData.gender">
       </mat-form-field>
-      <mat-form-field appearance="outline" class="input">
+       &nbsp;
+      <mat-form-field appearance="fill" class="input1">
         <mat-icon matPrefix>phone</mat-icon>
         <mat-label>Telefono</mat-label>
         <input
@@ -54,10 +51,11 @@
       </mat-form-field>
       <br>
       <ng-container>
-        <button mat-button style="text-transform: uppercase" color="primary">cancelar</button>
-        <button mat-button style="text-transform: uppercase" color="primary">agregar</button>
+        <button mat-button style="text-transform: uppercase">cancelar</button>
+        &nbsp;
+        <button mat-button style="text-transform: uppercase" >agregar</button>
       </ng-container>
-    </div>
+
    </form>
   </div>
 </div>

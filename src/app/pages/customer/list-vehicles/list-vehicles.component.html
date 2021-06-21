@@ -1,0 +1,35 @@
+<mat-card class="vehicles">
+  <div class="titles">
+    <h1 class="vehiclesTitle">
+      Lista de Vehículos
+    </h1>
+  </div>
+  <div class="vehiclesList" *ngIf="vehicleList.length > 0; else zeroItems">
+    <mat-card class="vehiclesItem" *ngFor="let v of vehicleList" style="background-color: #EEF7FB">
+      <div class="itemLeft">
+        <picture>
+          <source media='(min-width:0px)' srcset="https://media.discordapp.net/attachments/700237020278030396/856307442483855420/car_13260.png">
+          <img mat-card-avatar src="">
+        </picture>
+        <div class="itemInfo">
+          <label class="lblItemInfo" id="vehicleName">{{v.model}}</label>
+          <label class="lblItemInfo">{{v.brand}}</label>
+          <label class="lblItemInfo">{{v.registration_plate}}</label>
+        </div>
+      </div>
+      <div *ngIf="vehicleList.length > 1" class="itemRight">
+        <button mat-icon-button  color="warn" (click)="deleteVehicle(v.id)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+    </mat-card>
+
+  </div>
+  <ng-template #zeroItems>
+    <div class="zeroVehicles">
+      <label class="lblZeroVehicles">No tienes vehículos añadidos</label>
+    </div>
+  </ng-template>
+</mat-card>
+

@@ -12,7 +12,7 @@ import {Carwash} from "../../../model/accounts/carwash";
   providedIn: 'root'
 })
 export class CustomercarwashesService {
-  basePathStart='http://localhost:8080/api/user'
+  basePathStart='http://localhost:8080/api/customers'
   httpOptions={headers: new HttpHeaders({'Content-Type':'application/json'})}
   constructor(private http:HttpClient) { }
   //API Error Handling
@@ -35,8 +35,8 @@ export class CustomercarwashesService {
   }
   //getLinkedList
 
-  getLinkedList(userId: number): Observable<Carwash>{
-    return this.http.get<Carwash>(`${this.basePathStart}/${userId}/carwashes`, this.httpOptions)
+  getLinkedList(userId: number): Observable<Carwash[]>{
+    return this.http.get<Carwash[]>(`${this.basePathStart}/${userId}/carwashes`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -52,7 +52,7 @@ export class CustomercarwashesService {
   }
   //deleteUserCarWash
 
-  deleteUserCarWash (id:number,carwashId:number):Observable<any>{
+  deleteUserCarWash (id:number,carwashId:number):Observable<Customer>{
     return this.http.delete<Customer>(`${this.basePathStart}/${id}/carwashes/${carwashId}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
