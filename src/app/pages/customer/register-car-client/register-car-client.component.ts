@@ -32,7 +32,8 @@ export class RegisterCarClientComponent implements OnInit {
   }
 
   navigateToHome(): void{
-    console.log('Ta bien');
+    this.router.navigate(['/list-vehicles'])
+      .then(()=>console.log(this.route.url))
   }
 
   createVehicle(): void{
@@ -41,6 +42,7 @@ export class RegisterCarClientComponent implements OnInit {
     this.vehicleApi.createVehicle(1,newVehicle).subscribe((response: any) => {
       this.dataSource.data.push({...response});
       this.dataSource.data = this.dataSource.data.map(o => o);
+      this.navigateToHome();
     });
   }
 

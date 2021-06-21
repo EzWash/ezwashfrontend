@@ -28,7 +28,7 @@ export class RegisterCustomerComponent implements OnInit {
   }
 
     navigateToHome(): void{
-      this.router.navigate(['/registerCarCustomer'])
+      this.router.navigate(['/register-car-customer'])
         .then(()=>console.log(this.route.url))
     }
 
