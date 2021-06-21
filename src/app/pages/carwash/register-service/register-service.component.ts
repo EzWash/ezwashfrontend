@@ -25,12 +25,13 @@ export class RegisterServiceComponent implements OnInit {
       }
     }))
   }
-  navigateToHome():void{
-    console.log("Registro de servicio exitoso")
+  navigateToPageHome():void{
+    this.router.navigate(['/home-page-car-wash'])
+      .then(()=>console.log(this.route.url))
   }
   createService():void{
     const newService={name:this.serviceData.name,description:this.serviceData.description,is_promotion:this.serviceData.is_promotion,price:this.serviceData.price,details:this.serviceData.details}
-    this.serviceApi.createServiceCarWash(1,newService).subscribe(()=>{this.navigateToHome()})
+    this.serviceApi.createServiceCarWash(1,newService).subscribe(()=>{this.navigateToPageHome()})
   }
   onSubmit():void{
     if(this.serviceForm.form.valid){

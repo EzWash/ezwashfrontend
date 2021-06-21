@@ -1,4 +1,4 @@
-
+<br>
 <div class="general">
 <div class="up">
   <div class="left">
@@ -25,12 +25,12 @@
     <div class="title" >
       Equipo &nbsp;
       <button>
-        <a class="redirect" href="http://localhost:4200/registerStaff">Nuevo</a>
+        <a class="redirect" href="http://localhost:4200/register-staff">Nuevo</a>
       </button>
     </div>
     <br>
     <div  class ="rollbackStaff">
-      <div class="scrollStaff">
+      <div class="scrollStaff" *ngIf="staffList.length > 0; else zeroItems">
           <div *ngFor="let s of staffList">
             <mat-card class="cardStaff">
               <mat-card-header class="cardstaff1">
@@ -54,6 +54,11 @@
           </div>
 
       </div>
+      <ng-template #zeroItems>
+        <div class="zeroVehicles">
+          <label class="lblZeroVehicles">No tienes trabajadores añadidos</label>
+        </div>
+      </ng-template>
     </div>
 
   </div>
@@ -77,19 +82,21 @@
     <div>
       <div class="title" align="center">
         Servicios Ofrecidos &nbsp;
-        <button class="button">Nuevo</button>
+        <button class="button">
+          <a class="redirect" href="http://localhost:4200/register-service">Nuevo</a>
+        </button>
       </div>
         <br>
       <div class="cardDown" >
-        <div class="scrollDown">
+        <div class="scrollDown" *ngIf="serviceList.length > 0; else zeroItems">
           <div *ngFor="let service of serviceList">
             <div class="cardServicesO">
               <mat-card-header class="cardsService">
                 <mat-card-title>
-                  {{service.name}}  S/.{{service.price}}
+                  {{service.name}}  S/.{{service.price}}<br>
                 </mat-card-title>
                 <mat-card-subtitle>
-                  - {{service.description}}
+                  - {{service.description}}<br>
                 </mat-card-subtitle>
                 <mat-card-subtitle>
                   - {{service.details}}
@@ -103,6 +110,11 @@
             </div>
           </div>
         </div>
+        <ng-template #zeroItems>
+          <div class="zeroVehicles">
+            <label class="lblZeroVehicles">No tienes servicios añadidos</label>
+          </div>
+        </ng-template>
       </div>
     </div>
 
