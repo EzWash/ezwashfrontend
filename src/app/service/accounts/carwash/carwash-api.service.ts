@@ -10,6 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class CarwashService {
 
+  //basePath="http://ec2-54-173-107-141.compute-1.amazonaws.com:8080/api/carwashes"
   basePath="http://localhost:8080/api/carwashes"
   httpOptions={ headers: new HttpHeaders({'Content-Type': 'application/json'})}
 
