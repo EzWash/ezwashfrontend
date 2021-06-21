@@ -26,7 +26,7 @@ export class RegisterStaffComponent implements OnInit {
     }))
   }
   navigateToHomeCarWashPage(): void{
-    this.router.navigate(['/homePageCarWash'])
+    this.router.navigate(['/home-page-car-wash'])
       .then(()=>console.log(this.route.url))
   }
   createStaff():void{
