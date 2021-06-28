@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Carwash} from 'src/app/model/accounts/carwash';
 import {Location} from 'src/app/model/geographic/location';
@@ -25,6 +25,7 @@ export class RegisterCarWashComponent implements OnInit {
   location: Location;
   date: Date;
   onChange = (_: any) => {};
+  lessThan800: Boolean = false;
 
   constructor(private formBuilder: FormBuilder,
               private carwashApi: CarwashService,
@@ -49,7 +50,24 @@ export class RegisterCarWashComponent implements OnInit {
     });
   }
 
+  public innerWidth: any;
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
+    if(this.innerWidth <= 800){
+      this.lessThan800 = true;
+    }else{
+      this.lessThan800 = false;
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(){
+    this.innerWidth = window.innerWidth;
+    if(this.innerWidth <= 800){
+      this.lessThan800 = true;
+    }else{
+      this.lessThan800 = false;
+    }
   }
 
   @Input()

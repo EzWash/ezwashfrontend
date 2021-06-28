@@ -4,7 +4,6 @@ import {Observable, throwError} from "rxjs";
 import {Customer} from "../../../model/accounts/customer";
 
 import {catchError, retry} from "rxjs/operators";
-import {Staff} from "../../../model/accounts/staff";
 // @ts-ignore
 import {Carwash} from "../../../model/accounts/carwash";
 
@@ -12,8 +11,11 @@ import {Carwash} from "../../../model/accounts/carwash";
   providedIn: 'root'
 })
 export class CustomercarwashesService {
+
+  //basePathStart = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api/customers";
   basePathStart='http://localhost:8080/api/customers'
   httpOptions={headers: new HttpHeaders({'Content-Type':'application/json'})}
+
   constructor(private http:HttpClient) { }
   //API Error Handling
   handleError(error: HttpErrorResponse): Observable<never>{

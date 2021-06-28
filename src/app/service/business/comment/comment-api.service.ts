@@ -2,14 +2,17 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, retry} from "rxjs/operators";
-import {Staff} from "../../../model/accounts/staff";
 import {Comment} from "../../../model/business/comment";
+
 @Injectable({
   providedIn: 'root'
 })
 export class CommentApiService {
-  basePath = "http://localhost:8080/api";
+
+  //basePath = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api";
+  basePath = "http://localhost:8080/api"
   httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})}
+
   constructor(private http: HttpClient) { }
 
   handleError(error: HttpErrorResponse): Observable<never> {

@@ -1,8 +1,7 @@
 <div class="container">
   <h1>Registro CarWash</h1>
-  <mat-card class=card>
-    <mat-card-content class="card-content">
-      <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+  <mat-card>
+    <mat-card-content class="card-content"> <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
         <div class="form-register">
           <mat-card-subtitle>Hola! Recuerda que debes ser el propiertario del establecimiento</mat-card-subtitle>
           <div class="fields">
@@ -121,7 +120,7 @@
           <button mat-raised-button [disabled]="registerForm.invalid" type="submit" color="accent" class="button">Registrar</button>
         </div>
       </form>
-        <div class="badge">
+        <div class="badge" *ngIf="!lessThan800">
           <img class="badge-img1" src="https://cdn.discordapp.com/attachments/700237020278030396/852300117603123210/Grupo_1.png" alt="">
           <h2>Estás a punto de ser parte de EzWash</h2>
           <img class="badge-img2" src="https://cdn.discordapp.com/attachments/700237020278030396/852300111321235516/Grupo_3.png" alt="">
