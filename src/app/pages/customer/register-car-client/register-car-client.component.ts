@@ -30,7 +30,6 @@ export class RegisterCarClientComponent implements OnInit {
     }))
 
   }
-
   navigateToHome(): void{
     this.router.navigate(['/list-vehicles'])
       .then(()=>console.log(this.route.url))

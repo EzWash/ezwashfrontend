@@ -12,6 +12,7 @@ import {Comment} from "../../../model/business/comment";
 import {CommentApiService} from "../../../service/business/comment/comment-api.service";
 import {Customer} from "../../../model/accounts/customer";
 import {CustomerService} from "../../../service/accounts/customer/customer-api.service";
+import {range} from "rxjs";
 
 
 
@@ -22,16 +23,16 @@ import {CustomerService} from "../../../service/accounts/customer/customer-api.s
   styleUrls: ['./home-car-wash.component.css'],
 
 })
-
 export class HomeCarWashComponent implements OnInit {
-  items = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
-
   staffList : Staff[]=[];
   carwashData: Carwash={}as Carwash;
   serviceList : Service[]=[];
   commentList: Comment[]=[];
   customerList: Customer[]=[];
   n:number=1;
+  suma:number=0;
+  result:number=0;
+  totalComments:number=0;
   constructor(private staffApi: StaffService, private router: Router,
               private carWashApi: CarwashService,private serviceApi:ServiceService,
               private commentApi:CommentApiService,private customerApi: CustomerService,) {
@@ -43,6 +44,7 @@ export class HomeCarWashComponent implements OnInit {
     this.getAllStaff(this.n);
     this.getCarWashById(this.n);
     this.getCommentByCarWashId(this.n);
+
   }
   getAllStaff(id:number) {
     this.staffApi.getStaffByCarWashId(id).subscribe((data:Staff[]) => {
@@ -65,7 +67,15 @@ export class HomeCarWashComponent implements OnInit {
   getCommentByCarWashId(id:number){
     this.commentApi.getCommentByCarWashId(id).subscribe((data:Comment[])=>{
       this.commentList = data;
+      this.generalCalification(data);
     })
-    console.log(this.commentList[0])
+  }
+  generalCalification(data:Comment[]){
+    for (let n of data) {
+      this.suma += n.qualification;
+    }
+    this.result=this.suma/data.length;
+    this.result.toFixed(2);
+    this.totalComments=data.length;
   }
 }

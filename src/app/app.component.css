@@ -2,14 +2,14 @@
   background-color: #89D3E2 !important;
 }
 
-.left{
+.CarWash{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   width: 6%;
 }
 
-.left img{
+.CarWash img{
   width: 250%;
 }
 
@@ -57,10 +57,10 @@
 }
 
 @media all and (max-width: 520px){
-  .left{
+  .CarWash{
     width: 25%;
   }
-  .left img{
+  .CarWash img{
     width: 210%;
   }
   .middle{
@@ -78,10 +78,10 @@
 }
 
 @media all and (max-width: 350px){
-  .left{
+  .CarWash{
     width: 20%;
   }
-  .left img{
+  .CarWash img{
     width: 170%;
   }
   .middle{
