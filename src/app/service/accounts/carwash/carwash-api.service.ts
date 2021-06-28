@@ -28,7 +28,7 @@ export class CarwashService {
 
   // Create Carwash
   createCarwash(item: any): Observable<Carwash> {
-    return this.http.post<Carwash>(this.basePath, JSON.stringify(item), this.httpOptions)
+    return this.http.post<Carwash>("http://localhost:8080/api/auth/carwashes", JSON.stringify(item), this.httpOptions)
     .pipe(retry(2), catchError(this.handleError));
   }
 

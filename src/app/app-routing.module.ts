@@ -18,17 +18,17 @@ import {ListVehiclesComponent} from "./pages/customer/list-vehicles/list-vehicle
 
 const routes: Routes = [
   { path: 'register-carwash', component: RegisterCarWashComponent },
-  {path:'login',component:LoginUsersComponent},
+  { path: 'login', component:LoginUsersComponent},
   { path: 'favorite-carwashes', component: FavoriteCarwashesComponent },
   { path: 'register-customer',component:RegisterCustomerComponent},
-  { path:'register-car-customer', component:RegisterCarClientComponent},
-  { path: 'home-page-car-wash',component:HomeCarWashComponent},
-  { path:'register-service',component:RegisterServiceComponent},
+  { path: 'register-vehicles', component:RegisterCarClientComponent},
+  { path: 'home-carwash',component:HomeCarWashComponent},
+  { path: 'register-service',component:RegisterServiceComponent},
   { path: 'register-staff',component:RegisterStaffComponent},
-  { path:'update-service',component:UpdateServiceComponent},
-  {path: 'history-contracts', component:HistoryContractsComponent},
-  {path: 'list-fav-car-washes', component:ListFavCarWashesComponent},
-  {path: 'list-vehicles', component:ListVehiclesComponent},
+  { path: 'update-service',component:UpdateServiceComponent},
+  { path: 'history-contracts', component:HistoryContractsComponent},
+  { path: 'list-fav-carwashes', component:ListFavCarWashesComponent},
+  { path: 'list-vehicles', component:ListVehiclesComponent},
   { path: '**', component: NotFoundComponent }
 ];
 

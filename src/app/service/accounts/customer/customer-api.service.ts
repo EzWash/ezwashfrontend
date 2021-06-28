@@ -25,7 +25,7 @@ export class CustomerService {
 
   //Create Customer
   createCustomer (item:any ):Observable<Customer>{
-    return this.http.post<Customer>(this.basePath,JSON.stringify(item),
+    return this.http.post<Customer>("http://localhost:8080/api/auth/customers",JSON.stringify(item),
       this.httpOptions)
       .pipe(retry(2),catchError(this.handleError));
   }

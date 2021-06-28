@@ -1,19 +1,22 @@
 <div class ="grid">
-  <div class="card" align="center">
-    <p class="textElement1">Hola! Ingrese sus datos para ingresar </p>
-    <mat-form-field appearance="fill">
-      <mat-label>Correo</mat-label>
-      <input class="input" matInput placeholder="email">
-      <mat-icon matPrefix>email</mat-icon>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Contraseña</mat-label>
-      <input class="input" matInput placeholder="Ejem: pepe@gmail.com">
-      <mat-icon matPrefix>lock</mat-icon>
-    </mat-form-field>
-    <br>
-    <button class="button">Ingresar</button>
+  <mat-spinner *ngIf="loading" class="spinner" diameter="100"></mat-spinner>
+  <div *ngIf="!loading" class="card" align="center">
+    <p  class="textElement1">Hola! Ingrese sus datos para ingresar </p>
+    <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="signIn()">
+      <mat-form-field appearance="fill">
+        <mat-label>Correo</mat-label>
+        <input class="input" matInput placeholder="email" formControlName="username">
+        <mat-icon matPrefix>email</mat-icon>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input class="input" type="password" matInput autocomplete="off" formControlName="password">
+        <mat-icon matPrefix>lock</mat-icon>
+      </mat-form-field>
+      <br>
+      <button type="submit" class="ancho button" mat-raised-button color="primary" [disabled]="form.invalid">Ingresar</button>
+    </form>
   </div>
   <div class="card2">
     <img class="image" src="https://cdn.discordapp.com/attachments/700237020278030396/852300117603123210/Grupo_1.png">

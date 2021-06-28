@@ -5,10 +5,27 @@
         <img src="https://cdn.discordapp.com/attachments/700237020278030396/852297994287054888/logo.jpg" alt="logo">
       </button>
     </div>
-    <div class="middle" *ngIf="this.hide">
+    <div class="middle" *ngIf="isLoggedIn">
       <input type="text" id="search" class="no-outline" placeholder="Buscar Carwash...">
     </div>
-    <div class="right">
+    <div *ngIf="!isLoggedIn">
+     <button mat-button class="example-icon favorite-icon"
+       arial-label="Example icon-button with share icon"
+       routerLink="/login">
+       Sign in
+     </button>
+     <button mat-button class="example-icon favorite-icon"
+       arial-label="Example icon-button with share icon"
+       routerLink="/register-customer">
+       Sign up Customer
+     </button>
+     <button mat-button class="example-icon favorite-icon"
+       arial-label="Example icon-button with share icon"
+       routerLink="/register-carwash">
+       Sign up CarWash
+     </button>
+    </div>
+    <div *ngIf="isLoggedIn" class="right">
       <mat-icon>account_circle</mat-icon>
       <mat-icon>favorite_border</mat-icon>
     </div>

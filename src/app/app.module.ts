@@ -33,12 +33,14 @@ import { RegisterCarClientComponent} from "./pages/customer/register-car-client/
 import { ScrollingModule} from "@angular/cdk/scrolling";
 import { RegisterServiceComponent } from './pages/carwash/register-service/register-service.component';
 import { RegisterStaffComponent } from './pages/carwash/register-staff/register-staff.component';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { LoginUsersComponent } from './pages/login/login-users/login-users.component';
 import {MatRadioModule} from "@angular/material/radio";
 import { UpdateServiceComponent } from './pages/carwash/update-service/update-service.component';
 import { ListVehiclesComponent } from './pages/customer/list-vehicles/list-vehicles.component';
 import { ListFavCarWashesComponent } from './pages/customer/list-fav-car-washes/list-fav-car-washes.component';
+import {authInterceptorProviders} from './helpers/auth-interceptor';
 
 
 
@@ -82,7 +84,9 @@ import { ListFavCarWashesComponent } from './pages/customer/list-fav-car-washes/
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
 
   providers: [
@@ -91,7 +95,8 @@ import { ListFavCarWashesComponent } from './pages/customer/list-fav-car-washes/
     MatDatepickerModule,
     CarwashService,
     ScrollingModule,
-    CarwashstaffService
+    CarwashstaffService,
+    authInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

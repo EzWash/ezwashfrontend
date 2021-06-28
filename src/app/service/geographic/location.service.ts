@@ -10,7 +10,7 @@ import {Location} from 'src/app/model/geographic/location';
 export class LocationService {
 
  // basePath="http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api/locations"
-  basePath="http://localhost:8080/api/locations"
+  basePath="http://localhost:8080/api/auth/locations"
   googleApiPath="https://maps.googleapis.com/maps/api/geocode/json?address="
   key="&key=AIzaSyCLy1Dk2Eq_FrveeeV3l3VYpYnRrUAOS90"
 
