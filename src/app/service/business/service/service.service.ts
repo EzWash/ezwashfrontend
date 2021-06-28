@@ -25,7 +25,7 @@ export class ServiceService {
 
   //Create Service
   createServiceCarWash(carWashId: number, service: { price: number; name: string; description: string; is_promotion: number; details: string }): Observable<Service>{
-    return this.http.post<Service>(`${this.basePath}/carwashes/${carWashId}/service`,
+    return this.http.post<Service>(`${this.basePath}/carwashes/${carWashId}/services`,
       JSON.stringify(service),
       this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
@@ -40,7 +40,7 @@ export class ServiceService {
 
   //Get Service by CarWashId
   getServiceByCarWashId(carWashId: number): Observable<Service[]>{
-    return this.http.get<Service[]>(`${this.basePath}/carwashes/${carWashId}/service`,
+    return this.http.get<Service[]>(`${this.basePath}/carwashes/${carWashId}/services`,
       this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }

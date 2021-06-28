@@ -1,141 +1,152 @@
-<br>
 <div class="general">
-<div class="up">
-  <div class="left">
-    <div class="title">
-      Informacion General &nbsp;
-      <button>Editar</button>
-    </div>
-    <br>
 
-    <div class="generalInformation">
-      <img class="imageCarWash" src="https://media.discordapp.net/attachments/700237020278030396/855956232509587486/lavado-de-autos-vs-auto-detailing-1000x641.png">
-      <div class="getInformationCarWash">
-        <p class="title">{{carwashData.name}}</p>
-        <p> <mat-icon matPrefix>feed</mat-icon> {{carwashData.description}}</p>
-        <p><mat-icon matPrefix>email</mat-icon> {{carwashData.email}}</p>
-        <p><mat-icon matPrefix>person</mat-icon> {{carwashData.name_owner}} </p>
-        <p><mat-icon matPrefix>smartphone</mat-icon> {{carwashData.phone_number}}</p>
-
+  <div class="Left">
+    <div class="CarWash">
+      <div class="title">
+        Información General &nbsp;
+        <button>Editar</button>
       </div>
+      <br>
 
-    </div>
-  </div>
-  <div class="Staff">
-    <div class="title" >
-      Equipo &nbsp;
-      <button>
-        <a class="redirect" href="http://localhost:4200/register-staff">Nuevo</a>
-      </button>
-    </div>
-    <br>
-    <div  class ="rollbackStaff">
-      <div class="scrollStaff" *ngIf="staffList.length > 0; else zeroItems">
-          <div *ngFor="let s of staffList">
-            <mat-card class="cardStaff">
-              <mat-card-header class="cardstaff1">
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>
-                  {{s.first_name}} {{s.last_name}}
+      <div class="generalInformation">
+        <img class="imageCarWash" src="https://media.discordapp.net/attachments/700237020278030396/855956232509587486/lavado-de-autos-vs-auto-detailing-1000x641.png">
+        <div class="getInformationCarWash">
+          <p class="title">{{carwashData.name}}</p>
+          <p> <mat-icon matPrefix>feed</mat-icon> {{carwashData.description}}</p>
+          <p><mat-icon matPrefix>email</mat-icon> {{carwashData.email}}</p>
+          <p><mat-icon matPrefix>person</mat-icon> {{carwashData.name_owner}} </p>
+          <p><mat-icon matPrefix>smartphone</mat-icon> {{carwashData.phone_number}}</p>
 
-                </mat-card-title>
-                <mat-card-subtitle>
-                  <mat-icon class="icon" >smartphone</mat-icon> {{s.phone_number}}
-                  &nbsp; &nbsp;
-                  <mat-icon class="icon">email</mat-icon> {{s.email}}
-                </mat-card-subtitle>
-               </mat-card-header>
-              <div class="cardstaff2">
-                <a><mat-icon inline aria-hidden="false" aria-label="Edit" style="padding-right: 10px;">edit</mat-icon></a>
-                <a><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
-              </div>
-
-            </mat-card>
-          </div>
-
-      </div>
-      <ng-template #zeroItems>
-        <div class="zeroVehicles">
-          <label class="lblZeroVehicles">No tienes trabajadores añadidos</label>
         </div>
-      </ng-template>
+
+      </div>
+    </div>
+    <div class="activeServices">
+      <div class="titleDown">
+        Servicios Activos &nbsp;
+      </div>
+      <br>
+      <div class="cardDown"  >
+        <div class="scrollActiveService">
+          <p class="empty" align="center">No se tienen servicios activos</p>
+        </div>
+      </div>
     </div>
 
   </div>
-</div>
-<br>
-<br>
-<br>
-<div class="down" >
-  <div class="a">
-    <div class="title" align="center">
-      Servicios Activos &nbsp;
-    </div>
-    <br>
-    <div class="cardDown" align="center"  >
-      <div class="scrollDown">
-        <p class="empty">No se tienen servicios activos</p>
-      </div>
-    </div>
-  </div>
-  <div class="a">
-    <div>
-      <div class="title" align="center">
-        Servicios Ofrecidos &nbsp;
-        <button class="button">
-          <a class="redirect" href="http://localhost:4200/register-service">Nuevo</a>
-        </button>
-      </div>
-        <br>
-      <div class="cardDown" >
-        <div class="scrollDown" *ngIf="serviceList.length > 0; else zeroItems">
-          <div *ngFor="let service of serviceList">
-            <div class="cardServicesO">
-              <mat-card-header class="cardsService">
-                <mat-card-title>
-                  {{service.name}}  S/.{{service.price}}<br>
-                </mat-card-title>
-                <mat-card-subtitle>
-                  - {{service.description}}<br>
-                </mat-card-subtitle>
-                <mat-card-subtitle>
-                  - {{service.details}}
-                </mat-card-subtitle>
-                  <!-- <mat-icon aria-label="Phone">phone</mat-icon>{{s.phone_number}}-->
-              </mat-card-header>
-              <div class="cardstaff2"align="center">
-                <a><mat-icon inline aria-hidden="false" aria-label="Edit" style="padding-right: 10px;">edit</mat-icon></a>
-                <a><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
+
+  <div class="Right">
+      <div class="subDown" >
+        <div class="Staff">
+          <div class="title" >
+            Equipo &nbsp;
+            <button>
+              <a class="redirect" href="http://localhost:4200/register-staff">Nuevo</a>
+            </button>
+          </div>
+          <br>
+          <div  class ="rollbackStaff">
+            <div class="scrollStaff" *ngIf="staffList.length > 0; else zeroItems">
+              <div *ngFor="let s of staffList">
+                <mat-card class="cardStaff">
+                  <mat-card-header class="cardstaff1">
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>
+                      {{s.first_name}} {{s.last_name}}
+
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                      <mat-icon class="icon" >smartphone</mat-icon> {{s.phone_number}}
+                      &nbsp; &nbsp;
+                      <mat-icon class="icon">email</mat-icon> {{s.email}}
+                    </mat-card-subtitle>
+                  </mat-card-header>
+                  <div class="cardstaff2">
+                    <a><mat-icon inline aria-hidden="false" aria-label="Edit" style="padding-right: 10px;">edit</mat-icon></a>
+                    <a><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
+                  </div>
+
+                </mat-card>
               </div>
+
+            </div>
+            <ng-template #zeroItems>
+              <div class="zeroVehicles">
+                <label class="lblZeroVehicles">No tienes trabajadores añadidos</label>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+        <div class="availableServices">
+          <div>
+            <div class="titleDown" >
+              Servicios Ofrecidos &nbsp;
+              <button class="button">
+                <a class="redirect" href="http://localhost:4200/register-service">Nuevo</a>
+              </button>
+            </div>
+              <br>
+            <div class="cardDown" >
+              <div class="scrollDown" *ngIf="serviceList.length > 0; else zeroItems">
+                <div *ngFor="let service of serviceList">
+                  <div class="cardServicesO">
+                    <mat-card-header class="cardsService">
+                      <mat-card-title>
+                        {{service.name}}  S/.{{service.price}}<br>
+                      </mat-card-title>
+                      <mat-card-subtitle>
+                        - {{service.description}}<br>
+                      </mat-card-subtitle>
+                      <mat-card-subtitle>
+                        - {{service.details}}
+                      </mat-card-subtitle>
+                        <!-- <mat-icon aria-label="Phone">phone</mat-icon>{{s.phone_number}}-->
+                    </mat-card-header>
+                    <div class="cardAvailableService">
+                      <a><mat-icon inline aria-hidden="false" aria-label="Edit" style=" padding-right: 10px;">edit</mat-icon></a>
+                      <a><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ng-template #zeroItems>
+                <div class="zeroVehicles">
+                  <label class="lblZeroVehicles">No tienes servicios añadidos</label>
+                </div>
+              </ng-template>
             </div>
           </div>
+
+          <br>
         </div>
-        <ng-template #zeroItems>
-          <div class="zeroVehicles">
-            <label class="lblZeroVehicles">No tienes servicios añadidos</label>
+        <div class="Comments">
+          <div class="titleDown" >
+            Calificiones y Reseñas &nbsp;
           </div>
-        </ng-template>
-      </div>
-    </div>
-
-    <br>
-  </div>
-  <div class="a">
-    <div class="title" align="center">
-      Calificiones y Reseñas &nbsp;
-    </div>
-    <br>
-    <div class="cardComment" align="center"  >
-      <div class="scrollDown">
-        <div *ngFor="let comment of commentList">
-          {{comment.description}}
-          {{comment.customer_id}}
-          {{comment.qualification}}
+          <br>
+          <div class="cardComment"  >
+            <div class="scrollDown">
+              <div class="contentComment">
+                <label class="titleComment">Calificación General</label> &nbsp;  <label  class="star1">★</label> {{result}}  <br>
+                <p class="totalComments">{{totalComments}} reseñas </p>
+                <div *ngFor="let comment of commentList">
+                  <div class="qualificationByCustomer">
+                    <p class="names"> {{comment.first_name}}  {{comment.last_name}} &nbsp; - &nbsp; </p>
+                    <div *ngFor="let number of [1,2,3,4,5]">
+                      <div *ngIf="number <= comment.qualification; else elseBlock">
+                        <label  class="star2">★</label>
+                      </div>
+                      <ng-template #elseBlock>
+                        <label  class="star3">★</label>
+                      </ng-template>
+                    </div>
+                  </div>
+                  <p>{{comment.description}}</p>
+                </div>
+              </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-</div>
 </div>
 
