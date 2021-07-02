@@ -67,7 +67,7 @@ import { RegisterReportComponent } from './pages/customer/register-report/regist
     ListFavCarWashesComponent,
     LoginUsersComponent,
     HomeCarwashCComponent,
-    UpdateCarwashComponent
+    UpdateCarwashComponent,
     RegisterReportComponent
 
 
