@@ -4,5 +4,6 @@ export interface Comment{
   qualification:number
   first_name:string
   last_name:string
+  carwash_id:number;
 
 }

@@ -31,7 +31,7 @@ export class RegisterServiceComponent implements OnInit {
   }
   createService():void{
     const newService={name:this.serviceData.name,description:this.serviceData.description,is_promotion:this.serviceData.is_promotion,price:this.serviceData.price,details:this.serviceData.details}
-    this.serviceApi.createServiceCarWash(1,newService).subscribe(()=>{this.navigateToPageHome()})
+    this.serviceApi.createServiceCarWash(1,newService).subscribe(()=>{})
   }
   onSubmit():void{
     if(this.serviceForm.form.valid){
@@ -39,7 +39,7 @@ export class RegisterServiceComponent implements OnInit {
       if(this.isEditMode){
         console.log('Actualizando')
       }else{
-        this.createService()
+
       }
     }else{
       console.log('Invalid Data')

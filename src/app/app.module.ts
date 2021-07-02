@@ -37,10 +37,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { LoginUsersComponent } from './pages/login/login-users/login-users.component';
 import {MatRadioModule} from "@angular/material/radio";
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import { UpdateServiceComponent } from './pages/carwash/update-service/update-service.component';
 import { ListVehiclesComponent } from './pages/customer/list-vehicles/list-vehicles.component';
 import { ListFavCarWashesComponent } from './pages/customer/list-fav-car-washes/list-fav-car-washes.component';
 import {authInterceptorProviders} from './helpers/auth-interceptor';
+import { HomeCarwashCComponent } from './pages/customer/home-carwash-c/home-carwash-c.component';
 
 
 
@@ -60,7 +62,8 @@ import {authInterceptorProviders} from './helpers/auth-interceptor';
     UpdateServiceComponent,
     ListVehiclesComponent,
     ListFavCarWashesComponent,
-    LoginUsersComponent
+    LoginUsersComponent,
+    HomeCarwashCComponent
 
   ],
   imports: [
@@ -86,7 +89,8 @@ import {authInterceptorProviders} from './helpers/auth-interceptor';
     MatNativeDateModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
 
   providers: [

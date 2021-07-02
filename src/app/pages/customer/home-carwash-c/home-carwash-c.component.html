@@ -2,12 +2,6 @@
 
   <div class="Left">
     <div class="CarWash">
-      <div class="title">
-        Información General &nbsp;
-        <button>Editar</button>
-      </div>
-      <br>
-
       <div class="generalInformation">
         <img class="imageCarWash" src="https://media.discordapp.net/attachments/700237020278030396/855956232509587486/lavado-de-autos-vs-auto-detailing-1000x641.png">
         <div class="getInformationCarWash">
@@ -21,15 +15,20 @@
 
       </div>
     </div>
-    <div class="activeServices">
-      <div class="titleDown">
-        Servicios Activos &nbsp;
-      </div>
-      <br>
-      <div class="cardDown"  >
-        <div class="scrollActiveService">
-          <p class="empty" align="center">No se tienen servicios activos</p>
-        </div>
+    <div>
+      <p class="title">Calificaciones</p>
+      <div class="Calificaciones">
+       <div class="part1">
+         <p><label class="star1">★</label> <label class="lblResult">{{this.result}}</label> </p>
+         <p class="lblTotalComments">{{totalComments}} reseñas</p>
+       </div>
+       <div class="part2">
+         <p><label class="star4">★</label>5 <progress class="progressBar" max="{{totalComments}}" value="{{this.star5}}" > </progress>  {{this.star5}} reseñas</p>
+         <p><label class="star4">★</label>4 <progress class="progressBar" max="{{totalComments}}" value="{{this.star4}}" > </progress>  {{this.star4}} reseñas</p>
+         <p><label class="star4">★</label>3 <progress class="progressBar" max="{{totalComments}}" value="{{this.star3}}" > </progress>  {{this.star3}} reseñas</p>
+         <p><label class="star4">★</label>2 <progress class="progressBar" max="{{totalComments}}" value="{{this.star2}}" > </progress>  {{this.star2}} reseñas</p>
+         <p><label class="star4">★</label>1 <progress class="progressBar" max="{{totalComments}}" value="{{this.star1}}" > </progress>  {{this.star1}} reseñas</p>
+       </div>
       </div>
     </div>
 
@@ -37,51 +36,11 @@
 
   <div class="Right">
     <div class="subDown" >
-      <div class="Staff">
-        <div class="title" >
-          Equipo &nbsp;
-          <button class="button" (click)="openDialogRegisterStaff()">Nuevo</button>
-        </div>
-        <br>
-        <br>
-        <div  class ="rollbackStaff">
-          <div class="scrollStaff" *ngIf="staffList.length > 0; else zeroItems">
-            <div *ngFor="let s of staffList">
-              <mat-card class="cardStaff">
-                <mat-card-header class="cardstaff1">
-                  <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title class="title2">
-                    {{s.first_name}} {{s.last_name}}
-
-                  </mat-card-title>
-                  <mat-card-subtitle>
-                    <mat-icon class="icon" >smartphone</mat-icon> {{s.phone_number}}
-                    &nbsp; &nbsp;
-                    <mat-icon class="icon">email</mat-icon> {{s.email}}
-                  </mat-card-subtitle>
-                </mat-card-header>
-                <div class="cardstaff2">
-                  <a ><mat-icon inline aria-hidden="false" aria-label="Edit" style="padding-right: 10px;">edit</mat-icon></a>
-                  <a><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
-
-                </div>
-
-              </mat-card>
-            </div>
-
-          </div>
-          <ng-template #zeroItems>
-            <div class="zeroStaff">
-              <label class="empty">No tienes trabajadores añadidos</label>
-            </div>
-          </ng-template>
-        </div>
-      </div>
       <div class="availableServices">
         <div>
           <div class="titleDown" >
             Servicios Ofrecidos &nbsp;
-            <button class="button" (click)="openDialogRegisterService()">Nuevo</button>
+            <button class="button">Contratar</button>
           </div>
           <br>
           <div class="cardDown" >
@@ -89,8 +48,8 @@
               <div *ngFor="let service of serviceList;index as i">
                 <div class="cardServicesO">
                   <mat-card-header class="cardsService">
-                    <mat-card-title class="title2">
-                      {{service.name}}  S/.{{service.price}}<br>
+                      <mat-card-title class="title2">
+                      {{service.name}} <label class="lblPrice">S/.{{service.price}}</label> <br>
                     </mat-card-title>
                     <mat-card-subtitle class="description" >
                       - {{service.description}}<br>
@@ -100,10 +59,6 @@
                     </mat-card-subtitle>
                     <!-- <mat-icon aria-label="Phone">phone</mat-icon>{{s.phone_number}}-->
                   </mat-card-header>
-                  <div class="cardAvailableService">
-                    <a (click)="openDialogUpdateService(i)"><mat-icon inline aria-hidden="false" aria-label="Edit" style=" padding-right: 10px;">edit</mat-icon></a>
-                    <a><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -119,14 +74,13 @@
       </div>
       <div class="Comments">
         <div class="titleDown" >
-          Calificiones y Reseñas &nbsp;
+          Reseñas &nbsp;
         </div>
         <br>
         <div class="cardComment"  >
           <div class="scrollDown" *ngIf="commentList.length > 0; else zeroItemsComments">
             <div class="contentComment">
-              <label class="titleComment">Calificación General</label> &nbsp;  <label  class="star1">★</label> {{carwashData.qualification}}  <br>
-              <p class="totalComments">{{totalComments}} reseñas </p>
+
               <div *ngFor="let comment of commentList">
                 <div class="qualificationByCustomer">
                   <p class="names"> {{comment.first_name}}  {{comment.last_name}} &nbsp; - &nbsp; </p>

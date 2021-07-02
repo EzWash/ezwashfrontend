@@ -1,8 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from "@angular/forms";
+import {FormControl, NgForm, Validators} from "@angular/forms";
 import {Staff} from "../../../model/accounts/staff";
 import {CarwashstaffService} from "../../../service/accounts/carwash/carwashstaff-api.service";
 import {ActivatedRoute,Router} from "@angular/router";
+import {StaffService} from "../../../service/accounts/staff/staff-api.service";
 
 @Component({
   selector: 'app-register-staff',
@@ -14,8 +15,10 @@ export class RegisterStaffComponent implements OnInit {
   staffForm!:NgForm;
   staffID!:number
   staffData:Staff={} as Staff
+  staffList:Staff[]=[]
   isEditMode=false
-  constructor(private staffApi:CarwashstaffService,private router:Router,private route:ActivatedRoute) { }
+  email = new FormControl('', [Validators.required, Validators.email]);
+  constructor(private carwashstaffService:CarwashstaffService,private staffApi: StaffService, private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.staffID=Number(this.route.params.subscribe(params=>{
@@ -26,12 +29,12 @@ export class RegisterStaffComponent implements OnInit {
     }))
   }
   navigateToHomeCarWashPage(): void{
-    this.router.navigate(['/home-page-car-wash'])
+    this.router.navigate(['/home-carwash'])
       .then(()=>console.log(this.route.url))
   }
   createStaff():void{
     const newStaff={email:this.staffData.email,gender:this.staffData.gender,first_name:this.staffData.first_name,last_name:this.staffData.last_name,phone_number:this.staffData.phone_number}
-    this.staffApi.createEmployee(newStaff,1).subscribe(()=>{this.navigateToHomeCarWashPage()})
+    this.carwashstaffService.createEmployee(newStaff,1).subscribe(()=>{} )
   }
   onSubmit():void{
     if(this.staffForm.form.valid){
@@ -39,7 +42,7 @@ export class RegisterStaffComponent implements OnInit {
       if(this.isEditMode){
         console.log('Actualizando')
       }else{
-        this.createStaff()
+
       }
     }else{
       console.log('Invalid Data')

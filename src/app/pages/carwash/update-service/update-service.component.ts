@@ -28,9 +28,14 @@ export class UpdateServiceComponent implements OnInit {
   navigateToHome():void{
     console.log("Servicio actualizado")
   }
-  updateService():void{
-    const updatedService={name:this.serviceData.name,description:this.serviceData.description,is_promotion:this.serviceData.is_promotion,price:this.serviceData.price,details:this.serviceData.details}
-    this.serviceApi.updateService(1,1,updatedService).subscribe(()=>{this.navigateToHome()})
+  updateService(idService:number):void{
+    this.serviceApi.updateService(idService,this.serviceData).subscribe((response:Service)=>{
+      console.log(response)
+    });
+  }
+  cancelEdit(): void {
+    this.isEditMode = false;
+    this.serviceForm.resetForm();
   }
   onSubmit():void{
     if(this.serviceForm.form.valid){
@@ -38,7 +43,7 @@ export class UpdateServiceComponent implements OnInit {
       if(this.isEditMode){
         console.log('Actualizando')
       }else{
-        this.updateService()
+
       }
     }else{
       console.log('Invalid Data')
