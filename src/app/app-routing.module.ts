@@ -33,10 +33,10 @@ const routes: Routes = [
   { path: 'history-contracts', component:HistoryContractsComponent},
   { path: 'list-fav-carwashes', component:ListFavCarWashesComponent},
   { path: 'list-vehicles', component:ListVehiclesComponent},
-  {path:'home-carwash-c', component: HomeCarwashCComponent},
+  { path:'home-carwash-c', component: HomeCarwashCComponent},
   { path: 'home-customer', component:HomeCustomerComponent },
   { path: '**', component: NotFoundComponent },
-  { path: 'register-report',component:RegisterReportComponent},
+  { path: 'register-report',component:RegisterReportComponent}
 ];
 
 @NgModule({
