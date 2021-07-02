@@ -50,5 +50,6 @@ export class UpdateCarwashComponent implements OnInit {
     }else{
       console.log('Invalid Data')
     }
+
   }
 }
