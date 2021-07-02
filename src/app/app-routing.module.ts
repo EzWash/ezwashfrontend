@@ -14,6 +14,7 @@ import {HistoryContractsComponent} from "./pages/customer/history-contracts/hist
 import {UpdateServiceComponent} from "./pages/carwash/update-service/update-service.component";
 import {ListFavCarWashesComponent} from "./pages/customer/list-fav-car-washes/list-fav-car-washes.component";
 import {ListVehiclesComponent} from "./pages/customer/list-vehicles/list-vehicles.component";
+import {HomeCustomerComponent} from './pages/customer/home-customer/home-customer.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'history-contracts', component:HistoryContractsComponent},
   { path: 'list-fav-carwashes', component:ListFavCarWashesComponent},
   { path: 'list-vehicles', component:ListVehiclesComponent},
+  { path: 'home-customer', component:HomeCustomerComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

@@ -45,14 +45,20 @@ export class LoginUsersComponent implements OnInit {
     this.loading = true;
     this.authService.login(this.form.value).subscribe(
       (data) => {
-        console.log("Loguando")
         this.tokenStorageService.saveToken(data.token);
         this.tokenStorageService.saveUser(data.user);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        return this.router.navigate(['/home-carwash']).then(()=>{
-          window.location.reload();
-        });
+        if(this.tokenStorageService.getUser().role === "CARWASH"){
+          return this.router.navigate(['/home-carwash']).then(()=>{
+            window.location.reload();
+            console.log(this.tokenStorageService.getUser());
+          });
+        }else{
+          return this.router.navigate(['/home-customer']).then(()=>{
+            window.location.reload();
+          });
+        }
       },
       error => {
         this.error();
