@@ -7,6 +7,8 @@ import {Customer} from "../../../model/accounts/customer";
   providedIn: 'root'
 })
 export class CustomerService {
+
+  //basePath = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api/customers";
   basePath='http://localhost:8080/api/customers'
   httpOptions={headers: new HttpHeaders({'Content-Type':'application/json'})}
   constructor(private http:HttpClient) {}
@@ -23,7 +25,7 @@ export class CustomerService {
 
   //Create Customer
   createCustomer (item:any ):Observable<Customer>{
-    return this.http.post<Customer>(this.basePath,JSON.stringify(item),
+    return this.http.post<Customer>("http://localhost:8080/api/auth/customers",JSON.stringify(item),
       this.httpOptions)
       .pipe(retry(2),catchError(this.handleError));
   }

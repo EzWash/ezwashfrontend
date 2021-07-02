@@ -8,8 +8,10 @@ import {catchError, retry} from "rxjs/operators";
   providedIn: 'root'
 })
 export class ContractApiService {
-  basePath = "http://localhost:8080/api";
+  basePath = "http://localhost:8080/api"
+  //basePath = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api";
   httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})}
+
   constructor(private http: HttpClient) { }
 
   handleError(error: HttpErrorResponse): Observable<never> {

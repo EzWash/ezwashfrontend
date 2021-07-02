@@ -10,6 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class CarwashService {
 
+  //basePath = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api/carwashes";
   basePath="http://localhost:8080/api/carwashes"
   httpOptions={ headers: new HttpHeaders({'Content-Type': 'application/json'})}
 
@@ -27,7 +28,7 @@ export class CarwashService {
 
   // Create Carwash
   createCarwash(item: any): Observable<Carwash> {
-    return this.http.post<Carwash>(this.basePath, JSON.stringify(item), this.httpOptions)
+    return this.http.post<Carwash>("http://localhost:8080/api/auth/carwashes", JSON.stringify(item), this.httpOptions)
     .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -43,7 +44,12 @@ export class CarwashService {
                                   this.httpOptions)
                                   .pipe(retry(2), catchError(this.handleError));
   }
-
+  // Update Carwash by Id
+  updateCarWashQualification(id: number, item: any): Observable<Carwash>{
+    return this.http.put<Carwash>(`${this.basePath}/${id}/qualification`, JSON.stringify(item),
+      this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
   // Get Carwash by Id
   getCarWashById(id: number): Observable<Carwash>{
     return this.http.get<Carwash>(`${this.basePath}/${id}`, this.httpOptions)
@@ -69,5 +75,11 @@ export class CarwashService {
                                     this.httpOptions)
                                     .pipe(retry(2), catchError(this.handleError));
   }
+  //get All CarWash
+  getAllCarWash (): Observable<Carwash[]>{
+  return this.http.get<Carwash[]>(`${this.basePath}`,
+this.httpOptions)
+.pipe(retry(2), catchError(this.handleError));
+}
 
 }

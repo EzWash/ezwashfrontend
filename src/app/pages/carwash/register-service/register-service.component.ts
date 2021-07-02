@@ -3,6 +3,7 @@ import {NgForm} from "@angular/forms";
 import {Service} from "../../../model/business/service";
 import {ServiceService} from "../../../service/business/service/service.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {TokenStorageService} from "../../../service/token-storage.service";
 
 @Component({
   selector: 'app-register-service',
@@ -15,7 +16,7 @@ export class RegisterServiceComponent implements OnInit {
   serviceID!:number
   serviceData:Service={} as Service
   isEditMode=false
-  constructor(private serviceApi:ServiceService,private router:Router,private route:ActivatedRoute) { }
+  constructor(private tokenStorageService: TokenStorageService, private serviceApi:ServiceService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.serviceID=Number(this.route.params.subscribe(params=>{
@@ -31,7 +32,7 @@ export class RegisterServiceComponent implements OnInit {
   }
   createService():void{
     const newService={name:this.serviceData.name,description:this.serviceData.description,is_promotion:this.serviceData.is_promotion,price:this.serviceData.price,details:this.serviceData.details}
-    this.serviceApi.createServiceCarWash(1,newService).subscribe(()=>{this.navigateToPageHome()})
+    this.serviceApi.createServiceCarWash(this.tokenStorageService.getUser().id,newService).subscribe(()=>{})
   }
   onSubmit():void{
     if(this.serviceForm.form.valid){
@@ -39,7 +40,7 @@ export class RegisterServiceComponent implements OnInit {
       if(this.isEditMode){
         console.log('Actualizando')
       }else{
-        this.createService()
+
       }
     }else{
       console.log('Invalid Data')

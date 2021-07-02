@@ -1,176 +1,163 @@
-@media only screen and (min-width: 1023px) {
-  .tituloRegistro {
-    color: #707070;
+@import url('http://fonts.cdnfonts.com/css/segoe-ui-4');
 
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    width: 50%;
-    box-shadow: 2px 2px 5px black;
-    border-radius: 10px;
-    margin: 0 auto;
-
-
-  }
-
-  .textElement2 {
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 24px;
-  }
-
-  .element1 {
-    grid-column: 1/7;
-    justify-self: center;
-
-
-  }
-
-  .telement1 {
-    color: #707070;
-  }
-
-  .element2 {
-    grid-column: 7/11;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background-color: #89D3E2;
-
-
-  }
-
-  .element2_1 {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    align-content: space-between;
-    align-items: center;
-  }
-
-  .input {
-    position: relative;
-    width: 45%;
-  }
-
-  .group-input {
-    justify-content: center;
-  }
-
-  .middle {
-    width: 45%;
-  }
-
-  .balls {
-    width: 150px;
-    height: 150px;
-  }
-
+.container{
+  padding: 2% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@media only screen and (max-width: 1023px) {
-  .tituloRegistro {
-    color: #707070;
+.container h1{
+  color: gray;
+  font-weight: bold;
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+.mat-card{
+  padding: 0 !important;
+  background-color: #89D3E2 !important;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+}
+
+.card-content{
+  width: 60vw;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 66% [form-start] 33% [badge-start];
+}
+
+.form-register{
+  width: 100%;
+  border-radius: 20px 0px 0px 20px;
+  grid-column: [form-start] / [badge-start];
+  display: grid;
+  grid-template-columns: 5% 5% 80% 5% 5%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". subtitle subtitle subtitle ."
+    ". . form . ."
+    ". . button . .";
+  background-color: white;
+}
+
+.mat-card-subtitle{
+  grid-area: subtitle;
+  width: 100%;
+  grid-row: 0;
+  font-family: segoe;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.button {
+  grid-area: button;
+  margin-bottom: 5%;
+  background-color: #89D3E2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fields{
+  grid-area: form;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 2%;
+}
+
+.double-fields{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.double-fields mat-form-field{
+  width: 45%;
+}
+
+.badge{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+}
+
+.badge h2{
+  margin: 40px 5px;
+  text-align: left;
+  font-size: 28px;
+  color: white;
+}
+
+.badge-img1{
+  display:flex;
+  align-self: flex-end;
+  width: 150px;
+}
+
+.badge-img2{
+  display:flex;
+  align-self: flex-start;
+  width: 150px;
+}
+
+@media only screen and (max-width: 800px) {
+  .container{
+    padding: 5% 0;
+  }
+  .card-content{
+    width: 100%;
+    grid-template-columns: 100% [form-start];
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    width: 50%;
-    box-shadow: 2px 2px 5px black;
-    border-radius: 10px;
-    margin: 0 auto;
+  .form-register{
+    grid-column: [form-start];
   }
 
-  .textElement2 {
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 24px;
+  .double-fields{
+    display: flex;
+    flex-direction: column;
   }
-
-  .element1 {
-    grid-column: 1/11;
-    justify-self: center;
+  .double-fields mat-form-field{
+    width: 100%;
   }
-
-  .telement1 {
-    color: #707070;
-  }
-
-  .element2 {
-    display: none;
-  }
-
-
-  .input {
-    position: relative;
-    width: 45%;
-  }
-
-  .group-input {
-    justify-content: center;
-  }
-
-  .middle {
-    width: 90%;
-  }
-
-  .balls {
-    width: 150px;
-    height: 150px;
+  .badge{
+    visibility: hidden;
   }
 }
-@media only screen and (max-width: 700px) {
-  .tituloRegistro {
-    color: #707070;
 
+
+@media only screen and (max-width: 500px) {
+  .container{
+    padding: 5% 0;
+  }
+  .card-content{
+    grid-template-columns: 100% [form-start];
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    width: 80%;
-    box-shadow: 2px 2px 5px black;
-    border-radius: 10px;
-    margin: 0 auto;
+  .mat-card-subtitle{
+    font-size: 20px;
   }
 
-  .textElement2 {
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 24px;
+  .form-register{
+    width: 100%;
+    grid-column: [form-start];
+    border-radius: 0px 0px 0px 0px;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.3);
   }
-
-  .element1 {
-    grid-column: 1/11;
-    justify-self: center;
+  .double-fields{
+    display: flex;
+    flex-direction: column;
   }
-
-  .telement1 {
-    color: #707070;
-  }
-
-  .element2 {
-    display: none;
-  }
-
-
-  .input {
-    position: relative;
-    width: 45%;
-  }
-
-  .group-input {
-    justify-content: center;
-  }
-
-  .middle {
-    width: 90%;
-  }
-
-  .balls {
-    width: 150px;
-    height: 150px;
+  .double-fields mat-form-field{
+    width: 100%;
   }
 }
