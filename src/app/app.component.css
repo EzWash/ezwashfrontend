@@ -1,0 +1,59 @@
+.mat-toolbar{
+  background-color: #89D3E2 !important;
+  color: white;
+}
+
+.container {
+  width: 100%;
+}
+
+.no-login {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+.buttons-no-login {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pc-class {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.icon-home img{
+  width: 220%;
+}
+
+.middle {
+  display: flex;
+  justify-content: center;
+  padding: 3px 0;
+}
+
+.middle:focus {
+  outline: none;
+}
+
+.no-outline {
+  border: none;
+  border-radius: 20px;
+  width: 95%;
+  padding-left: 10px;
+}
+
+.no-outline:focus {
+  outline: none;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mobile-class{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

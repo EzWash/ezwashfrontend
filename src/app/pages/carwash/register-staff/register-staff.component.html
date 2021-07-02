@@ -1,0 +1,62 @@
+
+<div class="element1">
+ <br>
+ <p class="telement1" align="center"><b>Registrar al encargado del recojo de vehiculos</b></p>
+ <form novalidate (submit)="onSubmit()" #staffForm="ngForm" align="center">
+
+    <mat-form-field appearance="fill" class="input1">
+      <mat-icon matPrefix>person</mat-icon>
+      <mat-label>Nombres</mat-label>
+      <input
+      matInput placeholder="name"
+      name="name"
+      required [(ngModel)]="staffData.first_name" >
+    </mat-form-field>
+   &nbsp;
+     <mat-form-field appearance="fill" class="input1">
+       <mat-icon matPrefix>person</mat-icon>
+       <mat-label>Apellidos</mat-label>
+       <input
+        matInput placeholder="last_name"
+        name="last_name"
+        required [(ngModel)]="staffData.last_name">
+      </mat-form-field>
+   <div>
+    <mat-form-field appearance="fill" class="input">
+      <mat-icon matPrefix>email</mat-icon>
+      <mat-label>E-Mail</mat-label>
+      <input id="email"
+        matInput placeholder="email"
+        name="email"
+        required [(ngModel)]="staffData.email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+      <mat-error *ngIf="email.invalid">No es un email válido</mat-error>
+    </mat-form-field>
+   </div>
+
+    <mat-form-field appearance="fill" class="input1">
+      <mat-icon matPrefix>male</mat-icon>
+      <mat-label>Gender</mat-label>
+      <input
+        matInput placeholder="gender"
+        name="gender"
+        required [(ngModel)]="staffData.gender">
+    </mat-form-field>
+     &nbsp;
+    <mat-form-field appearance="fill" class="input1">
+      <mat-icon matPrefix>phone</mat-icon>
+      <mat-label>Telefono</mat-label>
+      <input
+        matInput placeholder="phoneNumber"
+        name="phoneNumber"
+        required [(ngModel)]="staffData.phone_number" pattern="^9[0-9]{8}">
+    </mat-form-field>
+    <br>
+    <ng-container>
+      <button  mat-dialog-close mat-button style="text-transform: uppercase">cancelar </button>
+      &nbsp;
+      <button  [mat-dialog-close]="true" mat-button [disabled]="staffForm.invalid" style="text-transform: uppercase"  >agregar</button>
+    </ng-container>
+
+ </form>
+</div>
+

@@ -1,0 +1,69 @@
+<br>
+
+<div class="element1">
+  <br>
+  <p align="center"><b>Edita el Servicio</b></p>
+  <form (submit)="onSubmit()" #serviceForm="ngForm" align="center">
+    <div>
+      <mat-form-field appearance="outline" class="input">
+        <mat-icon matPrefix>local_car_wash</mat-icon>
+        <mat-label>Lavado Motor</mat-label>
+        <input
+          matInput placeholder="name"
+          name="name"
+          required [(ngModel)]="serviceData.name">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="input">
+        <mat-icon matPrefix>attach_money</mat-icon>
+        <mat-label>S/. 30</mat-label>
+        <input
+          matInput placeholder="price"
+          name="price"
+          required [(ngModel)]="serviceData.price">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="input">
+        <mat-icon matPrefix>format_align_center</mat-icon>
+        <mat-label>Seguimos los procedimientos de lavado del motor cuidando los detalles
+          recomendados por la marca para proteger los componentes electronicos
+          alrededor del motor</mat-label>
+        <input
+          matInput placeholder="description"
+          name="description"
+          required [(ngModel)]="serviceData.description">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="input">
+        <mat-icon matPrefix>format_align_center</mat-icon>
+        <mat-label>Utilizamos liquidos desengrasantes que nos permite remover la
+         suciedad, el polvo, tierra y aquellos agentes externos adheridos
+         al motor</mat-label>
+        <input
+          matInput placeholder="details"
+          name="details"
+          required [(ngModel)]="serviceData.details">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="input">
+        <mat-icon matPrefix>attach_money</mat-icon>
+        <mat-label>Costo en Promocion S/.</mat-label>
+        <input
+          matInput placeholder="is_promotion"
+          name="is_promotion"
+          required [(ngModel)]="serviceData.is_promotion">
+      </mat-form-field>
+    </div>
+    <div>
+      <ng-container>
+        <button  mat-dialog-close mat-button style="text-transform: uppercase">cancelar </button>
+        &nbsp;
+        <button  [mat-dialog-close]="true" mat-button [disabled]="serviceForm.invalid" style="text-transform: uppercase"  >agregar</button>
+      </ng-container>
+    </div>
+  </form>
+</div>
+
+

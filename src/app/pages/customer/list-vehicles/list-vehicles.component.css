@@ -1,0 +1,180 @@
+@import url('http://fonts.cdnfonts.com/css/segoe-ui-4');
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+/* track */
+
+::-webkit-scrollbar-track {
+  border-radius: 25px;
+}
+
+
+/* handle */
+
+::-webkit-scrollbar-thumb {
+  backround: #89d3e2;
+  border-radius: 10px;
+}
+
+
+/* handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #89d3d9;
+  cursor:pointer;
+}
+
+
+.vehicles{
+  margin-left: 22vw;
+  margin-right: 22vw;
+  margin-top:30px;
+  padding-bottom: 60px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+}
+
+.vehiclesList{
+  margin-right: 5vw;
+  margin-left: 5vw;
+  margin-top: 30px;
+  height: 400px;
+  overflow-y: scroll;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  margin-bottom: 50px;
+}
+
+.vehiclesItem{
+  margin-bottom: 15px;
+  margin-top: 15px;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.vehiclesTitle{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: 'segoe ui';
+}
+
+
+
+.zeroStaff{
+  text-align: center;
+  margin-top: 40px;
+
+}
+
+.lblZeroVehicles{
+  color: #707070;
+  font-family: "segoe ui";
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.vehiclesItem{
+  border-radius: 20px;
+}
+
+.mat-card-avatar {
+  height: 80px;
+  width: 90px;
+  border-radius: 20%;
+  flex-shrink: 0;
+  margin: -7px;
+  object-fit: cover;
+}
+
+.itemLeft{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.itemInfo{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.itemRight{
+  display: flex;
+  flex-direction: column;
+}
+
+.iconWarning{
+  color:red;
+}
+
+.iconstar{
+  color:yellow;
+}
+
+.lblItemInfo{
+  font-family: 'segoe ui';
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  color: #707070;
+}
+
+#vehicleName{
+  font-size: 18px;
+
+  color: black;
+}
+
+
+
+
+@media screen and (max-width: 1000px) {
+
+  .lbliteminfo{
+    font-size: 11px;
+    margin-bottom: -2px;
+    margin-top: -2px;
+  }
+
+  #carwashname{
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .carwashestitle{
+    font-size: 15px;
+  }
+
+
+  .lblzerocarwashes{
+    font-size: 15px;
+  }
+
+
+  .mat-card-avatar {
+    height: 60px;
+    width: 80px;
+    margin-top: 10px;
+  }
+
+  .lbliteminfo{
+    font-size: 8px;
+    margin-bottom: -2px;
+    margin-top: -2px;
+  }
+
+  #carwashname{
+    font-size: 10px;
+  }
+}

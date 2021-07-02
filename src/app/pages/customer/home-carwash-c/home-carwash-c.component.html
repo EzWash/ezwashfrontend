@@ -1,0 +1,109 @@
+<div class="general">
+
+  <div class="Left">
+    <div class="CarWash">
+      <div class="generalInformation">
+        <img class="imageCarWash" src="https://media.discordapp.net/attachments/700237020278030396/855956232509587486/lavado-de-autos-vs-auto-detailing-1000x641.png">
+        <div class="getInformationCarWash">
+          <p class="title">{{carwashData.name}}</p>
+          <p> <mat-icon matPrefix>feed</mat-icon> {{carwashData.description}}</p>
+          <p><mat-icon matPrefix>email</mat-icon> {{carwashData.email}}</p>
+          <p><mat-icon matPrefix>person</mat-icon> {{carwashData.name_owner}} </p>
+          <p><mat-icon matPrefix>smartphone</mat-icon> {{carwashData.phone_number}}</p>
+
+        </div>
+
+      </div>
+    </div>
+    <div>
+      <p class="title">Calificaciones</p>
+      <div class="Calificaciones">
+       <div class="part1">
+         <p><label class="star1">★</label> <label class="lblResult">{{this.result}}</label> </p>
+         <p class="lblTotalComments">{{totalComments}} reseñas</p>
+       </div>
+       <div class="part2">
+         <p><label class="star4">★</label>5 <progress class="progressBar" max="{{totalComments}}" value="{{this.star5}}" > </progress>  {{this.star5}} reseñas</p>
+         <p><label class="star4">★</label>4 <progress class="progressBar" max="{{totalComments}}" value="{{this.star4}}" > </progress>  {{this.star4}} reseñas</p>
+         <p><label class="star4">★</label>3 <progress class="progressBar" max="{{totalComments}}" value="{{this.star3}}" > </progress>  {{this.star3}} reseñas</p>
+         <p><label class="star4">★</label>2 <progress class="progressBar" max="{{totalComments}}" value="{{this.star2}}" > </progress>  {{this.star2}} reseñas</p>
+         <p><label class="star4">★</label>1 <progress class="progressBar" max="{{totalComments}}" value="{{this.star1}}" > </progress>  {{this.star1}} reseñas</p>
+       </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="Right">
+    <div class="subDown" >
+      <div class="availableServices">
+        <div>
+          <div class="titleDown" >
+            Servicios Ofrecidos &nbsp;
+            <button class="button">Contratar</button>
+          </div>
+          <br>
+          <div class="cardDown" >
+            <div class="scrollDown" *ngIf="serviceList.length > 0; else zeroItemsServices">
+              <div *ngFor="let service of serviceList;index as i">
+                <div class="cardServicesO">
+                  <mat-card-header class="cardsService">
+                      <mat-card-title class="title2">
+                      {{service.name}} <label class="lblPrice">S/.{{service.price}}</label> <br>
+                    </mat-card-title>
+                    <mat-card-subtitle class="description" >
+                      - {{service.description}}<br>
+                    </mat-card-subtitle>
+                    <mat-card-subtitle class="description">
+                      - {{service.details}}
+                    </mat-card-subtitle>
+                    <!-- <mat-icon aria-label="Phone">phone</mat-icon>{{s.phone_number}}-->
+                  </mat-card-header>
+                </div>
+              </div>
+            </div>
+            <ng-template #zeroItemsServices>
+              <div class="zeroStaff">
+                <label class="empty">No tienes servicios añadidos</label>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+
+        <br>
+      </div>
+      <div class="Comments">
+        <div class="titleDown" >
+          Reseñas &nbsp;
+        </div>
+        <br>
+        <div class="cardComment"  >
+          <div class="scrollDown" *ngIf="commentList.length > 0; else zeroItemsComments">
+            <div class="contentComment">
+
+              <div *ngFor="let comment of commentList">
+                <div class="qualificationByCustomer">
+                  <p class="names"> {{comment.first_name}}  {{comment.last_name}} &nbsp; - &nbsp; </p>
+                  <div *ngFor="let number of [1,2,3,4,5]">
+                    <div *ngIf="number <= comment.qualification; else elseBlock">
+                      <label  class="star2">★</label>
+                    </div>
+                    <ng-template #elseBlock>
+                      <label  class="star3">★</label>
+                    </ng-template>
+                  </div>
+                </div>
+                <p class="description">{{comment.description}}</p>
+              </div>
+            </div>
+          </div>
+          <ng-template #zeroItemsComments>
+            <div class="zeroStaff">
+              <label class="empty">No tienes comentarios</label>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

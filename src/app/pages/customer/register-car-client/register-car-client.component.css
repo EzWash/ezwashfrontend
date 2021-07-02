@@ -1,0 +1,35 @@
+.tituloRegistro{
+  color: #707070;
+}
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin-top: 5%;
+}
+
+.textElement2{
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 24px;
+}
+
+.element1{
+  box-shadow: 2px 2px 5px black;
+  border-radius: 10px;
+  margin: 0 auto;
+  grid-column: 2/3;
+  width:100%;
+
+}
+.telement1{
+  color: #707070;
+  font-size: x-large;
+}
+
+.input{
+  position: relative;
+  width: 45%;
+}
+.group-input{
+  justify-content: center;
+}
