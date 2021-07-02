@@ -1,7 +1,10 @@
 <div class="container">
+  <mat-spinner *ngIf="isLoading" class="spinner" diameter="100"></mat-spinner>
   <h1>Registro CarWash</h1>
+
   <mat-card>
-    <mat-card-content class="card-content"> <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <mat-card-content class="card-content">
+      <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
         <div class="form-register">
           <mat-card-subtitle>Hola! Recuerda que debes ser el propiertario del establecimiento</mat-card-subtitle>
           <div class="fields">
@@ -9,28 +12,29 @@
               <mat-label>Nombre del Propetario</mat-label>
               <span matPrefix><mat-icon>person_outline</mat-icon></span>
               <input matInput formControlName="name_owner"
-                placeholder="Alonso, Rodrigo, ..."
-                [(ngModel)]="newCarwash.name_owner"/>
+                     placeholder="Alonso, Rodrigo, ..."
+                     [(ngModel)]="newCarwash.name_owner"/>
               <mat-error *ngIf="registerForm.controls.name_owner.touched && registerForm.controls.name_owner.invalid">
-              <span *ngIf="registerForm.controls.name_owner.errors?.required">Ingrese el nombre del propiertario</span>
-              <span *ngIf="registerForm.controls.name_owner.errors?.pattern">Solo se permiten letras</span>
-            </mat-error>
+                <span
+                  *ngIf="registerForm.controls.name_owner.errors?.required">Ingrese el nombre del propiertario</span>
+                <span *ngIf="registerForm.controls.name_owner.errors?.pattern">Solo se permiten letras</span>
+              </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Nombre del CarWash</mat-label>
               <span matPrefix><mat-icon>water_damage</mat-icon></span>
               <input matInput formControlName="name"
-                [(ngModel)]="newCarwash.name" placeholder=""/>
+                     [(ngModel)]="newCarwash.name" placeholder=""/>
               <mat-error *ngIf="registerForm.controls.name.touched && registerForm.controls.name.invalid">
-              <span *ngIf="registerForm.controls.name.errors?.required">Ingrese el nombre del CarWash</span>
-              <span *ngIf="registerForm.controls.name.errors?.pattern">No se permiten símbolos especiales</span>
-            </mat-error>
+                <span *ngIf="registerForm.controls.name.errors?.required">Ingrese el nombre del CarWash</span>
+                <span *ngIf="registerForm.controls.name.errors?.pattern">No se permiten símbolos especiales</span>
+              </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Email</mat-label>
               <span matPrefix><mat-icon>email</mat-icon></span>
               <input matInput formControlName="email"
-                [(ngModel)]="newCarwash.email" placeholder="user@gmail.com"/>
+                     [(ngModel)]="newCarwash.email" placeholder="user@gmail.com"/>
               <mat-error *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
                 <span *ngIf="registerForm.controls.email.errors?.required">Ingrese email</span>
                 <span *ngIf="registerForm.controls.email.errors?.email">E-mail debe de ser válido</span>
@@ -41,12 +45,13 @@
                 <mat-label>Contraseña</mat-label>
                 <span matPrefix><mat-icon>lock</mat-icon></span>
                 <input matInput [(ngModel)]="newCarwash.password" formControlName="password"
-                  [type]="hide ? 'password' : 'text'"/>
+                       [type]="hide ? 'password' : 'text'"/>
                 <mat-error *ngIf="registerForm.controls.password.touched && registerForm.controls.password.invalid">
                   <span *ngIf="registerForm.controls.password.errors?.required">Ingrese una contraseña</span>
                   <span *ngIf="registerForm.controls.password.errors?.pattern">Debe de contener mayúsculas, números y símbolos</span>
                 </mat-error>
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
               </mat-form-field>
@@ -54,11 +59,13 @@
                 <mat-label>Confirmar</mat-label>
                 <span matPrefix><mat-icon>lock</mat-icon></span>
                 <input matInput formControlName="confirm_password" [type]="hide_confirm ? 'password' : 'text'"/>
-                <mat-error *ngIf="registerForm.controls.confirm_password.touched && registerForm.controls.confirm_password.invalid">
+                <mat-error
+                  *ngIf="registerForm.controls.confirm_password.touched && registerForm.controls.confirm_password.invalid">
                   <span *ngIf="registerForm.controls.confirm_password.errors?.required">Confirme la contraseña</span>
                   <span *ngIf="registerForm.controls.confirm_password.errors?.confirmedValidator">Las contraseñas no coinciden</span>
                 </mat-error>
-                <button mat-icon-button matSuffix (click)="hide_confirm = !hide_confirm" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide_confirm">
+                <button mat-icon-button matSuffix (click)="hide_confirm = !hide_confirm"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide_confirm">
                   <mat-icon>{{hide_confirm ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
               </mat-form-field>
@@ -67,7 +74,7 @@
               <mat-form-field appearance="outline">
                 <mat-label>Fecha de Nacimiento</mat-label>
                 <input matInput [(ngModel)]="date"
-                  formControlName="birth_date" [matDatepicker]="picker">
+                       formControlName="birth_date" [matDatepicker]="picker">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
                 <mat-error *ngIf="registerForm.controls.birth_date.touched && registerForm.controls.birth_date.invalid">
@@ -89,7 +96,8 @@
               <mat-form-field appearance="outline">
                 <mat-label>Dirección</mat-label>
                 <span matPrefix><mat-icon>place</mat-icon></span>
-                <input matInput (input)="_handleInput(registerForm.controls.location)" formControlName="location" placeholder="Av. Roberto Vega 344"/>
+                <input matInput (input)="_handleInput(registerForm.controls.location)" formControlName="location"
+                       placeholder="Av. Roberto Vega 344"/>
                 <mat-error *ngIf="registerForm.controls.location.touched && registerForm.controls.location.invalid">
                   <span *ngIf="registerForm.controls.location.errors?.required">Ingrese la ubicación del CarWash</span>
                 </mat-error>
@@ -97,8 +105,10 @@
               <mat-form-field appearance="outline">
                 <mat-label>Número Celular</mat-label>
                 <span matPrefix><mat-icon>phone</mat-icon></span>
-                <input matInput [(ngModel)]="newCarwash.phone_number" formControlName="phone_number" #phone maxlength="9" placeholder="987123487" />
-                <mat-error *ngIf="registerForm.controls.phone_number.touched && registerForm.controls.phone_number.invalid">
+                <input matInput [(ngModel)]="newCarwash.phone_number" formControlName="phone_number" #phone
+                       maxlength="9" placeholder="987123487"/>
+                <mat-error
+                  *ngIf="registerForm.controls.phone_number.touched && registerForm.controls.phone_number.invalid">
                   <span *ngIf="registerForm.controls.phone_number.errors?.required">Ingrese un número celular</span>
                   <span *ngIf="registerForm.controls.phone_number.errors?.pattern">Ingrese un número válido</span>
                 </mat-error>
@@ -109,22 +119,27 @@
               <mat-label>Descripción</mat-label>
               <span matPrefix><mat-icon>description</mat-icon></span>
               <textarea matInput formControlName="description"
-                placeholder=""
-                [(ngModel)]="newCarwash.description"></textarea>
+                        placeholder=""
+                        [(ngModel)]="newCarwash.description"></textarea>
               <mat-error *ngIf="registerForm.controls.description.touched && registerForm.controls.description.invalid">
-              <span *ngIf="registerForm.controls.description.errors?.required">Ingrese el nombre del propiertario</span>
-              <span *ngIf="registerForm.controls.description.errors?.pattern">Solo se permiten letras</span>
-            </mat-error>
+                <span
+                  *ngIf="registerForm.controls.description.errors?.required">Ingrese el nombre del propiertario</span>
+                <span *ngIf="registerForm.controls.description.errors?.pattern">Solo se permiten letras</span>
+              </mat-error>
             </mat-form-field>
           </div>
-          <button mat-raised-button [disabled]="registerForm.invalid" type="submit" color="accent" class="button">Registrar</button>
+          <button mat-raised-button [disabled]="registerForm.invalid" type="submit" color="accent" class="button">
+            Registrar
+          </button>
         </div>
       </form>
-        <div class="badge" *ngIf="!lessThan800">
-          <img class="badge-img1" src="https://cdn.discordapp.com/attachments/700237020278030396/852300117603123210/Grupo_1.png" alt="">
-          <h2>Estás a punto de ser parte de EzWash</h2>
-          <img class="badge-img2" src="https://cdn.discordapp.com/attachments/700237020278030396/852300111321235516/Grupo_3.png" alt="">
-        </div>
+      <div class="badge" *ngIf="!lessThan800">
+        <img class="badge-img1"
+             src="https://cdn.discordapp.com/attachments/700237020278030396/852300117603123210/Grupo_1.png" alt="">
+        <h2>Estás a punto de ser parte de EzWash</h2>
+        <img class="badge-img2"
+             src="https://cdn.discordapp.com/attachments/700237020278030396/852300111321235516/Grupo_3.png" alt="">
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

@@ -93,6 +93,7 @@ export class RegisterCustomerComponent implements OnInit {
         this.location.longitude = res.results[0].geometry.location.lng;
         this.createLocation();
     }, error => {
+
       console.log("No existe tal ubicación");
     });
   }

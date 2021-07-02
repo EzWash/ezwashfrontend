@@ -44,6 +44,9 @@
   margin-bottom: 1%;
   box-shadow: 1px 1px 1px black;
 }
+.listCarWash:hover{
+  color: black;
+}
 .heart{
   display: flex;
   justify-self: end;
