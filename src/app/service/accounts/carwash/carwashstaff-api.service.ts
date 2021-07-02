@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
 import { Staff } from '../../../model/accounts/staff';
+import {Customer} from "../../../model/accounts/customer";
 
 @Injectable({
   providedIn: 'root'
@@ -30,4 +31,5 @@ export class CarwashstaffService {
                                 this.httpOptions)
                                 .pipe(retry(2), catchError(this.handleError));
   }
+
 }

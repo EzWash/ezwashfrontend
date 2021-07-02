@@ -1,1 +1,50 @@
-<p>home-customer works!</p>
+<div class="group">
+  <mat-card class="filter" align="center">
+    <div class="ubication">
+      Ubicación <br><br>
+      <input type="text" id="search" class="inputLocation" placeholder="📍 Buscar por ubicación...">
+    </div>
+    <div>
+      Calificación <br><br>
+      <input type="text"  class="inputQualification" placeholder="Min."> &nbsp;
+      <input type="text"  class="inputQualification" placeholder="Max.">
+    </div>
+    <div>
+      Distancia Máxima<br><br>
+    </div>
+  </mat-card>
+  <div class="carwashes">
+    <div class="scrollDown" *ngIf="carwashList.length > 0; else zeroItemsServices">
+      <div *ngFor="let carwash of carwashList;index as i">
+        <mat-card class="listCarWash">
+         <picture class="image">
+           <source media='(min-width:0px)' srcset="https://media.discordapp.net/attachments/700237020278030396/855956232509587486/lavado-de-autos-vs-auto-detailing-1000x641.png">
+           <img mat-card-avatar src="">
+         </picture>
+         <div class="">
+           <mat-card-header class="">
+             <mat-card-title class="">
+               {{carwash.name}}
+             </mat-card-title>
+             <mat-card-subtitle class="" >
+               - {{carwash.description}}<br>
+             </mat-card-subtitle>
+             <mat-card-subtitle class="">
+               - {{carwash.phone_number}}
+             </mat-card-subtitle>
+             <!-- <mat-icon aria-label="Phone">phone</mat-icon>{{s.phone_number}}-->
+           </mat-card-header>
+         </div>
+          <p class="heart">corazon</p>
+        </mat-card>
+      </div>
+    </div>
+    <ng-template #zeroItemsServices>
+      <div class="zeroStaff">
+        <label class="empty">No tienes servicios añadidos</label>
+      </div>
+    </ng-template>
+
+
+  </div>
+</div>

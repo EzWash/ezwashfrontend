@@ -5,4 +5,6 @@ export interface Service{
   is_promotion:number
   price:number
   details:string
+
+  map(param: (o: any) => any): Service;
 }

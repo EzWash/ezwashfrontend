@@ -1,0 +1,83 @@
+::-webkit-scrollbar {
+  width: 10px;
+  background: #E5E5E5;
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6AD9FC;
+  border-radius: 10px;
+}
+
+.filter{
+  display: flex;
+  justify-content: space-between;
+  background-color: #EEF7FB;
+  margin-left: 22vw;
+  margin-right: 22vw;
+  margin-top: 2%;
+}
+.mat-card-avatar {
+  height: 125px;
+  width: 150px;
+  border-radius: 20%;
+  flex-shrink: 0;
+  object-fit: cover;
+
+}
+
+.scrollDown{
+  overflow-y: scroll;
+  height: 500px;
+  border-radius: 10px;
+  border-color: transparent;
+  margin-left: 22vw;
+  margin-right: 22vw;
+
+
+}
+.listCarWash{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  background-color: #EEF7FB;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  box-shadow: 1px 1px 1px black;
+}
+.heart{
+  display: flex;
+  justify-self: end;
+  margin-right: 3%;
+}
+.title2{
+  grid-column: 2/4;
+}
+.image{
+  justify-self: center;
+}
+
+.carwashes{
+  margin-top: 1%;
+}
+.inputLocation{
+  border-color: #CCCCCC;
+  border-radius: 40px;
+  padding: 10px 15px;
+}
+
+.inputLocation:focus{
+  outline: none;
+}
+
+.inputQualification:focus{
+  outline: none;
+}
+.inputQualification{
+  border-color: #CCCCCC;
+  border-radius: 40px;
+  padding: 10px 15px;
+  width: 50px;
+}
+
+
+
