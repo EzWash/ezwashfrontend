@@ -45,6 +45,8 @@ import {authInterceptorProviders} from './helpers/auth-interceptor';
 import { MatMenuModule } from '@angular/material/menu';
 import { HomeCarwashCComponent } from './pages/customer/home-carwash-c/home-carwash-c.component';
 import { UpdateCarwashComponent } from './pages/carwash/update-carwash/update-carwash.component';
+import { RegisterReportComponent } from './pages/customer/register-report/register-report.component';
+
 
 
 @NgModule({
@@ -66,6 +68,8 @@ import { UpdateCarwashComponent } from './pages/carwash/update-carwash/update-ca
     LoginUsersComponent,
     HomeCarwashCComponent,
     UpdateCarwashComponent
+    RegisterReportComponent
+
 
   ],
   imports: [
