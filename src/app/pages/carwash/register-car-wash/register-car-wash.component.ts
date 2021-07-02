@@ -52,12 +52,7 @@ export class RegisterCarWashComponent implements OnInit {
 
   public innerWidth: any;
   ngOnInit(): void {
-    this.innerWidth = window.innerWidth;
-    if(this.innerWidth <= 800){
-      this.lessThan800 = true;
-    }else{
-      this.lessThan800 = false;
-    }
+    this.onResize();
   }
 
   @HostListener('window:resize', ['$event'])

@@ -1,8 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from "@angular/forms";
+import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Customer} from "../../../model/accounts/customer";
 import {CustomerService} from "../../../service/accounts/customer/customer-api.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
+import {Location} from 'src/app/model/geographic/location';
+import {LocationService} from 'src/app/service/geographic/location.service';
+import {ConfirmedValidator} from '../../carwash/register-car-wash/confirmed.validator';
 
 @Component({
   selector: 'app-register-customer',
@@ -10,46 +13,87 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./register-customer.component.css']
 })
 export class RegisterCustomerComponent implements OnInit {
-  @ViewChild('customerForm',{static:false})
-  customerForm!: NgForm;
-  customerID!: number
-  customerData: Customer = {} as Customer
-  isEditMode  =false
-  constructor(private customerApi: CustomerService, private router: Router, private route: ActivatedRoute) { }
+  hide = true;
+  hide_confirm = true;
+  registerForm: FormGroup;
+  newCustomer: Customer;
+  strongPasswordPattern: string = "(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$";
+  onlyLetterPattern: string = "^[a-zA-Z_ ]*$";
+  wordsAndNumberPattern: string = "^[a-zA-Z0-9_ ]*$";
+  phoneNumbersPattern: string = "^9[0-9]{8}";
+  date: Date;
+  location: Location;
+  innerWidth: number = 0;
+  onChange = (_: any) => {};
+  lessThan800: boolean = false;
+
+  constructor(private customerApi: CustomerService,
+              private router: Router,
+              private formBuilder: FormBuilder,
+              private locationApi: LocationService) {
+    this.date = new Date();
+    this.location = {} as Location;
+    this.newCustomer = {} as Customer;
+    this.registerForm = this.formBuilder.group({
+      first_name: [null, [Validators.required, Validators.pattern(this.onlyLetterPattern)]],
+      last_name: [null, [Validators.required, Validators.pattern(this.onlyLetterPattern)]],
+      email: [null, [Validators.required, Validators.email]],
+      phone_number: [null, [Validators.required, Validators.pattern(this.phoneNumbersPattern)]],
+      gender: [null, [Validators.required]],
+      birth_date: [null, [Validators.required]],
+      location: [null, Validators.required],
+      password: [null, [Validators.required, Validators.pattern(this.strongPasswordPattern)]],
+      confirm_password: [null, Validators.required]
+    }, {
+      validator: ConfirmedValidator('password', 'confirm_password')
+    });
+  }
 
   ngOnInit(): void {
-    this.customerID = Number(this.route.params.subscribe(params =>{
-      if (params.id){
-        const id = params.id;
-        console.log (id);
-      }
-    }))
-
+    this.onResize();
   }
 
-    navigateToHome(): void{
-      this.router.navigate(['/register-car-customer'])
-        .then(()=>console.log(this.route.url))
-    }
-
-  createCustomer(): void{
-    const newCustomer = {first_name: this.customerData.first_name,last_name:this.customerData.last_name,
-      email:this.customerData.email,phone_number:this.customerData.phone_number,
-      gender:this.customerData.gender,location:this.customerData.location,
-      username:this.customerData.username, password:this.customerData.password}
-    this.customerApi.createCustomer(newCustomer).subscribe(()=>{this.navigateToHome()})
-  }
-
-  onSubmit(): void{
-    if (this.customerForm.form.valid){
-      console.log(this.customerData);
-      if (this.isEditMode){
-        console.log('Actualizando')
-      }else{
-        this.createCustomer()
-      }
+  @HostListener('window:resize', ['$event'])
+  onResize(){
+    this.innerWidth = window.innerWidth;
+    if(this.innerWidth <= 800){
+      this.lessThan800 = true;
     }else{
-      console.log('Invalid Data')
+      this.lessThan800 = false;
     }
+  }
+
+
+  @Input()
+  get value(): number[]{
+    const address = this.registerForm.value;
+    this.location.address = address.location;
+    return [];
+  }
+
+  _handleInput(control: AbstractControl, nextElement?: HTMLInputElement): void{
+    this.onChange(this.value);
+  }
+
+  createLocation(){
+    this.locationApi.createLocation(this.location).subscribe((res: Location) => {
+      this.newCustomer.location = res.id;
+      console.log(this.newCustomer);
+      this.customerApi.createCustomer(this.newCustomer).subscribe((res: Customer)=>{
+        this.router.navigate(['/login']);
+      })
+    })
+  }
+
+  onSubmit(){
+    let formatDate = this.date.toISOString().match("[0-9]{4}-[0-9]{2}-[0-9]{2}")?.pop();
+    this.newCustomer.birth_date = formatDate;
+    this.locationApi.getGeoLocation(this.location.address).subscribe((res: any) => {
+        this.location.lattitude = res.results[0].geometry.location.lat;
+        this.location.longitude = res.results[0].geometry.location.lng;
+        this.createLocation();
+    }, error => {
+      console.log("No existe tal ubicación");
+    });
   }
 }

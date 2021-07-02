@@ -1,35 +1,83 @@
 <mat-toolbar>
   <div class="container">
-    <div class="CarWash">
-      <button mat-icon-button aria-label="Example icon-button with menu icon">
-        <img src="https://cdn.discordapp.com/attachments/700237020278030396/852297994287054888/logo.jpg" alt="logo">
-      </button>
+    <div class="no-login" *ngIf="!isLoggedIn">
+      <div class="icon-home">
+          <button mat-icon-button (click)="buttonHome()" aria-label="Example icon-button with menu icon">
+            <img src="https://cdn.discordapp.com/attachments/700237020278030396/852297994287054888/logo.jpg" alt="logo">
+          </button>
+      </div>
+      <div *ngIf="!isLessThan500" class="buttons-no-login">
+        <button mat-button class="example-icon favorite-icon"
+          arial-label="Example icon-button with share icon"
+          routerLink="/login">
+          Sign in
+        </button>
+        <button mat-button class="example-icon favorite-icon"
+          arial-label="Example icon-button with share icon"
+          routerLink="/register-customer">
+          Sign up Customer
+        </button>
+        <button mat-button class="example-icon favorite-icon"
+          arial-label="Example icon-button with share icon"
+          routerLink="/register-carwash">
+          Sign up CarWash
+        </button>
+      </div>
+      <div *ngIf="isLessThan500" class="buttons-no-login">
+        <button mat-button [matMenuTriggerFor]="beforeMenu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button *ngIf="!isLoggedIn" routerLink="/register-customer" mat-menu-item>Sign up Customer</button>
+        <button *ngIf="!isLoggedIn" routerLink="/register-carwash" mat-menu-item>Sign up Carwash</button>
+        <button *ngIf="!isLoggedIn" routerLink="/login" mat-menu-item>Sign in</button>
+        </mat-menu>
+      </div>
     </div>
-    <div class="middle" *ngIf="isLoggedIn">
-      <input type="text" id="search" class="no-outline" placeholder="Buscar Carwash...">
+    <div>
     </div>
-    <div *ngIf="!isLoggedIn">
-     <button mat-button class="example-icon favorite-icon"
-       arial-label="Example icon-button with share icon"
-       routerLink="/login">
-       Sign in
-     </button>
-     <button mat-button class="example-icon favorite-icon"
-       arial-label="Example icon-button with share icon"
-       routerLink="/register-customer">
-       Sign up Customer
-     </button>
-     <button mat-button class="example-icon favorite-icon"
-       arial-label="Example icon-button with share icon"
-       routerLink="/register-carwash">
-       Sign up CarWash
-     </button>
+    <div class="pc-class" *ngIf="isLoggedIn && !isLessThan500">
+      <div class="icon-home">
+        <button mat-icon-button (click)="buttonHome()" aria-label="Example icon-button with menu icon">
+          <img src="https://cdn.discordapp.com/attachments/700237020278030396/852297994287054888/logo.jpg" alt="logo">
+        </button>
+      </div>
+      <div class="middle" *ngIf="isLoggedIn">
+        <input type="text" id="search" class="no-outline" placeholder="Buscar Carwash...">
+      </div>
+      <div *ngIf="isLoggedIn" class="right">
+        <button mat-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" >
+          <mat-icon>account_circle</mat-icon> {{username}}
+        </button>
+        <button *ngIf="isCustomer" mat-icon-button routerLink="/save" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" >
+          <mat-icon>favorite_border</mat-icon>
+        </button>
+        <button mat-button (click)="logout()" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" >
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
     </div>
-    <div *ngIf="isLoggedIn" class="right">
-      <mat-icon>account_circle</mat-icon>
-      <mat-icon>favorite_border</mat-icon>
+    <div class="mobile-class" *ngIf="isLoggedIn && isLessThan500">
+      <div class="icon-home">
+        <button mat-icon-button aria-label="Example icon-button with menu icon">
+          <img src="https://cdn.discordapp.com/attachments/700237020278030396/852297994287054888/logo.jpg" alt="logo">
+        </button>
+      </div>
+      <div class="middle">
+        <input type="text" id="search" class="no-outline" placeholder="Buscar Carwash...">
+      </div>
+      <div class="buttons-no-login">
+        <button mat-button [matMenuTriggerFor]="beforeMenu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button *ngIf="isCustomer" routerLink="/history-contracts" mat-menu-item>Contratos</button>
+        <button *ngIf="isCustomer" routerLink="/list-fav-carwashes" mat-menu-item>Favoritos</button>
+        <button *ngIf="isCustomer" routerLink="/list-vehicles" mat-menu-item>Vehículos</button>
+        <button (click)="logout()" mat-menu-item>Log out</button>
+        </mat-menu>
+      </div>
     </div>
   </div>
 </mat-toolbar>
 <router-outlet></router-outlet>
-<mat-toolbar></mat-toolbar>

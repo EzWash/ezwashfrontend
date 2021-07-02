@@ -41,6 +41,7 @@ import { UpdateServiceComponent } from './pages/carwash/update-service/update-se
 import { ListVehiclesComponent } from './pages/customer/list-vehicles/list-vehicles.component';
 import { ListFavCarWashesComponent } from './pages/customer/list-fav-car-washes/list-fav-car-washes.component';
 import {authInterceptorProviders} from './helpers/auth-interceptor';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -86,7 +87,8 @@ import {authInterceptorProviders} from './helpers/auth-interceptor';
     MatNativeDateModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule
   ],
 
   providers: [

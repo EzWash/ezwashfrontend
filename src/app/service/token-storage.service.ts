@@ -25,6 +25,6 @@ export class TokenStorageService {
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
   //@ts-ignore
-  public getUser = () => JSON.parse(window.sessionStorage.getItem(USER_KEY));
+  public getUser = (): User => JSON.parse(window.sessionStorage.getItem(USER_KEY));
 }
 

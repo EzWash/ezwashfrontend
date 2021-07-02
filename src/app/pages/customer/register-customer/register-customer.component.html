@@ -1,103 +1,119 @@
-<br>
-<div align=center>
-  <mat-card-title class="tituloRegistro" > <b>Registro Cliente</b></mat-card-title>
-
+<div class="container">
+  <h1>Registro Cliente</h1>
+  <mat-card>
+    <mat-card-content class="card-content">
+      <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+        <div class="form-register">
+          <mat-card-subtitle>Hola! Por favor, llena este formulario</mat-card-subtitle>
+          <div class="fields">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <span matPrefix><mat-icon>person_outline</mat-icon></span>
+              <input matInput formControlName="first_name"
+                placeholder="Alonso, Rodrigo, ..."
+                [(ngModel)]="newCustomer.first_name"/>
+              <mat-error *ngIf="registerForm.controls.first_name.touched && registerForm.controls.first_name.invalid">
+              <span *ngIf="registerForm.controls.first_name.errors?.required">Ingrese su nombre</span>
+              <span *ngIf="registerForm.controls.first_name.errors?.pattern">Solo se permiten letras</span>
+            </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Apellido</mat-label>
+              <span matPrefix><mat-icon>water_damage</mat-icon></span>
+              <input matInput formControlName="last_name"
+                [(ngModel)]="newCustomer.last_name" placeholder=""/>
+              <mat-error *ngIf="registerForm.controls.last_name.touched && registerForm.controls.last_name.invalid">
+              <span *ngIf="registerForm.controls.last_name.errors?.required">Ingrese su apellido</span>
+              <span *ngIf="registerForm.controls.last_name.errors?.pattern">Solo se permiten letras</span>
+            </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <span matPrefix><mat-icon>email</mat-icon></span>
+              <input matInput formControlName="email"
+                [(ngModel)]="newCustomer.email" placeholder="user@gmail.com"/>
+              <mat-error *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
+                <span *ngIf="registerForm.controls.email.errors?.required">Ingrese email</span>
+                <span *ngIf="registerForm.controls.email.errors?.email">E-mail debe de ser válido</span>
+              </mat-error>
+            </mat-form-field>
+            <div class="double-fields">
+              <mat-form-field appearance="outline">
+                <mat-label>Contraseña</mat-label>
+                <span matPrefix><mat-icon>lock</mat-icon></span>
+                <input matInput [(ngModel)]="newCustomer.password" formControlName="password"
+                  [type]="hide ? 'password' : 'text'"/>
+                <mat-error *ngIf="registerForm.controls.password.touched && registerForm.controls.password.invalid">
+                  <span *ngIf="registerForm.controls.password.errors?.required">Ingrese una contraseña</span>
+                  <span *ngIf="registerForm.controls.password.errors?.pattern">Debe de contener mayúsculas, números y símbolos</span>
+                </mat-error>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Confirmar</mat-label>
+                <span matPrefix><mat-icon>lock</mat-icon></span>
+                <input matInput formControlName="confirm_password" [type]="hide_confirm ? 'password' : 'text'"/>
+                <mat-error *ngIf="registerForm.controls.confirm_password.touched && registerForm.controls.confirm_password.invalid">
+                  <span *ngIf="registerForm.controls.confirm_password.errors?.required">Confirme la contraseña</span>
+                  <span *ngIf="registerForm.controls.confirm_password.errors?.confirmedValidator">Las contraseñas no coinciden</span>
+                </mat-error>
+                <button mat-icon-button matSuffix (click)="hide_confirm = !hide_confirm" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide_confirm">
+                  <mat-icon>{{hide_confirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+            <div class="double-fields">
+              <mat-form-field appearance="outline">
+                <mat-label>Fecha de Nacimiento</mat-label>
+                <input matInput [(ngModel)]="date"
+                  formControlName="birth_date" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="registerForm.controls.birth_date.touched && registerForm.controls.birth_date.invalid">
+                  <span *ngIf="registerForm.controls.birth_date.errors?.required">Confirme la contraseña</span>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Género</mat-label>
+                <mat-select formControlName="gender"
+                  [(ngModel)]="newCustomer.gender">
+                  <mat-option value="F">Femenino</mat-option>
+                  <mat-option value="M">Masculino</mat-option>
+                  <mat-option value="O">Otros</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="double-fields">
+              <mat-form-field appearance="outline">
+                <mat-label>Dirección</mat-label>
+                <span matPrefix><mat-icon>place</mat-icon></span>
+                <input matInput (input)="_handleInput(registerForm.controls.location)" formControlName="location" placeholder="Av. Roberto Vega 344"/>
+                <mat-error *ngIf="registerForm.controls.location.touched && registerForm.controls.location.invalid">
+                  <span *ngIf="registerForm.controls.location.errors?.required">Ingrese la ubicación del CarWash</span>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Número Celular</mat-label>
+                <span matPrefix><mat-icon>phone</mat-icon></span>
+                <input matInput [(ngModel)]="newCustomer.phone_number" formControlName="phone_number" #phone maxlength="9" placeholder="987123487" />
+                <mat-error *ngIf="registerForm.controls.phone_number.touched && registerForm.controls.phone_number.invalid">
+                  <span *ngIf="registerForm.controls.phone_number.errors?.required">Ingrese un número celular</span>
+                  <span *ngIf="registerForm.controls.phone_number.errors?.pattern">Ingrese un número válido</span>
+                </mat-error>
+                <mat-hint align="end">{{phone.value?.length || 0}}/9</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+          <button mat-raised-button [disabled]="registerForm.invalid" type="submit" color="accent" class="button">Registrar</button>
+        </div>
+      </form>
+        <div class="badge" *ngIf="!lessThan800">
+          <img class="badge-img1" src="https://cdn.discordapp.com/attachments/700237020278030396/852300117603123210/Grupo_1.png" alt="">
+          <h2>Estás a punto de ser parte de EzWash</h2>
+          <img class="badge-img2" src="https://cdn.discordapp.com/attachments/700237020278030396/852300111321235516/Grupo_3.png" alt="">
+        </div>
+    </mat-card-content>
+  </mat-card>
 </div>
-<br>
-<div class="grid">
-
-  <div class="element1">
-    <br>
-    <p class ="telement1" align="center"><b>Hola! Por favor, llena el siguiente formulario</b></p>
-    <form (submit)="onSubmit()" #customerForm="ngForm" align="center">
-
-        <mat-form-field appearance="fill" class="middle" >
-          <mat-icon matPrefix>person</mat-icon>
-          <mat-label >Nombre</mat-label>
-          <input
-            matInput placeholder="Name"
-            name="name"
-            required [(ngModel)]="customerData.first_name">
-        </mat-form-field>
-      &nbsp;
-        <mat-form-field appearance="fill" class="middle" >
-          <mat-icon matPrefix>person</mat-icon>
-          <mat-label>Apellido</mat-label>
-          <input
-            matInput placeholder="last_Name"
-            name="last_name"
-            required [(ngModel)]="customerData.last_name">
-        </mat-form-field >
-      <mat-form-field appearance="fill" class="middle">
-        <mat-icon matPrefix>email</mat-icon>
-        <mat-label>Email</mat-label>
-        <input
-          matInput placeholder="Email"
-          name="email"
-          required [(ngModel)]="customerData.email">
-      </mat-form-field>
-      &nbsp;
-        <mat-form-field appearance="fill" class="middle">
-          <mat-icon matPrefix>lock</mat-icon>
-          <mat-label>Contraseña</mat-label>
-          <input
-            matInput placeholder="Password"
-            name="password"
-            required [(ngModel)]="customerData.password">
-        </mat-form-field>
-        <br>
-
-
-      <mat-form-field appearance="fill" class="middle" >
-        <mat-icon matPrefix>phone</mat-icon>
-        <mat-label>Número Teléfono</mat-label>
-        <input
-          matInput placeholder="Phone"
-          name="phone"
-          required [(ngModel)]="customerData.phone_number">
-      </mat-form-field>
-      &nbsp;
-      <mat-form-field appearance="fill" class="middle">
-        <mat-icon matPrefix>male</mat-icon>
-        <mat-label>Género</mat-label>
-        <input
-          matInput placeholder="Gender"
-          name="gender"
-          required [(ngModel)]="customerData.gender">
-      </mat-form-field>
-      <mat-form-field appearance="fill" style="width: 92%">
-        <mat-icon matPrefix>place</mat-icon>
-        <mat-label>Ubicación</mat-label>
-        <input
-          matInput placeholder="Location"
-          name="location"
-          required [(ngModel)]="customerData.location">
-      </mat-form-field>
-      <br>
-
-
-      <br>
-      <ng-container>
-        <button mat-button style="text-transform: uppercase" color="primary">{{isEditMode? 'Actualizar':'Registrar'}}</button>
-      </ng-container>
-
-    </form>
-  </div>
-
-  <div class="element2">
-    <div >
-      <div>
-        <img class="balls"  src="https://cdn.discordapp.com/attachments/700237020278030396/852300117603123210/Grupo_1.png" alt="Logotipo2">
-      </div>
-      <div>
-        <p class="textElement2"><b>Estás a <br><br> punto de ser parte <br> <br> de EzWash</b></p>
-      </div>
-      <div>
-        <img class="balls"  align="right" src="https://cdn.discordapp.com/attachments/700237020278030396/852300111321235516/Grupo_3.png" alt="Logotipo3">
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<router-outlet></router-outlet>

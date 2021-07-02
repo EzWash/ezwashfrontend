@@ -6,6 +6,6 @@ export interface Customer{
   phone_number: string
   gender: string
   location: number
-  username: string
+  birth_date: string | undefined;
   password:string
 }

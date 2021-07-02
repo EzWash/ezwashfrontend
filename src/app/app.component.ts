@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import {Router} from '@angular/router';
 import {TokenStorageService} from './service/token-storage.service';
 
@@ -12,15 +12,21 @@ export class AppComponent {
   title = 'ezwashfrontend';
   isLoggedIn = false;
   username: string = '';
+  role: string = '';
+  screenWidth: number = 0;
+  isLessThan500: boolean = false;
+  isCustomer: boolean = false;
   constructor(private tokenStorageService: TokenStorageService,
              private router: Router){}
 
   ngOnInit(): void{
+    this.onResize();
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if(this.isLoggedIn){
-      const user = this.tokenStorageService.getUser();
-      this.username = user.email;
-      console.log(user);
+      this.username = this.tokenStorageService.getUser().name;
+      this.role = this.tokenStorageService.getUser().role;
+      this.isCustomer = this.tokenStorageService.getUser().role == "CUSTOMER" ? true : false;
+      this.onResize();
     }else{
       this.router.navigate(['/login']);
     }
@@ -28,5 +34,19 @@ export class AppComponent {
   logout(): void{
     this.tokenStorageService.signOut();
     window.location.reload();
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event?: any) {
+    this.screenWidth = window.innerWidth;
+    if(this.screenWidth <= 500)
+      this.isLessThan500 = true;
+    else
+      this.isLessThan500 = false;
+  }
+  buttonHome() {
+    if(!this.isCustomer)
+      this.router.navigate(['/home-carwash']);
+    else
+      this.router.navigate(['/home-customer']);
   }
 }
