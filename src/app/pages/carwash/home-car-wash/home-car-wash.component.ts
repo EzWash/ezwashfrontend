@@ -38,15 +38,22 @@ export class HomeCarWashComponent implements OnInit {
   totalComments:number=0;
   constructor(private carwashStaffApi:CarwashstaffService, private staffApi: StaffService, private router: Router,
               private carWashApi: CarwashService,private serviceApi:ServiceService,
-              private commentApi:CommentApiService,private customerApi: CustomerService,public dialog: MatDialog,tokenStorageService: TokenStorageService) {
+              private commentApi:CommentApiService,private customerApi: CustomerService,public dialog: MatDialog,private tokenStorageService: TokenStorageService) {
 
   }
 
   ngOnInit(): void {
-    this.getServicesByCarWashId(this.n);
-    this.getAllStaff(this.n);
-    this.getCarWashById(this.n);
-    this.getCommentByCarWashId(this.n);
+    if (this.tokenStorageService.getUser().role!="CARWASH"){
+      if (!!this.tokenStorageService.getToken())
+        this.router.navigate(["/home-customer"]);
+      else{
+        this.router.navigate((["/login"]));
+      }
+    }
+    this.getServicesByCarWashId(this.tokenStorageService.getUser().id);
+    this.getAllStaff(this.tokenStorageService.getUser().id);
+    this.getCarWashById(this.tokenStorageService.getUser().id);
+    this.getCommentByCarWashId(this.tokenStorageService.getUser().id);
 
   }
   openDialogRegisterStaff() {

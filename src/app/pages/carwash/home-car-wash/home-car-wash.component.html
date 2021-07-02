@@ -78,13 +78,10 @@
         </div>
       </div>
       <div class="availableServices">
-        <div>
-          <div class="titleDown" >
-            Servicios Ofrecidos &nbsp;
+          <div class="titleDown" >Servicios Ofrecidos &nbsp;
             <button class="button" (click)="openDialogRegisterService()">Nuevo</button>
           </div>
           <br>
-          <div class="cardDown" >
             <div class="scrollDown" *ngIf="serviceList.length > 0; else zeroItemsServices">
               <div *ngFor="let service of serviceList;index as i">
                 <div class="cardServicesO">
@@ -112,8 +109,6 @@
                 <label class="empty">No tienes servicios añadidos</label>
               </div>
             </ng-template>
-          </div>
-        </div>
 
         <br>
       </div>

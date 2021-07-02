@@ -121,6 +121,7 @@
     height: 149px;
     box-shadow: 1px 1px 3px black;
     border-radius: 10px;
+    background-color: #EEF7FB;
   }
   .example-item {
     height: 50px;
@@ -148,11 +149,12 @@
   }
 
   .cardServicesO{
-    background-color: #EEF7FB;
+
     display: grid;
     grid-template-columns: repeat(3,1fr);
     margin-bottom: 2%;
     margin-top: 2%;
+
 
 
   }
@@ -174,7 +176,7 @@
     grid-template-columns: repeat(3,1fr);
   }
   .cardsService{
-    grid-column: 1/4;
+      grid-column: 1/4;
   }
 
   .redirect{
@@ -233,12 +235,12 @@
    background-color: #F3A5A5;
   }
   .activeServices{
-    width: 105%;
+
     margin-top: 6%;
   }
   .availableServices{
     margin-top: 2%;
-    width: 105%;
+
   }
 
 }
@@ -477,12 +479,11 @@
     background-color: #F3A5A5;
   }
   .activeServices{
-    width: 105%;
     margin-top: 5%;
   }
   .availableServices{
     margin-top: 5%;
-    width: 105%;
+  ;
   }
   .Comments{
     margin-top: 4%;
@@ -710,12 +711,11 @@
     background-color: #F3A5A5;
   }
   .activeServices{
-    width: 105%;
     margin-top: 5%;
   }
   .availableServices{
     margin-top: 5%;
-    width: 105%;
+
   }
   .Comments{
     margin-top: 4%;
@@ -945,12 +945,10 @@
     background-color: #F3A5A5;
   }
   .activeServices{
-    width: 105%;
     margin-top: 5%;
   }
   .availableServices{
-    margin-top: 5%;
-    width: 105%;
+    margin-top: 5%;;
   }
   .Comments{
     margin-top: 4%;

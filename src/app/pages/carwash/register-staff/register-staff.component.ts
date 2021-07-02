@@ -4,6 +4,7 @@ import {Staff} from "../../../model/accounts/staff";
 import {CarwashstaffService} from "../../../service/accounts/carwash/carwashstaff-api.service";
 import {ActivatedRoute,Router} from "@angular/router";
 import {StaffService} from "../../../service/accounts/staff/staff-api.service";
+import {TokenStorageService} from "../../../service/token-storage.service";
 
 @Component({
   selector: 'app-register-staff',
@@ -18,7 +19,7 @@ export class RegisterStaffComponent implements OnInit {
   staffList:Staff[]=[]
   isEditMode=false
   email = new FormControl('', [Validators.required, Validators.email]);
-  constructor(private carwashstaffService:CarwashstaffService,private staffApi: StaffService, private router:Router,private route:ActivatedRoute) { }
+  constructor(private carwashstaffService:CarwashstaffService,private staffApi: StaffService, private router:Router,private route:ActivatedRoute, private tokenStorageService:TokenStorageService) { }
 
   ngOnInit(): void {
     this.staffID=Number(this.route.params.subscribe(params=>{
@@ -34,7 +35,7 @@ export class RegisterStaffComponent implements OnInit {
   }
   createStaff():void{
     const newStaff={email:this.staffData.email,gender:this.staffData.gender,first_name:this.staffData.first_name,last_name:this.staffData.last_name,phone_number:this.staffData.phone_number}
-    this.carwashstaffService.createEmployee(newStaff,1).subscribe(()=>{} )
+    this.carwashstaffService.createEmployee(newStaff,this.tokenStorageService.getUser().id).subscribe(()=>{} )
   }
   onSubmit():void{
     if(this.staffForm.form.valid){

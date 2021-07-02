@@ -75,5 +75,11 @@ export class CarwashService {
                                     this.httpOptions)
                                     .pipe(retry(2), catchError(this.handleError));
   }
+  //get All CarWash
+  getAllCarWash (): Observable<Carwash[]>{
+  return this.http.get<Carwash[]>(`${this.basePath}`,
+this.httpOptions)
+.pipe(retry(2), catchError(this.handleError));
+}
 
 }
