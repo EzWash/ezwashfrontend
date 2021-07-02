@@ -1,0 +1,48 @@
+<br>
+<div class="grid" >
+  <br>
+  <p class="telement1" align="center"> <b>Editar Datos</b></p>
+  <form (submit)="onSubmit()" #updateCarWashForm="ngForm" align="center">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix></mat-icon>
+        <mat-label>Nombre Completo</mat-label>
+        <input
+          matInput placeholder="NameOwner"
+          name="NameOwner"
+          required [(ngModel)]="carwashData.name_owner" >
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline" class="input">
+        <mat-icon matPrefix></mat-icon>
+        <mat-label>Direccion Personal(Opcional)</mat-label>
+        <input
+          matInput placeholder="Location"
+          name="Location">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline" class="input">
+        <mat-icon matPrefix></mat-icon>
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input
+          matInput placeholder="BirthDate"
+          name="BirthDate"
+          required [(ngModel)]="carwashData.birth_date" >
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="input">
+        <mat-icon matPrefix></mat-icon>
+        <mat-label>Telefono Personal</mat-label>
+        <input
+          matInput placeholder="PhoneNumber"
+          name="PhoneNumber"
+          required [(ngModel)]="carwashData.phone_number" >
+      </mat-form-field>
+    </div>
+    <div>
+      <button>Cancelar</button>
+      <ng-container>
+        <button mat-button style="text-transform: uppercase" color="primary">Guardar</button>
+      </ng-container>
+    </div>
+  </form>
+</div>
