@@ -17,6 +17,7 @@ import {RegisterStaffComponent } from "../register-staff/register-staff.componen
 import {RegisterServiceComponent} from "../register-service/register-service.component";
 import {CarwashstaffService} from "../../../service/accounts/carwash/carwashstaff-api.service";
 import {UpdateServiceComponent} from "../update-service/update-service.component";
+import {TokenStorageService} from "../../../service/token-storage.service";
 
 @Component({
   selector: 'app-home-car-wash',
@@ -37,7 +38,7 @@ export class HomeCarWashComponent implements OnInit {
   totalComments:number=0;
   constructor(private carwashStaffApi:CarwashstaffService, private staffApi: StaffService, private router: Router,
               private carWashApi: CarwashService,private serviceApi:ServiceService,
-              private commentApi:CommentApiService,private customerApi: CustomerService,public dialog: MatDialog) {
+              private commentApi:CommentApiService,private customerApi: CustomerService,public dialog: MatDialog,tokenStorageService: TokenStorageService) {
 
   }
 
