@@ -38,7 +38,7 @@ export class RegisterReportComponent implements OnInit {
       if(this.isEditMode){
         console.log('Actualizando')
       }else{
-
+        this.createReport()
       }
     }else{
       console.log('Invalid Data')
