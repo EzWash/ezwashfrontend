@@ -12,7 +12,7 @@ import {Carwash} from "../../../model/accounts/carwash";
   providedIn: 'root'
 })
 export class CustomercarwashesService {
-  basePathStart='http://localhost:8080/api/customers'
+  basePathStart='https://ezwashteam.azurewebsites.net/api/customers'
   httpOptions={headers: new HttpHeaders({'Content-Type':'application/json'})}
   constructor(private http:HttpClient) { }
   //API Error Handling
