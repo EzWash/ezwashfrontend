@@ -18,7 +18,7 @@
       <div *ngFor="let carwash of carwashList;index as i">
         <mat-card class="listCarWash">
          <picture class="image"  (click)="openDialogGetCarWashByid(i)">
-           <source media='(min-width:0px)' srcset="https://media.discordapp.net/attachments/700237020278030396/855956232509587486/lavado-de-autos-vs-auto-detailing-1000x641.png">
+           <source media='(min-width:0px)' srcset="{{carwashList[i].image}}">
            <img mat-card-avatar src="">
          </picture>
          <div class="" >
