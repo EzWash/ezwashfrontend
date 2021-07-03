@@ -10,7 +10,7 @@ import {Comment} from "../../../model/business/comment";
 export class CommentApiService {
 
   //basePath = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api";
-  basePath = "http://localhost:8080/api"
+  basePath = "https://ezwashteam.azurewebsites.net/api"
   httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})}
 
   constructor(private http: HttpClient) { }

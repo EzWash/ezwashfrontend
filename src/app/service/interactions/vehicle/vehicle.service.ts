@@ -9,7 +9,7 @@ import { Vehicle } from '../../../model/interactions/vehicle';
 })
 export class VehicleService {
 
-  basePath: String = "http://localhost:8080/api";
+  basePath = "https://ezwashteam.azurewebsites.net/api"
   httpOptions={ headers: new HttpHeaders({'Content-Type': 'application/json'})}
 
   constructor(private http: HttpClient) { }

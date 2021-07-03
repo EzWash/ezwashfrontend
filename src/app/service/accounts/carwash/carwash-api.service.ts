@@ -11,7 +11,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class CarwashService {
 
   //basePath = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api/carwashes";
-  basePath="http://localhost:8080/api/carwashes"
+  basePath = "https://ezwashteam.azurewebsites.net/api/carwashes"
   httpOptions={ headers: new HttpHeaders({'Content-Type': 'application/json'})}
 
   constructor(private http: HttpClient) { }
@@ -28,7 +28,7 @@ export class CarwashService {
 
   // Create Carwash
   createCarwash(item: any): Observable<Carwash> {
-    return this.http.post<Carwash>("http://localhost:8080/api/auth/carwashes", JSON.stringify(item), this.httpOptions)
+    return this.http.post<Carwash>("https://ezwashteam.azurewebsites.net/api/auth/carwashes", JSON.stringify(item), this.httpOptions)
     .pipe(retry(2), catchError(this.handleError));
   }
 

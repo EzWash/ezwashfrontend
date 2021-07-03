@@ -9,7 +9,7 @@ import {Customer} from "../../../model/accounts/customer";
   providedIn: 'root'
 })
 export class ContractApiService {
-  basePath = "http://localhost:8080/api"
+  basePath = "https://ezwashteam.azurewebsites.net/api"
   //basePath = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api";
   httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})}
 

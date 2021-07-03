@@ -11,7 +11,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 export class CustomercontractsService {
 
   //basePathStart = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api/customers";
-  basePathStart='http://localhost:8080/api/customers'
+  basePathStart = "https://ezwashteam.azurewebsites.net/api/customers";
   httpOptions={headers: new HttpHeaders({'Content-Type':'application/json'})}
 
   constructor(private http:HttpClient) { }
