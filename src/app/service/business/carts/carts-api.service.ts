@@ -9,7 +9,7 @@ import {Customer} from "../../../model/accounts/customer";
 @Injectable({
   providedIn: 'root'
 })
-export class CartsService {
+export class CartsApiService {
   basePath = "http://localhost:8080/api"
   httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})}
   constructor(private http: HttpClient) { }

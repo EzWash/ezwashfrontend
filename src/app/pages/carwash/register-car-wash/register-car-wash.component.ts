@@ -3,7 +3,7 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/form
 import {Carwash} from 'src/app/model/accounts/carwash';
 import {Location} from 'src/app/model/geographic/location';
 import {CarwashService} from 'src/app/service/accounts/carwash/carwash-api.service';
-import {LocationService} from 'src/app/service/geographic/location.service';
+import {LocationApiService} from 'src/app/service/geographic/location-api.service';
 import {ConfirmedValidator} from './confirmed.validator';
 import {Router} from '@angular/router';
 
@@ -31,7 +31,7 @@ export class RegisterCarWashComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private carwashApi: CarwashService,
-              private locationApi: LocationService,
+              private locationApi: LocationApiService,
               private router: Router) {
     this.date = new Date();
     this.location = {} as Location;

@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Service} from "../../../model/business/service";
-import {ServiceService} from "../../../service/business/service/service.service";
+import {ServiceApiService} from "../../../service/business/service/service-api.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TokenStorageService} from "../../../service/token-storage.service";
 import {AddDone, UpdateDone} from "../home-car-wash/home-car-wash.component";
@@ -18,7 +18,7 @@ export class RegisterServiceComponent implements OnInit {
   serviceID!:number
   serviceData:Service={} as Service
   isEditMode=false
-  constructor(public dialog:MatDialog,private tokenStorageService: TokenStorageService, private serviceApi:ServiceService,private router:Router,private route:ActivatedRoute) { }
+  constructor(public dialog:MatDialog, private tokenStorageService: TokenStorageService, private serviceApi:ServiceApiService, private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.serviceID=Number(this.route.params.subscribe(params=>{
