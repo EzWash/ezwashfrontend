@@ -1,0 +1,30 @@
+<mat-card>
+  <p>Déjenos su comentario</p>
+  <form novalidate (ngSubmit)="onSubmit()" #commentForm="ngForm" align="center">
+    <mat-form-field appearance="fill" class="input1">
+      <mat-icon matPrefix>description</mat-icon>
+      <mat-label>Descripción</mat-label>
+      <textarea
+        matInput placeholder="description"
+        name="description"
+        required [(ngModel)]="commentData.description" ></textarea>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field appearance="fill" class="input1">
+      <mat-icon matPrefix>star</mat-icon>
+      <mat-label>Calificación</mat-label>
+      <input
+        matInput placeholder="qualification"
+        name="qualification"
+        required [(ngModel)]="commentData.qualification">
+    </mat-form-field>
+
+    <br>
+    <ng-container>
+      <button  mat-dialog-close mat-button style="text-transform: uppercase">cancelar </button>
+      &nbsp;
+      <button  [mat-dialog-close]="true" mat-button [disabled]="commentForm.invalid" style="text-transform: uppercase"  >agregar</button>
+    </ng-container>
+
+  </form>
+</mat-card>

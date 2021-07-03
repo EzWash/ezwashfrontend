@@ -33,8 +33,8 @@ export class UpdateServiceComponent implements OnInit {
       window.location.reload();
     })
   }
-  updateService(idService:number):void{
-    this.serviceApi.updateService(idService,this.serviceData).subscribe((response:Service)=>{
+  updateService(idCarWash:number, idService:number):void{
+    this.serviceApi.updateService(idCarWash,idService,this.serviceData).subscribe((response:Service)=>{
       this.openDialogUpdate();
     });
   }

@@ -49,6 +49,7 @@ import { UpdateCarwashComponent } from './pages/carwash/update-carwash/update-ca
 import { RegisterReportComponent } from './pages/customer/register-report/register-report.component';
 import { UpdateStaffComponent } from './pages/carwash/update-staff/update-staff.component';
 import{ DeletedDone} from "./pages/carwash/home-car-wash/home-car-wash.component";
+import { CommentsComponent } from './pages/customer/comments/comments.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import{ DeletedDone} from "./pages/carwash/home-car-wash/home-car-wash.component
     UpdateStaffComponent,
     DeletedDone,
     UpdateDone,
-    AddDone
+    AddDone,
+    CommentsComponent
 
 
   ],

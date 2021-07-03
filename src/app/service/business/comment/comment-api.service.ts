@@ -25,8 +25,8 @@ export class CommentApiService {
   }
 
   //Post Comment And Qualification
-  postComment(customerId: number, carWashId: number,comment: Comment): Observable<Comment>{
-    return this.http.post<Comment>(`${this.basePath}/customers/${customerId}/carwashes/${carWashId}/comments`, JSON.stringify(comment),
+  postComment(customerId: number, carWashId: number,comment: { description:string; qualification:number}): Observable<Comment>{
+    return this.http.post<Comment>(`${this.basePath}/customers/${customerId}/carwashes/${carWashId}/contracts/1/comments`, JSON.stringify(comment),
                                    this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }

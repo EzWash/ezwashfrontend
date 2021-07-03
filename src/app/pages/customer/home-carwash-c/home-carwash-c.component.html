@@ -40,7 +40,6 @@
         <div>
           <div class="titleDown" >
             Servicios Ofrecidos &nbsp;
-            <button class="button">Contratar</button>
           </div>
           <br>
           <div class="cardDown" >
@@ -49,7 +48,10 @@
                 <div class="cardServicesO">
                   <mat-card-header class="cardsService">
                       <mat-card-title class="title2">
-                      {{service.name}} <label class="lblPrice">S/.{{service.price}}</label> <br>
+                      {{service.name}} S/. {{service.price}} <label class="lblPrice">
+                        <button class="heart" mat-icon-button matTooltip="Guardar resultado" (click)="handleSaveButton(i)">
+                          <mat-icon [attr.id]="i">favorite</mat-icon>
+                        </button></label> <br>
                     </mat-card-title>
                     <mat-card-subtitle class="description" >
                       - {{service.description}}<br>
@@ -74,7 +76,7 @@
       </div>
       <div class="Comments">
         <div class="titleDown" >
-          Reseñas &nbsp;
+          <p>Reseñas <button (click)="openDialogComment(carwashData.id)"> Comentar</button></p> &nbsp;
         </div>
         <br>
         <div class="cardComment"  >

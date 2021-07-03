@@ -83,7 +83,7 @@ export class HomeCarWashComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Update Service result: ${result}`);
-      dialogRef.componentInstance.updateService(this.serviceList[idService].id);
+      dialogRef.componentInstance.updateService(this.tokenStorageService.getUser().id,this.serviceList[idService].id);
 
     });
   }

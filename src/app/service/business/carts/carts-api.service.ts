@@ -22,8 +22,8 @@ export class CartsApiService {
     return throwError("Something happened with request, please try again later.")
   }
   //Add Cart
-  addServiceToCart(item: any,cartId:number,serviceId:number): Observable<Service>{
-    return this.http.post<Service>(`${this.basePath}/carts/${cartId}/services/${serviceId}`, JSON.stringify(item),
+  addServiceToCart(cartId:number,serviceId:number): Observable<any>{
+    return this.http.post<any>(`${this.basePath}/carts/${cartId}/services/${serviceId}`,
       this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }

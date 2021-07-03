@@ -52,6 +52,13 @@ export class ContractApiService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  //create Contract
+
+  createContract (customerId:number, carwashId:number):Observable<Contract> {
+    return this.http.post<Contract>(`${this.basePath}/customers/${customerId}/carwashes/${carwashId}/contracts`,
+      this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
   //Create Contract State
   createContractState(item:any,customerId:number,carwashId:number): Observable<Contract>{
     return this.http.post<Contract>(`${this.basePath}/customers/${customerId}/carwashes/${carwashId}/contracts`,JSON.stringify(item),

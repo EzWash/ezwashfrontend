@@ -29,7 +29,6 @@
   padding: 0;
   margin: 0;
   display: grid;
-<<<<<<< HEAD
   grid-template-columns: 66% [form-start] 33% [badge-start];
 }
 
@@ -80,7 +79,6 @@
 
 }
 .double-fields mat-form-field{
-=======
   grid-template-columns: repeat(3,1fr);
   margin-top: 5%;
 }
@@ -102,7 +100,7 @@
 }
 .input2{
   position: relative;
->>>>>>> 79158db7aa3ef0ec0482e85186990d9f4066a854
+
   width: 45%;
 }
 

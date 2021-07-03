@@ -16,6 +16,10 @@ import {RegisterStaffComponent} from "../../carwash/register-staff/register-staf
 import {RegisterServiceComponent} from "../../carwash/register-service/register-service.component";
 import {UpdateServiceComponent} from "../../carwash/update-service/update-service.component";
 import {TokenStorageService} from "../../../service/token-storage.service";
+import {CartsApiService} from "../../../service/business/carts/carts-api.service";
+import {ContractApiService} from "../../../service/business/contract/contract-api.service";
+import {Contract} from "../../../model/business/contract";
+import {CommentsComponent} from "../comments/comments.component";
 
 
 @Component({
@@ -33,64 +37,56 @@ export class HomeCarwashCComponent implements OnInit {
   suma:number=0;
   result:number=0;
   totalComments:number=0;
+  posibleId:number;
   star1:number=0;
   star2:number=0;
   star3:number=0;
   star4:number=0;
   star5:number=0;
-  constructor(private carwashStaffApi:CarwashstaffService, private staffApi: StaffService, private router: Router,
+  contractData: Contract={} as Contract;
+  constructor( private contractApi:ContractApiService, private cartApi: CartsApiService, private carwashStaffApi:CarwashstaffService, private staffApi: StaffService, private router: Router,
               private carWashApi: CarwashService,private serviceApi:ServiceApiService,
               private commentApi:CommentApiService,private customerApi: CustomerService,public dialog: MatDialog, public tokenServiceApi: TokenStorageService) {
-
+    this.posibleId = this.tokenServiceApi.getUser().id;
   }
 
   ngOnInit(): void {
-    console.log(this.n)
-    this.getServicesByCarWashId(this.n);
-    this.getAllStaff(this.n);
-    this.getCarWashById(this.n);
-    this.getCommentByCarWashId(this.n);
+
 
   }
-  openDialogRegisterStaff() {
-    const dialogRef = this.dialog.open(RegisterStaffComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Register Staff result: ${result}`);
-      dialogRef.componentInstance.createStaff();
-      this.ngOnInit();
-    });
+  handleSaveButton(index: number): void{
+    const button_heart = document.getElementById(index.toString())
+    if (button_heart != null) {
 
+
+      if (button_heart.textContent === "favorite") {
+
+        this.cartApi.addServiceToCart( this.tokenServiceApi.getUser().id, this.serviceList[index].id).subscribe((res: any) => {
+
+          button_heart.innerText = "check_circle";
+        })
+      } else {
+        this.cartApi.deleteCart(this.tokenServiceApi.getUser().id, this.serviceList[index].id).subscribe((res: any) => {
+          button_heart.innerText = "favorite";
+
+        })
+      }
+    }
   }
-  openDialogRegisterService() {
-    const dialogRef = this.dialog.open(RegisterServiceComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Register Service result: ${result}`);
-      dialogRef.componentInstance.createService();
-      this.ngOnInit();
-    });
-
-  }
-  openDialogUpdateService(idService:number){
-    const dialogRef = this.dialog.open(UpdateServiceComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Update Service result: ${result}`);
-      dialogRef.componentInstance.updateService(this.serviceList[idService].id);
-      this.ngOnInit();
-    });
-  }
-
-
-
   updateCarWashQualification(idCarWash:number,qualification:number):void{
     this.carWashApi.updateCarWashQualification(idCarWash,this.carwashData).subscribe((response:Carwash)=>{
       response.qualification=qualification;
       console.log(response)
     });
   }
+  openDialogComment(id:number){
+    const dialogRef = this.dialog.open(CommentsComponent);
 
+    dialogRef.afterClosed().subscribe(result => {
+      dialogRef.componentInstance.createComment(id)
+    });
+  }
   getAllStaff(id:number) {
     this.staffApi.getStaffByCarWashId(id).subscribe((data:Staff[]) => {
       this.staffList = data;
@@ -106,6 +102,7 @@ export class HomeCarwashCComponent implements OnInit {
   }
   getServicesByCarWashId(id:number){
     this.serviceApi.getServiceByCarWashId(id).subscribe((data:Service[])=>{
+      console.log(data)
       this.serviceList = data;
     })
   }
@@ -137,4 +134,11 @@ export class HomeCarwashCComponent implements OnInit {
     }
   }
 
+  createContract(){
+    console.log(this.carwashData.id)
+    this.contractApi.createContract(this.tokenServiceApi.getUser().id,this.carwashData.id).subscribe((data:Contract)=>{
+      this.contractData=data;
+    })
+    this.contractApi.setListService(this.contractData.id,this.tokenServiceApi.getUser().id);
+  }
 }

@@ -46,14 +46,14 @@ export class ServiceApiService {
   }
 
   //Update Service
-  updateService(id: number, item: Service): Observable<Service>{
-    return this.http.put<Service>(`${this.basePath}/carwashes/1/services/${id}`,
+  updateService(carwashId:number, id: number, item: Service): Observable<Service>{
+    return this.http.put<Service>(`${this.basePath}/carwashes/${carwashId}/services/${id}`,
       JSON.stringify(item),
       this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
   // Delete Service
-  deleteServiceById(serviceId: number): Observable<any>{
+  deleteServiceById( serviceId: number): Observable<any>{
     return this.http.delete<any>(`${this.basePath}/carwashes/${serviceId}/services`,
       this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
