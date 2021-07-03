@@ -47,6 +47,7 @@ import { HomeCarwashCComponent } from './pages/customer/home-carwash-c/home-carw
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { UpdateCarwashComponent } from './pages/carwash/update-carwash/update-carwash.component';
 import { RegisterReportComponent } from './pages/customer/register-report/register-report.component';
+import { RateServiceComponent } from './pages/customer/rate-service/rate-service.component';
 
 
 
@@ -69,7 +70,8 @@ import { RegisterReportComponent } from './pages/customer/register-report/regist
     LoginUsersComponent,
     HomeCarwashCComponent,
     UpdateCarwashComponent,
-    RegisterReportComponent
+    RegisterReportComponent,
+    RateServiceComponent
 
 
   ],

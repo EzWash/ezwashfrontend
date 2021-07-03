@@ -18,6 +18,7 @@ import {HomeCarwashCComponent} from "./pages/customer/home-carwash-c/home-carwas
 import {HomeCustomerComponent} from './pages/customer/home-customer/home-customer.component';
 import {UpdateCarwashComponent} from "./pages/carwash/update-carwash/update-carwash.component";
 import {RegisterReportComponent} from "./pages/customer/register-report/register-report.component";
+import {RateServiceComponent} from "./pages/customer/rate-service/rate-service.component";
 
 
 
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'home-customer', component:HomeCustomerComponent },
   { path:'update-carwash',component:UpdateCarwashComponent},
   { path: 'register-report',component:RegisterReportComponent},
+  { path: 'rate-service',component:RateServiceComponent},
   { path: '**', component: NotFoundComponent }
 
 

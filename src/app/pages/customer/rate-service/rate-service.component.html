@@ -1,0 +1,26 @@
+<br>
+<div class="grid">
+  <div class="element1">
+    <br>
+    <p class="telement1" align="center"><b>Califica este servicio</b></p>
+    <form (submit)="onSubmit()" #rateForm="ngForm" align="center">
+      <div>
+      </div>
+      <br>
+      <div class="group-input">
+        <mat-form-field appearance="outline" class="input">
+          <mat-icon matPrefix>reorder</mat-icon>
+          <mat-label>Escribe una reseña</mat-label>
+          <input
+            matInput placeholder="description"
+            name="description"
+            required [(ngModel)]="commentData.description">
+        </mat-form-field>
+      </div>
+      <button>Cancelar</button>
+      <ng-container>
+        <button mat-button style="text-transform: uppercase" color="primary">{{isEditMode? 'Actualizar':'Registrar'}}</button>
+      </ng-container>
+    </form>
+  </div>
+</div>
