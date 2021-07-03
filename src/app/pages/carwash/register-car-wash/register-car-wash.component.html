@@ -127,6 +127,20 @@
                 <span *ngIf="registerForm.controls.description.errors?.pattern">Solo se permiten letras</span>
               </mat-error>
             </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Imagen Referencial</mat-label>
+              <span matPrefix><mat-icon>photo</mat-icon></span>
+              <textarea matInput formControlName="image"
+                        placeholder=""
+                        [(ngModel)]="newCarwash.image"></textarea>
+              <mat-error *ngIf="registerForm.controls.image.touched && registerForm.controls.image.invalid">
+                <span
+                  *ngIf="registerForm.controls.image.errors?.required">Ingrese el link de la imagen</span>
+                <span *ngIf="registerForm.controls.image.errors?.pattern">Solo se permiten letras</span>
+              </mat-error>
+            </mat-form-field>
+
+
           </div>
           <button mat-raised-button [disabled]="registerForm.invalid" type="submit" color="accent" class="button">
             Registrar

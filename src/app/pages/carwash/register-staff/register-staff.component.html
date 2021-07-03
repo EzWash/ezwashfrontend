@@ -2,8 +2,7 @@
 <div class="element1">
  <br>
  <p class="telement1" align="center"><b>Registrar al encargado del recojo de vehiculos</b></p>
- <form novalidate (submit)="onSubmit()" #staffForm="ngForm" align="center">
-
+ <form novalidate (ngSubmit)="onSubmit()" #staffForm="ngForm" align="center">
     <mat-form-field appearance="fill" class="input1">
       <mat-icon matPrefix>person</mat-icon>
       <mat-label>Nombres</mat-label>
@@ -33,14 +32,19 @@
     </mat-form-field>
    </div>
 
-    <mat-form-field appearance="fill" class="input1">
-      <mat-icon matPrefix>male</mat-icon>
-      <mat-label>Gender</mat-label>
-      <input
-        matInput placeholder="gender"
-        name="gender"
-        required [(ngModel)]="staffData.gender">
-    </mat-form-field>
+   <mat-form-field appearance="fill">
+     <mat-label>Género</mat-label>
+     <mat-select formControlName="gender" [(ngModel)]="staffData.gender" [formControl]="genderControl" required>
+        <mat-option>--</mat-option>
+       <mat-option *ngFor="let gender of genders" [value]="gender.name">
+         {{gender.name}}
+       </mat-option>
+     </mat-select>
+
+     <mat-error *ngIf="genderControl.hasError('required')">Please choose an animal</mat-error>
+     <mat-hint>{{genderControl.value?.sound}}</mat-hint>
+   </mat-form-field>
+
      &nbsp;
     <mat-form-field appearance="fill" class="input1">
       <mat-icon matPrefix>phone</mat-icon>

@@ -12,5 +12,6 @@ export interface Carwash{
   birth_date: string | undefined;
   phone_number: string;
   ruc: string;
+  image:string;
 }
 

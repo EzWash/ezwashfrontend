@@ -46,7 +46,8 @@ export class RegisterCarWashComponent implements OnInit {
       name_owner: [null, [Validators.required, Validators.pattern(this.onlyLetterPattern)]],
       phone_number: [null, [Validators.required, Validators.pattern(this.phoneNumbersPattern)]],
       birth_date: [null, [Validators.required]],
-      location: [null, Validators.required]
+      location: [null, Validators.required],
+      image:[null,Validators.required]
     }, {
       validator: ConfirmedValidator('password', 'confirm_password')
     });

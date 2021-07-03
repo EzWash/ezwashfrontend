@@ -52,6 +52,11 @@ export class ServiceService {
       this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
-
+  // Delete Service
+  deleteServiceById(serviceId: number): Observable<any>{
+    return this.http.delete<any>(`${this.basePath}/carwashes/${serviceId}/services`,
+      this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 
 }

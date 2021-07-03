@@ -18,6 +18,8 @@ import {RegisterServiceComponent} from "../register-service/register-service.com
 import {CarwashstaffService} from "../../../service/accounts/carwash/carwashstaff-api.service";
 import {UpdateServiceComponent} from "../update-service/update-service.component";
 import {TokenStorageService} from "../../../service/token-storage.service";
+import {UpdateStaffComponent} from "../update-staff/update-staff.component";
+import {UpdateCarwashComponent} from "../update-carwash/update-carwash.component";
 
 @Component({
   selector: 'app-home-car-wash',
@@ -32,6 +34,7 @@ export class HomeCarWashComponent implements OnInit {
   serviceList : Service[]=[];
   commentList: Comment[]=[];
   customerList: Customer[]=[];
+  deleted: Staff = {} as Staff;
   n:number=1;
   suma:number=0;
   result:number=0;
@@ -54,7 +57,6 @@ export class HomeCarWashComponent implements OnInit {
     this.getAllStaff(this.tokenStorageService.getUser().id);
     this.getCarWashById(this.tokenStorageService.getUser().id);
     this.getCommentByCarWashId(this.tokenStorageService.getUser().id);
-
   }
   openDialogRegisterStaff() {
     const dialogRef = this.dialog.open(RegisterStaffComponent);
@@ -82,8 +84,47 @@ export class HomeCarWashComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Update Service result: ${result}`);
       dialogRef.componentInstance.updateService(this.serviceList[idService].id);
-      this.ngOnInit();
+
     });
+  }
+  openDialogUpdateStaff(idStaff:number){
+    const dialogRef = this.dialog.open(UpdateStaffComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Update Staff result: ${result}`);
+      dialogRef.componentInstance.updateStaff(this.staffList[idStaff].id);
+
+    });
+  }
+
+  openDialogUpdateCarWash(){
+    const dialogRef = this.dialog.open(UpdateCarwashComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Update Staff result: ${result}`);
+      dialogRef.componentInstance.updateCarWash(this.tokenStorageService.getUser().id);
+
+    });
+  }
+
+  openDialogDelete() {
+    const d= this.dialog.open(DeletedDone);
+    d.afterClosed().subscribe(result =>{
+      window.location.reload();
+    })
+  }
+
+  deleteStaff(id:number){
+    this.carwashStaffApi.deleteStaffById(this.staffList[id].id).subscribe(data=>{
+      this.deleted = data;
+      this.openDialogDelete();
+    })
+  }
+  deleteService(id:number){
+    this.serviceApi.deleteServiceById(this.serviceList[id].id).subscribe(data=>{
+      this.deleted = data;
+      this.openDialogDelete();
+    })
   }
 
   getAllStaff(id:number) {
@@ -111,9 +152,11 @@ export class HomeCarWashComponent implements OnInit {
     })
   }
   generalCalification(data:Comment[]){
+    this.suma=0;
     for (let n of data) {
       this.suma += n.qualification;
     }
+
     this.carwashData.qualification=this.suma/data.length;
     this.result=this.suma/data.length
     this.carwashData.qualification= parseFloat(this.result.toFixed(2));
@@ -122,3 +165,20 @@ export class HomeCarWashComponent implements OnInit {
   }
 
 }
+@Component({
+  selector: 'delete-done',
+  templateUrl: 'delete-done.html',
+})
+export class DeletedDone {}
+
+@Component({
+  selector: 'update-done',
+  templateUrl: 'update-done.html',
+})
+export class UpdateDone {}
+
+@Component({
+  selector: 'add-done',
+  templateUrl: 'add-done.html',
+})
+export class AddDone {}

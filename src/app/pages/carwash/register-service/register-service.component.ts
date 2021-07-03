@@ -4,6 +4,8 @@ import {Service} from "../../../model/business/service";
 import {ServiceService} from "../../../service/business/service/service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TokenStorageService} from "../../../service/token-storage.service";
+import {AddDone, UpdateDone} from "../home-car-wash/home-car-wash.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-register-service',
@@ -16,7 +18,7 @@ export class RegisterServiceComponent implements OnInit {
   serviceID!:number
   serviceData:Service={} as Service
   isEditMode=false
-  constructor(private tokenStorageService: TokenStorageService, private serviceApi:ServiceService,private router:Router,private route:ActivatedRoute) { }
+  constructor(public dialog:MatDialog,private tokenStorageService: TokenStorageService, private serviceApi:ServiceService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.serviceID=Number(this.route.params.subscribe(params=>{
@@ -32,7 +34,15 @@ export class RegisterServiceComponent implements OnInit {
   }
   createService():void{
     const newService={name:this.serviceData.name,description:this.serviceData.description,is_promotion:this.serviceData.is_promotion,price:this.serviceData.price,details:this.serviceData.details}
-    this.serviceApi.createServiceCarWash(this.tokenStorageService.getUser().id,newService).subscribe(()=>{})
+    this.serviceApi.createServiceCarWash(this.tokenStorageService.getUser().id,newService).subscribe(()=>{
+      this.openDialogAdd();
+    })
+  }
+  openDialogAdd() {
+    const d= this.dialog.open(AddDone);
+    d.afterClosed().subscribe(result =>{
+      window.location.reload();
+    })
   }
   onSubmit():void{
     if(this.serviceForm.form.valid){

@@ -28,7 +28,7 @@ import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule} from "@angular/common/http";
 import { MatButtonModule} from "@angular/material/button";
 import { MatIconModule} from "@angular/material/icon";
-import { HomeCarWashComponent} from "./pages/carwash/home-car-wash/home-car-wash.component";
+import {AddDone, HomeCarWashComponent, UpdateDone} from "./pages/carwash/home-car-wash/home-car-wash.component";
 import { RegisterCarClientComponent} from "./pages/customer/register-car-client/register-car-client.component";
 import { ScrollingModule} from "@angular/cdk/scrolling";
 import { RegisterServiceComponent } from './pages/carwash/register-service/register-service.component';
@@ -47,7 +47,8 @@ import { HomeCarwashCComponent } from './pages/customer/home-carwash-c/home-carw
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { UpdateCarwashComponent } from './pages/carwash/update-carwash/update-carwash.component';
 import { RegisterReportComponent } from './pages/customer/register-report/register-report.component';
-
+import { UpdateStaffComponent } from './pages/carwash/update-staff/update-staff.component';
+import{ DeletedDone} from "./pages/carwash/home-car-wash/home-car-wash.component";
 
 
 @NgModule({
@@ -69,7 +70,11 @@ import { RegisterReportComponent } from './pages/customer/register-report/regist
     LoginUsersComponent,
     HomeCarwashCComponent,
     UpdateCarwashComponent,
-    RegisterReportComponent
+    RegisterReportComponent,
+    UpdateStaffComponent,
+    DeletedDone,
+    UpdateDone,
+    AddDone
 
 
   ],
