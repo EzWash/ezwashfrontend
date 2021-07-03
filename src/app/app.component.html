@@ -42,9 +42,10 @@
           <img src="https://cdn.discordapp.com/attachments/700237020278030396/852297994287054888/logo.jpg" alt="logo">
         </button>
       </div>
-      <div class="middle" *ngIf="isLoggedIn">
-        <input type="text" id="search" class="no-outline" placeholder="Buscar Carwash...">
+      <div class="middle" *ngIf="isLoggedIn && isCustomer">
+        <input (change)="onChangeEvent($event)" type="text" id="search" class="no-outline" placeholder="Buscar Carwash...">
       </div>
+      <div *ngIf="!isCustomer"></div>
       <div *ngIf="isLoggedIn" class="right">
         <button mat-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" >
           <mat-icon>account_circle</mat-icon> {{username}}
@@ -63,9 +64,10 @@
           <img src="https://cdn.discordapp.com/attachments/700237020278030396/852297994287054888/logo.jpg" alt="logo">
         </button>
       </div>
-      <div class="middle">
+      <div class="middle" *ngIf="isCustomer">
         <input type="text" id="search" class="no-outline" placeholder="Buscar Carwash...">
       </div>
+      <div *ngIf="!isCustomer"></div>
       <div class="buttons-no-login">
         <button mat-button [matMenuTriggerFor]="beforeMenu">
           <mat-icon>menu</mat-icon>

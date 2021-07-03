@@ -11,7 +11,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class CarwashService {
 
   //basePath = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api/carwashes";
-  basePath="http://localhost:8080/api/carwashes"
+  basePath = "https://ezwashteam.azurewebsites.net/api/carwashes"
   httpOptions={ headers: new HttpHeaders({'Content-Type': 'application/json'})}
 
   constructor(private http: HttpClient) { }
@@ -21,14 +21,14 @@ export class CarwashService {
     if(error.error instanceof ErrorEvent){
       console.log("An error occurred: ", error.error.message);
     }else {
-      console.log("Backend returned code ${error.status}, body was: ${error.error}");
+      console.log(`Backend returned code ${error.status}, body was: ${error.error}`);
     }
     return throwError('Something happened with request, please try again later.')
   }
 
   // Create Carwash
   createCarwash(item: any): Observable<Carwash> {
-    return this.http.post<Carwash>("http://localhost:8080/api/auth/carwashes", JSON.stringify(item), this.httpOptions)
+    return this.http.post<Carwash>("https://ezwashteam.azurewebsites.net/api/auth/carwashes", JSON.stringify(item), this.httpOptions)
     .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -70,8 +70,8 @@ export class CarwashService {
   }
 
   // get CarWash by Name
-  getCarWashByName(name: string): Observable<Carwash[]>{
-    return this.http.get<Carwash[]>(`${this.basePath}/name/${name}`,
+  getCarWashByName(name: string | null): Observable<Carwash[]>{
+    return this.http.get<Carwash[]>(`${this.basePath}/names/${name}`,
                                     this.httpOptions)
                                     .pipe(retry(2), catchError(this.handleError));
   }

@@ -9,7 +9,7 @@ import {Customer} from "../../../model/accounts/customer";
 export class CustomerService {
 
   //basePath = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api/customers";
-  basePath='http://localhost:8080/api/customers'
+  basePath = "https://ezwashteam.azurewebsites.net/api/customers"
   httpOptions={headers: new HttpHeaders({'Content-Type':'application/json'})}
   constructor(private http:HttpClient) {}
   //API Error Handling
@@ -25,7 +25,7 @@ export class CustomerService {
 
   //Create Customer
   createCustomer (item:any ):Observable<Customer>{
-    return this.http.post<Customer>("http://localhost:8080/api/auth/customers",JSON.stringify(item),
+    return this.http.post<Customer>("https://ezwashteam.azurewebsites.net/api/auth/customers",JSON.stringify(item),
       this.httpOptions)
       .pipe(retry(2),catchError(this.handleError));
   }

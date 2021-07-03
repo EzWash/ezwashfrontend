@@ -10,7 +10,7 @@ import { Staff } from '../../../model/accounts/staff';
 export class StaffService {
 
   //basePath = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api/carwashes";
-  basePath="http://localhost:8080/api/carwashes"
+  basePath = "https://ezwashteam.azurewebsites.net/api/carwashes"
   httpOptions={ headers: new HttpHeaders({'Content-Type': 'application/json'})}
 
   constructor(private http: HttpClient) { }
