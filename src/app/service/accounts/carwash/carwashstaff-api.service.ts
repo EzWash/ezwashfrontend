@@ -31,5 +31,10 @@ export class CarwashstaffService {
                                 this.httpOptions)
                                 .pipe(retry(2), catchError(this.handleError));
   }
-
+  // Delete Staff
+  deleteStaffById(staffId: number): Observable<any>{
+    return this.http.delete<any>(`${this.basePath}/${staffId}/staff`,
+      this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 }

@@ -4,12 +4,11 @@
     <div class="CarWash">
       <div class="title">
         Información General &nbsp;
-        <button>Editar</button>
       </div>
       <br>
 
       <div class="generalInformation">
-        <img class="imageCarWash" src="https://media.discordapp.net/attachments/700237020278030396/855956232509587486/lavado-de-autos-vs-auto-detailing-1000x641.png">
+        <img class="imageCarWash" src="{{carwashData.image}}">
         <div class="getInformationCarWash">
           <p class="title">{{carwashData.name}}</p>
           <p> <mat-icon matPrefix>feed</mat-icon> {{carwashData.description}}</p>
@@ -46,7 +45,7 @@
         <br>
         <div  class ="rollbackStaff">
           <div class="scrollStaff" *ngIf="staffList.length > 0; else zeroItems">
-            <div *ngFor="let s of staffList">
+            <div *ngFor="let s of staffList; index as i">
               <mat-card class="cardStaff">
                 <mat-card-header class="cardstaff1">
                   <div mat-card-avatar class="example-header-image"></div>
@@ -61,8 +60,8 @@
                   </mat-card-subtitle>
                 </mat-card-header>
                 <div class="cardstaff2">
-                  <a ><mat-icon inline aria-hidden="false" aria-label="Edit" style="padding-right: 10px;">edit</mat-icon></a>
-                  <a><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
+                  <a class="btnEdit" (click)="openDialogUpdateStaff(i)" ><mat-icon inline aria-hidden="false" aria-label="Edit" style="padding-right: 10px;">edit</mat-icon></a>
+                  <a class="btnDelete " (click)="deleteStaff(i)"><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
 
                 </div>
 
@@ -98,8 +97,8 @@
                     <!-- <mat-icon aria-label="Phone">phone</mat-icon>{{s.phone_number}}-->
                   </mat-card-header>
                   <div class="cardAvailableService">
-                    <a (click)="openDialogUpdateService(i)"><mat-icon inline aria-hidden="false" aria-label="Edit" style=" padding-right: 10px;">edit</mat-icon></a>
-                    <a><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
+                    <a class="btnEdit"  (click)="openDialogUpdateService(i)"><mat-icon inline aria-hidden="false" aria-label="Edit" style=" padding-right: 10px;">edit</mat-icon></a>
+                    <a class="btnDelete" (click)="deleteService(i)"><mat-icon inline aria-hidden="false" aria-label="Delete">delete</mat-icon></a>
                   </div>
                 </div>
               </div>

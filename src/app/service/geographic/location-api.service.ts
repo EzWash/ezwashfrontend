@@ -7,7 +7,7 @@ import {Location} from 'src/app/model/geographic/location';
 @Injectable({
   providedIn: 'root'
 })
-export class LocationService {
+export class LocationApiService {
 
  // basePath="http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api/locations"
   basePath="http://localhost:8080/api/auth/locations"

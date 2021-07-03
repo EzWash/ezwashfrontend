@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {Contract} from "../../../model/business/contract";
 import {catchError, retry} from "rxjs/operators";
+import {Customer} from "../../../model/accounts/customer";
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,27 @@ export class ContractApiService {
   //Update Contract State
   updateContractState(contractId: number, state: string): Observable<Contract>{
     return this.http.put<Contract>(`${this.basePath}/contracts/${contractId}/states/${state}`,
+      this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  //Create Contract State
+  createContractState(item:any,customerId:number,carwashId:number): Observable<Contract>{
+    return this.http.post<Contract>(`${this.basePath}/customers/${customerId}/carwashes/${carwashId}/contracts`,JSON.stringify(item),
+      this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  //Get ServiceFromContract
+  getServiceFromContract(customerId:number,carwashId:number): Observable<Contract>{
+    return this.http.get<Contract>(`${this.basePath}/customers/${customerId}/carwashes/${carwashId}/contracts`,
+      this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  //Set List service
+  setListService(contractId: number, customerId:number): Observable<Contract>{
+    return this.http.put<Contract>(`${this.basePath}/contracts/${contractId}/customer/${customerId}/services`,
       this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }

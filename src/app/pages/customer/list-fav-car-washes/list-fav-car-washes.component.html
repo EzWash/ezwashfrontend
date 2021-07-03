@@ -5,10 +5,10 @@
     </h1>
   </div>
   <div class="carWashList" *ngIf="carWashList.length > 0; else zeroItems">
-    <mat-card class="carWashItem" *ngFor="let c of carWashList" style="background-color: #EEF7FB">
+    <mat-card class="carWashItem" *ngFor="let c of carWashList; index as i" style="background-color: #EEF7FB">
       <div class="itemLeft">
         <picture>
-          <source media='(min-width:0px)' srcset="https://media.discordapp.net/attachments/700237020278030396/855956232509587486/lavado-de-autos-vs-auto-detailing-1000x641.png">
+          <source media='(min-width:0px)' srcset="{{carWashList[i].image}}">
           <img mat-card-avatar src="">
         </picture>
         <div class="itemInfo">
@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="itemRight">
-        <button mat-icon-button  color="warn" (click)="deleteCarWashFromList(1,c.id)">
+        <button mat-icon-button  color="warn" (click)="deleteCarWashFromList(c.id)">
           <mat-icon>close</mat-icon>
         </button>
       </div>

@@ -7,7 +7,7 @@ import {catchError, retry} from "rxjs/operators";
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceService {
+export class ServiceApiService {
   //basePath = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api";
   basePath = "http://localhost:8080/api";
   httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})}
@@ -52,6 +52,11 @@ export class ServiceService {
       this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
-
+  // Delete Service
+  deleteServiceById(serviceId: number): Observable<any>{
+    return this.http.delete<any>(`${this.basePath}/carwashes/${serviceId}/services`,
+      this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 
 }

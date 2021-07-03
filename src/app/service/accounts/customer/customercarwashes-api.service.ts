@@ -12,7 +12,7 @@ import {Carwash} from "../../../model/accounts/carwash";
 })
 export class CustomercarwashesService {
 
-  //basePathStart = "http://ec2-3-92-203-155.compute-1.amazonaws.com:8080/api/customers";
+  //basePathStart='https://ezwashteam.azurewebsites.net/api/customers'
   basePathStart='http://localhost:8080/api/customers'
   httpOptions={headers: new HttpHeaders({'Content-Type':'application/json'})}
 

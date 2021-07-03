@@ -1,8 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Service} from "../../../model/business/service";
-import {ServiceService} from "../../../service/business/service/service.service";
+import {ServiceApiService} from "../../../service/business/service/service-api.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {UpdateDone} from "../home-car-wash/home-car-wash.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-update-service',
@@ -15,7 +17,7 @@ export class UpdateServiceComponent implements OnInit {
   serviceID!:number
   serviceData:Service={} as Service
   isEditMode=false
-  constructor(private serviceApi:ServiceService,private router:Router,private route:ActivatedRoute) { }
+  constructor(public dialog:MatDialog, private serviceApi:ServiceApiService, private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.serviceID=Number(this.route.params.subscribe(params=>{
@@ -25,12 +27,15 @@ export class UpdateServiceComponent implements OnInit {
       }
     }))
   }
-  navigateToHome():void{
-    console.log("Servicio actualizado")
+  openDialogUpdate() {
+    const d= this.dialog.open(UpdateDone);
+    d.afterClosed().subscribe(result =>{
+      window.location.reload();
+    })
   }
   updateService(idService:number):void{
     this.serviceApi.updateService(idService,this.serviceData).subscribe((response:Service)=>{
-      console.log(response)
+      this.openDialogUpdate();
     });
   }
   cancelEdit(): void {

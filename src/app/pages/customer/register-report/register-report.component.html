@@ -1,0 +1,32 @@
+<br>
+<div class="grid" >
+  <div class="element1">
+  <br>
+  <p class="telement1" align="center"><b>Cual es el problema que quiere reportar?</b></p>
+  <form (submit)="onSubmit()"#reportForm="ngForm" align="center">
+    <div class="group-input">
+      <mat-form-field appearance="outline" class="input">
+        <mat-icon matPrefix>question_answer</mat-icon>
+        <mat-label>Razon</mat-label>
+        <input matInput placeholder="Razon"
+        name="razon">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline" class="input">
+        <mat-icon matPrefix>reorder</mat-icon>
+        <mat-label>Description</mat-label>
+        <input
+          matInput placeholder="Description"
+          name="description"
+          required [(ngModel)]="reportData.description">
+      </mat-form-field>
+    </div>
+    <div>
+      <button>Cancelar</button>
+      <ng-container>
+        <button mat-button style="text-transform: uppercase" color="primary">{{isEditMode? 'Actualizar':'Registrar'}}</button>
+      </ng-container>
+    </div>
+  </form>
+  </div>
+</div>
