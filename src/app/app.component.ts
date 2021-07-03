@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TokenStorageService} from './service/token-storage.service';
 
 @Component({
@@ -17,7 +17,8 @@ export class AppComponent {
   isLessThan500: boolean = false;
   isCustomer: boolean = false;
   constructor(private tokenStorageService: TokenStorageService,
-             private router: Router){}
+              private router: Router,
+              private route: ActivatedRoute){}
 
   ngOnInit(): void{
     this.onResize();
@@ -48,5 +49,9 @@ export class AppComponent {
       this.router.navigate(['/home-carwash']);
     else
       this.router.navigate(['/home-customer']);
+  }
+  onChangeEvent(event:any){
+    const search = event.target.value;
+    this.router.navigate(['/home-customer', search]);
   }
 }

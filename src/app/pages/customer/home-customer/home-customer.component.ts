@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Staff} from "../../../model/accounts/staff";
-import {CarwashService} from "../../../service/accounts/carwash/carwash-api.service";
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {Location} from 'src/app/model/geographic/location';
+import {CarwashService} from 'src/app/service/accounts/carwash/carwash-api.service';
+import {LocationService} from 'src/app/service/geographic/location.service';
+import {TokenStorageService} from 'src/app/service/token-storage.service';
 import {Carwash} from "../../../model/accounts/carwash";
 
 @Component({
@@ -9,16 +12,48 @@ import {Carwash} from "../../../model/accounts/carwash";
   styleUrls: ['./home-customer.component.css']
 })
 export class HomeCustomerComponent implements OnInit {
-  carwashList : Carwash[]=[];
-  constructor(private carwashApi: CarwashService) { }
+  carwashList: Carwash[] = [];
+  minDistance: number = 10;
+  customerLocation: Location;
+  searchString: string | null;
+
+  constructor(private locationApi: LocationService,
+              private carwashApi: CarwashService,
+              private tokenService: TokenStorageService,
+              private router: Router,
+              private route: ActivatedRoute) {
+               this.customerLocation = {} as Location;
+               this.searchString = null;
+             }
 
   ngOnInit(): void {
-  this.getAllCarWash();
+    this.searchString = this.route.snapshot.paramMap.get('s');
+    console.log(this.searchString);
+    if(!!this.searchString)
+      this.getCarWashByName();
+    else
+      this.getLocationByCustomer();
   }
 
-  getAllCarWash() {
-    this.carwashApi.getAllCarWash().subscribe((data:Carwash[]) => {
-      this.carwashList = data;
-    });
+  getLocationByCustomer() {
+    this.locationApi.getLocationByCustomer(this.tokenService.getUser().id).subscribe((res: Location) =>{
+      this.customerLocation = res;
+      this.getNearCarwashes();
+    })
+  }
+
+  getNearCarwashes(){
+    this.carwashApi.getNearCarwashes(this.customerLocation.lattitude, this.customerLocation.longitude, this.minDistance).subscribe((res: any)=>{
+      this.carwashList = res.content;
+    })
+  }
+
+  getCarWashByName(){
+    this.carwashApi.getCarWashByName(this.searchString).subscribe((res: any) => {
+      console.log(res)
+      this.carwashList = res.content;
+    },error => {
+      console.log("No se encontró");
+    })
   }
 }

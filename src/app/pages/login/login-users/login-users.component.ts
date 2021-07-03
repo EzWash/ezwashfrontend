@@ -31,6 +31,10 @@ export class LoginUsersComponent implements OnInit {
   ngOnInit(): void {
     if (this.tokenStorageService.getToken()){
       this.isLoggedIn = true;
+      if(this.tokenStorageService.getUser().role === "CARWASH")
+        this.router.navigate(['/home-carwash']);
+      else
+        this.router.navigate(['/home-customer']);
     }
   }
 
