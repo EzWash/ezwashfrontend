@@ -37,9 +37,10 @@ const routes: Routes = [
   { path: 'list-vehicles', component:ListVehiclesComponent},
   { path:'home-carwash-c', component: HomeCarwashCComponent},
   { path: 'home-customer', component:HomeCustomerComponent },
-  { path: '**', component: NotFoundComponent },
   { path:'update-carwash',component:UpdateCarwashComponent},
-  { path: 'register-report',component:RegisterReportComponent}
+  { path: 'register-report',component:RegisterReportComponent},
+  { path: '**', component: NotFoundComponent }
+
 
 ];
 
