@@ -40,7 +40,7 @@ export class LocationApiService {
   }
 
   getLocationByCustomer(customerId: number): Observable<Location>{
-    return this.http.get<Location>(`http://localhost:8080/api/customers/${customerId}/locations`)
+    return this.http.get<Location>(`https://ezwashteam.azurewebsites.net/api/customers/${customerId}/locations`)
         .pipe(retry(2), catchError(this.handleError));
   }
 }
