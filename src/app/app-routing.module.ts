@@ -44,6 +44,7 @@ const routes: Routes = [
   { path:'update-carwash',component:UpdateCarwashComponent},
   { path: 'register-report',component:RegisterReportComponent}
 
+
 ];
 
 @NgModule({
