@@ -28,7 +28,7 @@ import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule} from "@angular/common/http";
 import { MatButtonModule} from "@angular/material/button";
 import { MatIconModule} from "@angular/material/icon";
-import { HomeCarWashComponent} from "./pages/carwash/home-car-wash/home-car-wash.component";
+import {AddDone, HomeCarWashComponent, UpdateDone} from "./pages/carwash/home-car-wash/home-car-wash.component";
 import { RegisterCarClientComponent} from "./pages/customer/register-car-client/register-car-client.component";
 import { ScrollingModule} from "@angular/cdk/scrolling";
 import { RegisterServiceComponent } from './pages/carwash/register-service/register-service.component';
@@ -44,6 +44,11 @@ import { ListFavCarWashesComponent } from './pages/customer/list-fav-car-washes/
 import {authInterceptorProviders} from './helpers/auth-interceptor';
 import { MatMenuModule } from '@angular/material/menu';
 import { HomeCarwashCComponent } from './pages/customer/home-carwash-c/home-carwash-c.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { UpdateCarwashComponent } from './pages/carwash/update-carwash/update-carwash.component';
+import { RegisterReportComponent } from './pages/customer/register-report/register-report.component';
+import { UpdateStaffComponent } from './pages/carwash/update-staff/update-staff.component';
+import{ DeletedDone} from "./pages/carwash/home-car-wash/home-car-wash.component";
 
 
 @NgModule({
@@ -63,36 +68,44 @@ import { HomeCarwashCComponent } from './pages/customer/home-carwash-c/home-carw
     ListVehiclesComponent,
     ListFavCarWashesComponent,
     LoginUsersComponent,
-    HomeCarwashCComponent
+    HomeCarwashCComponent,
+    UpdateCarwashComponent,
+    RegisterReportComponent,
+    UpdateStaffComponent,
+    DeletedDone,
+    UpdateDone,
+    AddDone
+
 
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatSliderModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatRadioModule,
-    MatProgressSpinnerModule,
-    MatSnackBarModule,
-    MatMenuModule,
-    MatDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        MatGridListModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatSliderModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatRadioModule,
+        MatProgressSpinnerModule,
+        MatSnackBarModule,
+        MatMenuModule,
+        MatDialogModule,
+        MatTooltipModule
+    ],
 
   providers: [
     CarwashService,

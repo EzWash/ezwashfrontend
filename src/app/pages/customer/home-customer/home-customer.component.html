@@ -17,12 +17,12 @@
     <div class="scrollDown" *ngIf="carwashList.length > 0; else zeroItemsServices">
       <div *ngFor="let carwash of carwashList;index as i">
         <mat-card class="listCarWash">
-         <picture class="image">
+         <picture class="image"  (click)="openDialogGetCarWashByid(i)">
            <source media='(min-width:0px)' srcset="https://media.discordapp.net/attachments/700237020278030396/855956232509587486/lavado-de-autos-vs-auto-detailing-1000x641.png">
            <img mat-card-avatar src="">
          </picture>
-         <div class="">
-           <mat-card-header class="">
+         <div class="" >
+           <mat-card-header class="" (click)="openDialogGetCarWashByid(i)">
              <mat-card-title class="">
                {{carwash.name}}
              </mat-card-title>
@@ -35,7 +35,9 @@
              <!-- <mat-icon aria-label="Phone">phone</mat-icon>{{s.phone_number}}-->
            </mat-card-header>
          </div>
-          <p class="heart">corazon</p>
+          <button class="heart" mat-icon-button matTooltip="Guardar resultado" (click)="handleSaveButton(i)">
+            <mat-icon [attr.id]="i">favorite</mat-icon>
+          </button>
         </mat-card>
       </div>
     </div>

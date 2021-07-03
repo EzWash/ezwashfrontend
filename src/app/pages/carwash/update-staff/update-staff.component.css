@@ -1,0 +1,90 @@
+@media only screen and (min-width: 800px) {
+  .grid {
+    width: 50%;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  .input1 {
+    width: 45%;
+  }
+  .input{
+    width: 92%;
+  }
+  .element1{
+
+  }
+  .telement1{
+    color: #707070;
+  }
+  .group-input{
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .grid {
+    width: 50%;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  .input1 {
+    width: 50%;
+  }
+  .input{
+    width: 50%;
+  }
+
+  .telement1{
+    color: #707070;
+  }
+}
+@media only screen and (max-width: 610px) {
+  .grid {
+    width: 80%;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  .input1 {
+    width: 80%;
+  }
+  .input{
+    width: 80%;
+  }
+
+  .telement1{
+    color: #707070;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .grid {
+    width: 95%;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  .input1 {
+    width: 95%;
+  }
+  .input{
+    width: 95%;
+  }
+
+  .telement1{
+    color: #707070;
+  }
+}
+button {
+  grid-area: button;
+  margin-bottom: 5%;
+  background-color: #69CEEE;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #EEF7FB;
+  font-family: "Segoe UI";
+
+}
+button:hover{
+  box-shadow: 2px 2px 5px black;
+}

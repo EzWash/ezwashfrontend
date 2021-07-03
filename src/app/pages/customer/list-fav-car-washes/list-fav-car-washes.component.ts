@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {CustomercarwashesService} from "../../../service/accounts/customer/customercarwashes-api.service";
 import {Carwash} from "../../../model/accounts/carwash";
 import {Customer} from "../../../model/accounts/customer";
+import {TokenStorageService} from "../../../service/token-storage.service";
+import {MatDialog} from "@angular/material/dialog";
+import {DeletedDone} from "../../carwash/home-car-wash/home-car-wash.component";
 
 @Component({
   selector: 'app-list-fav-car-washes',
@@ -13,10 +16,10 @@ export class ListFavCarWashesComponent implements OnInit {
   carWashList: Carwash[] = [];
   deleted: Customer = {} as Customer;
 
-  constructor(private customerCarWashService: CustomercarwashesService) { }
+  constructor(private customerCarWashService: CustomercarwashesService,private tokenStorageService: TokenStorageService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getLikedList(1);
+    this.getLikedList(this.tokenStorageService.getUser().id);
   }
 
   getLikedList(id: number){
@@ -25,11 +28,16 @@ export class ListFavCarWashesComponent implements OnInit {
     })
   }
 
-  deleteCarWashFromList(customerId: number, carWashId: number){
-    this.customerCarWashService.deleteUserCarWash(customerId,carWashId).subscribe(data=>{
+  deleteCarWashFromList(carWashId: number){
+    this.customerCarWashService.deleteUserCarWash(this.tokenStorageService.getUser().id,carWashId).subscribe(data=>{
       this.deleted = data;
+      this.openDialogDelete();
     })
-    this.getLikedList(1) ;
   }
+  openDialogDelete() {
+    this.dialog.open(DeletedDone);
+    this.ngOnInit();
+  }
+
 
 }
