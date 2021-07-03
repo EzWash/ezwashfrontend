@@ -1,5 +1,6 @@
 <br>
-<div class="grid">
+<div class="grid" >
+  <div class="element1">
   <br>
   <p class="telement1" align="center"><b>Cual es el problema que quiere reportar?</b></p>
   <form (submit)="onSubmit()"#reportForm="ngForm" align="center">
@@ -10,6 +11,7 @@
         <input matInput placeholder="Razon"
         name="razon">
       </mat-form-field>
+      <br>
       <mat-form-field appearance="outline" class="input">
         <mat-icon matPrefix>reorder</mat-icon>
         <mat-label>Description</mat-label>
@@ -26,4 +28,5 @@
       </ng-container>
     </div>
   </form>
+  </div>
 </div>

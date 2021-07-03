@@ -1,20 +1,25 @@
 .grid{
   display: grid;
-  grid-template-columns: repeat(8,1fr);
-  width: 50%;
+  grid-template-columns: repeat(3,1fr);
+  margin-top: 5%;
+}
+
+.element1{
   box-shadow: 2px 2px 5px black;
   border-radius: 10px;
   margin: 0 auto;
-
-
-}
-.element1{
-  grid-column: 2/8 ;
+  grid-column: 2/3;
+  width:100%;
 }
 .telement1{
   color: #707070;
+  font-size: x-large;
 }
 .input{
+  position: relative;
+  width: 90%;
+}
+.input2{
   position: relative;
   width: 45%;
 }
