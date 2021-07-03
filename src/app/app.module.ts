@@ -44,6 +44,7 @@ import { ListFavCarWashesComponent } from './pages/customer/list-fav-car-washes/
 import {authInterceptorProviders} from './helpers/auth-interceptor';
 import { MatMenuModule } from '@angular/material/menu';
 import { HomeCarwashCComponent } from './pages/customer/home-carwash-c/home-carwash-c.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 import { UpdateCarwashComponent } from './pages/carwash/update-carwash/update-carwash.component';
 import { RegisterReportComponent } from './pages/customer/register-report/register-report.component';
 
@@ -72,33 +73,34 @@ import { RegisterReportComponent } from './pages/customer/register-report/regist
 
 
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatSliderModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatRadioModule,
-    MatProgressSpinnerModule,
-    MatSnackBarModule,
-    MatMenuModule,
-    MatDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        MatGridListModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatSliderModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatRadioModule,
+        MatProgressSpinnerModule,
+        MatSnackBarModule,
+        MatMenuModule,
+        MatDialogModule,
+        MatTooltipModule
+    ],
 
   providers: [
     CarwashService,

@@ -36,16 +36,20 @@
 
 
 }
+
 .listCarWash{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   background-color: #EEF7FB;
   margin-right: 1%;
   margin-bottom: 1%;
-  box-shadow: 1px 1px 1px black;
+
 }
+
 .listCarWash:hover{
-  color: black;
+  -webkit-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  transform: scale(1.01);
 }
 .heart{
   display: flex;
@@ -57,7 +61,9 @@
 }
 .image{
   justify-self: center;
+  background-color: transparent;
 }
+
 
 .carwashes{
   margin-top: 1%;

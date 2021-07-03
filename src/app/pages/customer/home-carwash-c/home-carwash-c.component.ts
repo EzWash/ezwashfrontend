@@ -15,6 +15,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {RegisterStaffComponent} from "../../carwash/register-staff/register-staff.component";
 import {RegisterServiceComponent} from "../../carwash/register-service/register-service.component";
 import {UpdateServiceComponent} from "../../carwash/update-service/update-service.component";
+import {TokenStorageService} from "../../../service/token-storage.service";
 
 
 @Component({
@@ -28,7 +29,7 @@ export class HomeCarwashCComponent implements OnInit {
   serviceList : Service[]=[];
   commentList: Comment[]=[];
   customerList: Customer[]=[];
-  n:number=1;
+  n:number=7;
   suma:number=0;
   result:number=0;
   totalComments:number=0;
@@ -39,11 +40,12 @@ export class HomeCarwashCComponent implements OnInit {
   star5:number=0;
   constructor(private carwashStaffApi:CarwashstaffService, private staffApi: StaffService, private router: Router,
               private carWashApi: CarwashService,private serviceApi:ServiceService,
-              private commentApi:CommentApiService,private customerApi: CustomerService,public dialog: MatDialog) {
+              private commentApi:CommentApiService,private customerApi: CustomerService,public dialog: MatDialog, public tokenServiceApi: TokenStorageService) {
 
   }
 
   ngOnInit(): void {
+    console.log(this.n)
     this.getServicesByCarWashId(this.n);
     this.getAllStaff(this.n);
     this.getCarWashById(this.n);
@@ -79,6 +81,8 @@ export class HomeCarwashCComponent implements OnInit {
       this.ngOnInit();
     });
   }
+
+
 
   updateCarWashQualification(idCarWash:number,qualification:number):void{
     this.carWashApi.updateCarWashQualification(idCarWash,this.carwashData).subscribe((response:Carwash)=>{
@@ -124,11 +128,12 @@ export class HomeCarwashCComponent implements OnInit {
   }
   getInformationStar(data:Comment[]){
     for (let n of data){
-      if (n.carwash_id==1 && n.qualification==1){this.star1+=1;}
-      if (n.carwash_id==1 && n.qualification==2){this.star2+=1;}
-      if (n.carwash_id==1 && n.qualification==3){this.star3+=1;}
-      if (n.carwash_id==1 && n.qualification==4){this.star4+=1;}
-      if (n.carwash_id==1 && n.qualification==5){this.star5+=1;}
+      if ( n.qualification==1){this.star1+=1;}
+      if ( n.qualification==2){this.star2+=1;}
+      if (n.qualification==3){this.star3+=1;}
+      if (n.qualification==4){this.star4+=1;}
+      if (n.qualification==5){this.star5+=1;}
+      console.log(n.carwash_id);
     }
   }
 
