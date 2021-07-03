@@ -4,17 +4,29 @@
     <br>
     <p class="telement1" align="center"><b>Califica este servicio</b></p>
     <form (submit)="onSubmit()" #rateForm="ngForm" align="center">
-      <div>
-      </div>
-      <br>
       <div class="group-input">
         <mat-form-field appearance="outline" class="input">
           <mat-icon matPrefix>reorder</mat-icon>
           <mat-label>Escribe una reseña</mat-label>
           <input
-            matInput placeholder="description"
+            matInput placeholder="Descripcion"
             name="description"
             required [(ngModel)]="commentData.description">
+        </mat-form-field>
+      </div>
+      <br>
+      <div class="group-input">
+        <mat-form-field appearance="outline">
+          <mat-icon matPrefix>star</mat-icon>
+          <mat-label>Numero de Estrellas</mat-label>
+          <mat-select formControlName="Estrellas" [(ngModel)]="commentData.qualification">
+            <mat-option value="0">0</mat-option>
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+            <mat-option value="3">3</mat-option>
+            <mat-option value="4">4</mat-option>
+            <mat-option value="5">5</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
       <button>Cancelar</button>
