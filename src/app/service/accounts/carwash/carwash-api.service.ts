@@ -21,7 +21,7 @@ export class CarwashService {
     if(error.error instanceof ErrorEvent){
       console.log("An error occurred: ", error.error.message);
     }else {
-      console.log("Backend returned code ${error.status}, body was: ${error.error}");
+      console.log(`Backend returned code ${error.status}, body was: ${error.error}`);
     }
     return throwError('Something happened with request, please try again later.')
   }
@@ -70,8 +70,8 @@ export class CarwashService {
   }
 
   // get CarWash by Name
-  getCarWashByName(name: string): Observable<Carwash[]>{
-    return this.http.get<Carwash[]>(`${this.basePath}/name/${name}`,
+  getCarWashByName(name: string | null): Observable<Carwash[]>{
+    return this.http.get<Carwash[]>(`${this.basePath}/names/${name}`,
                                     this.httpOptions)
                                     .pipe(retry(2), catchError(this.handleError));
   }

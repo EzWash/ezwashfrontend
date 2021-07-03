@@ -38,4 +38,9 @@ export class LocationApiService {
     return this.http.get<any>(`${this.googleApiPath}${address}${this.key}`)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  getLocationByCustomer(customerId: number): Observable<Location>{
+    return this.http.get<Location>(`http://localhost:8080/api/customers/${customerId}/locations`)
+        .pipe(retry(2), catchError(this.handleError));
+  }
 }

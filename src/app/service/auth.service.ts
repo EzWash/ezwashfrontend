@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {User} from '../model/accounts/user';
 
-const AUTH_API = "https://ezwashteam.azurewebsites.net/api/auth"
+const AUTH_API = "https://ezwashteam.azurewebsites.net/api/auth/"
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})

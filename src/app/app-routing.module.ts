@@ -20,9 +20,6 @@ import {UpdateCarwashComponent} from "./pages/carwash/update-carwash/update-carw
 import {RegisterReportComponent} from "./pages/customer/register-report/register-report.component";
 import {UpdateStaffComponent} from "./pages/carwash/update-staff/update-staff.component";
 
-
-
-
 const routes: Routes = [
   { path: 'register-carwash', component: RegisterCarWashComponent },
   { path: 'login', component:LoginUsersComponent},
@@ -38,13 +35,11 @@ const routes: Routes = [
   { path: 'list-vehicles', component:ListVehiclesComponent},
   { path:'home-carwash-c', component: HomeCarwashCComponent},
   { path: 'home-customer', component:HomeCustomerComponent },
-  {path:'update-staff', component: UpdateStaffComponent},
-  {path:'update-carwash',component:UpdateCarwashComponent},
-  { path: '**', component: NotFoundComponent },
+  { path: 'home-customer/:s', component:HomeCustomerComponent },
+  { path:'update-staff', component: UpdateStaffComponent},
   { path:'update-carwash',component:UpdateCarwashComponent},
-  { path: 'register-report',component:RegisterReportComponent}
-
-
+  { path: 'register-report',component:RegisterReportComponent},
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
