@@ -4,7 +4,7 @@ import {Customer} from "../../../model/accounts/customer";
 import {CustomerService} from "../../../service/accounts/customer/customer-api.service";
 import {Router} from "@angular/router";
 import {Location} from 'src/app/model/geographic/location';
-import {LocationService} from 'src/app/service/geographic/location.service';
+import {LocationApiService} from 'src/app/service/geographic/location-api.service';
 import {ConfirmedValidator} from '../../carwash/register-car-wash/confirmed.validator';
 
 @Component({
@@ -30,7 +30,7 @@ export class RegisterCustomerComponent implements OnInit {
   constructor(private customerApi: CustomerService,
               private router: Router,
               private formBuilder: FormBuilder,
-              private locationApi: LocationService) {
+              private locationApi: LocationApiService) {
     this.date = new Date();
     this.location = {} as Location;
     this.newCustomer = {} as Customer;

@@ -8,7 +8,7 @@ import {CarwashstaffService} from "../../../service/accounts/carwash/carwashstaf
 import {StaffService} from "../../../service/accounts/staff/staff-api.service";
 import {Router} from "@angular/router";
 import {CarwashService} from "../../../service/accounts/carwash/carwash-api.service";
-import {ServiceService} from "../../../service/business/service/service.service";
+import {ServiceApiService} from "../../../service/business/service/service-api.service";
 import {CommentApiService} from "../../../service/business/comment/comment-api.service";
 import {CustomerService} from "../../../service/accounts/customer/customer-api.service";
 import {MatDialog} from "@angular/material/dialog";
@@ -39,7 +39,7 @@ export class HomeCarwashCComponent implements OnInit {
   star4:number=0;
   star5:number=0;
   constructor(private carwashStaffApi:CarwashstaffService, private staffApi: StaffService, private router: Router,
-              private carWashApi: CarwashService,private serviceApi:ServiceService,
+              private carWashApi: CarwashService,private serviceApi:ServiceApiService,
               private commentApi:CommentApiService,private customerApi: CustomerService,public dialog: MatDialog, public tokenServiceApi: TokenStorageService) {
 
   }

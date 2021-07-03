@@ -5,7 +5,7 @@ import {CarwashService} from "../../../service/accounts/carwash/carwash-api.serv
 import {ActivatedRoute, Router} from "@angular/router";
 import {Service} from "../../../model/business/service";
 import {Location} from "../../../model/geographic/location";
-import {LocationService} from "../../../service/geographic/location.service";
+import {LocationApiService} from "../../../service/geographic/location-api.service";
 import {ConfirmedValidator} from "../register-car-wash/confirmed.validator";
 import {TokenStorageService} from "../../../service/token-storage.service";
 
@@ -39,7 +39,7 @@ export class UpdateCarwashComponent implements OnInit {
 
   constructor(private tokenStorageService: TokenStorageService,private formBuilder: FormBuilder,
               private carwashApi: CarwashService,
-              private locationApi: LocationService,
+              private locationApi: LocationApiService,
               private router: Router) {
     this.date = new Date();
     this.location = {} as Location;
